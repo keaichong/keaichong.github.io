@@ -81,13 +81,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="阳仔的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="this 普通函数和定时器中的this指向window  对象方法中的this指向调用者  构造函数中的this指向实例对象(当前创建对象)  事件处理函数中的this指向事件源  箭头函数没有自己的this,它的this是外部函数的this   bind call apply改变this指向call方法 语法:函数名.call(调用者,参数1,参数2,…) 会立即执行,this指向调用者  ap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="this指向问题和改变this的方法">
+<meta property="og:url" content="http://yoursite.com/2019/02/02/js中this的指向问题/index.html">
 <meta property="og:site_name" content="阳仔的博客">
+<meta property="og:description" content="this 普通函数和定时器中的this指向window  对象方法中的this指向调用者  构造函数中的this指向实例对象(当前创建对象)  事件处理函数中的this指向事件源  箭头函数没有自己的this,它的this是外部函数的this   bind call apply改变this指向call方法 语法:函数名.call(调用者,参数1,参数2,…) 会立即执行,this指向调用者  ap">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-02T15:40:18.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阳仔的博客">
+<meta name="twitter:title" content="this指向问题和改变this的方法">
+<meta name="twitter:description" content="this 普通函数和定时器中的this指向window  对象方法中的this指向调用者  构造函数中的this指向实例对象(当前创建对象)  事件处理函数中的this指向事件源  箭头函数没有自己的this,它的this是外部函数的this   bind call apply改变this指向call方法 语法:函数名.call(调用者,参数1,参数2,…) 会立即执行,this指向调用者  ap">
 
 
 
@@ -117,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/02/js中this的指向问题/">
 
 
 
 
 
-  <title>Archive | 阳仔的博客</title>
+  <title>this指向问题和改变this的方法 | 阳仔的博客</title>
   
 
 
@@ -142,7 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -216,282 +220,169 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/js中this的指向问题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">this指向问题和改变this的方法</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-02T23:27:59+08:00">
+                2019-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 7 posts in total. Keep on posting.
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/02/JS闭包和递归/" itemprop="url">
-              
-                <span itemprop="name">JS闭包和递归</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-02T23:42:32+08:00" content="2019-02-02">
-          02-02
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/02/js中this的指向问题/" itemprop="url">
-              
-                <span itemprop="name">this指向问题和改变this的方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-02T23:27:59+08:00" content="2019-02-02">
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/02/js数组字符串常用方法/" itemprop="url">
-              
-                <span itemprop="name">js数组字符串常用方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-02T21:35:22+08:00" content="2019-02-02">
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ol>
+<li><p>普通函数和定时器中的this指向window</p>
+</li>
+<li><p>对象方法中的this指向调用者</p>
+</li>
+<li><p>构造函数中的this指向实例对象(当前创建对象)</p>
+</li>
+<li><p>事件处理函数中的this指向事件源</p>
+</li>
+<li><p>箭头函数没有自己的this,它的this是外部函数的this</p>
+</li>
+</ol>
+<h2 id="bind-call-apply改变this指向"><a href="#bind-call-apply改变this指向" class="headerlink" title="bind call apply改变this指向"></a>bind call apply改变this指向</h2><h4 id="call方法"><a href="#call方法" class="headerlink" title="call方法"></a>call方法</h4><ol>
+<li>语法:函数名.call(调用者,参数1,参数2,…)</li>
+<li>会立即执行,this指向调用者</li>
+</ol>
+<h4 id="apply方法"><a href="#apply方法" class="headerlink" title="apply方法"></a>apply方法</h4><ol>
+<li>语法: 函数名.apply(调用者,数组)</li>
+<li>会立即执行,this指向调用者</li>
+</ol>
+<h4 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind()方法"></a>bind()方法</h4><ol>
+<li>语法: 函数名.bind(调用者,参数1,参数2,…)</li>
+<li>call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以</li>
+<li>bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和call()相同</li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/02/Git基本使用/" itemprop="url">
-              
-                <span itemprop="name">Git基本使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-02T20:23:40+08:00" content="2019-02-02">
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/02/CSS3伸缩布局盒模型/" itemprop="url">
-              
-                <span itemprop="name">CSS3伸缩布局盒模型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-02T17:03:21+08:00" content="2019-02-02">
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/02/我的第一篇博客/" itemprop="url">
-              
-                <span itemprop="name">响应式布局总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-02T15:19:37+08:00" content="2019-02-02">
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/02/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-02T02:29:09+08:00" content="2019-02-02">
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/02/js数组字符串常用方法/" rel="next" title="js数组字符串常用方法">
+                <i class="fa fa-chevron-left"></i> js数组字符串常用方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/02/JS闭包和递归/" rel="prev" title="JS闭包和递归">
+                JS闭包和递归 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -499,6 +390,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -519,8 +414,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -571,6 +475,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">1.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-call-apply改变this指向"><span class="nav-number">2.</span> <span class="nav-text">bind call apply改变this指向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#call方法"><span class="nav-number">2.0.1.</span> <span class="nav-text">call方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply方法"><span class="nav-number">2.0.2.</span> <span class="nav-text">apply方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind-方法"><span class="nav-number">2.0.3.</span> <span class="nav-text">bind()方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -704,6 +624,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

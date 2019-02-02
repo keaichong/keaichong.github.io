@@ -231,6 +231,295 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/JS闭包和递归/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/02/JS闭包和递归/" itemprop="url">JS闭包和递归</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-02T23:42:32+08:00">
+                2019-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="闭包closure"><a href="#闭包closure" class="headerlink" title="闭包closure"></a>闭包closure</h3><blockquote>
+<p>闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量<br>理解:函数作为返回值，函数作为参数传递</p>
+<ol>
+<li>变量保存在内存中 变量的生命周期: 变量什么时候被释放</li>
+<li>全局变量生命周期: 退出程序后才会被释放</li>
+<li>局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量</li>
+</ol>
+</blockquote>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域是在函数定义时决定的,从内层向外层访问<br>问题: 外层作用域无法操作内层作用域变量<br>原因: 局部作用域生命周期在调用结束后释放了,因此外层不能访问.<br>需求: 让外层作用域操作到内层作用域<br>实现: 用闭包来延长局部变量的生命周期</p>
+<h3 id="闭包中的GC垃圾回收机制"><a href="#闭包中的GC垃圾回收机制" class="headerlink" title="闭包中的GC垃圾回收机制"></a>闭包中的GC垃圾回收机制</h3><p> 运行中的程序的数据是存放在内存中<br> 在运行的过程中有一个叫GC的机制（Garbage Collection垃圾回收机制）<br> GC相当于生活中的保洁，会不定时去清理内存中的没有用的数据,也就是不在被引用的数据。<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bieShu</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">3</span>;  <span class="comment">// 局部变量</span></span><br><span class="line">  <span class="keyword">var</span> guanjia = <span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;  <span class="comment">// 管家</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    a = a + num;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> guanjia;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cyqz = bieShu();</span><br><span class="line"><span class="comment">// 若函数内部中的a不在了，10 是无法和a相加的得出结果13的</span></span><br><span class="line"><span class="comment">// 若a还在，10 和 a得出结果是13， 说a在bieshu这函数调用完毕后没有被释放。</span></span><br><span class="line"><span class="comment">// 怎么延长的？ 内部的子函数当做桥梁和外部关联→ 外部直在应用或操作函数内部的局部变量→ 所以局部变量没有当做垃圾数据释放</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 13</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 23</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 23</span></span><br><span class="line"><span class="comment">// 如何调试： 在子函数内部设置断点→ 进入子函数内部后 → 查看右侧是否有clouser存在</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="闭包用途"><a href="#闭包用途" class="headerlink" title="闭包用途"></a>闭包用途</h3><ol>
+<li>函数外部读取函数内部成员</li>
+<li>函数内成员始终存活在内存之中(延长局部变量生命周期)</li>
+<li>维护私有变量的安全(例如 取款机取钱)</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)  <span class="comment">//The Window</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = object.getNameFunc();</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;　　</span><br><span class="line"><span class="keyword">var</span> object = &#123;　　　　</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>; </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(that.name); <span class="comment">//My Object</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = object.getNameFunc();</span><br><span class="line"><span class="built_in">window</span>.fn();</span><br></pre></td></tr></table></figure>
+<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><blockquote>
+<p>程序调用自身 作用:减少代码量</p>
+</blockquote>
+<h3 id="递归的三个阶段"><a href="#递归的三个阶段" class="headerlink" title="递归的三个阶段"></a>递归的三个阶段</h3><ul>
+<li>递归前进段</li>
+<li>递归边界条件</li>
+<li>递归返回段<br>1,1,2,3,5,8……….求第n个数是多少 斐波那契数列 用递归实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFbi</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> getFbi(n - <span class="number">1</span>) + getFbi(n - <span class="number">2</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(getFbi(<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/js中this的指向问题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/02/js中this的指向问题/" itemprop="url">this指向问题和改变this的方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-02T23:27:59+08:00">
+                2019-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ol>
+<li><p>普通函数和定时器中的this指向window</p>
+</li>
+<li><p>对象方法中的this指向调用者</p>
+</li>
+<li><p>构造函数中的this指向实例对象(当前创建对象)</p>
+</li>
+<li><p>事件处理函数中的this指向事件源</p>
+</li>
+<li><p>箭头函数没有自己的this,它的this是外部函数的this</p>
+</li>
+</ol>
+<h2 id="bind-call-apply改变this指向"><a href="#bind-call-apply改变this指向" class="headerlink" title="bind call apply改变this指向"></a>bind call apply改变this指向</h2><h4 id="call方法"><a href="#call方法" class="headerlink" title="call方法"></a>call方法</h4><ol>
+<li>语法:函数名.call(调用者,参数1,参数2,…)</li>
+<li>会立即执行,this指向调用者</li>
+</ol>
+<h4 id="apply方法"><a href="#apply方法" class="headerlink" title="apply方法"></a>apply方法</h4><ol>
+<li>语法: 函数名.apply(调用者,数组)</li>
+<li>会立即执行,this指向调用者</li>
+</ol>
+<h4 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind()方法"></a>bind()方法</h4><ol>
+<li>语法: 函数名.bind(调用者,参数1,参数2,…)</li>
+<li>call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以</li>
+<li>bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和call()相同</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/js数组字符串常用方法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1084,7 +1373,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
