@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Git基本使用</title>
+      <link href="/2019/02/02/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+      <url>/2019/02/02/Git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="创建工作目录"><a href="#创建工作目录" class="headerlink" title="创建工作目录"></a>创建工作目录</h3><p>可以在本地的任意目录下，创建项目文件夹pinyougou，此项目文件夹就是我们的工作目录。</p><h3 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h3><p>打开Git bash窗口，进入工作目录，输入下面的命令，创建本地仓库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></p><p>执行完该命令后，在工作目录下会生成一个隐藏的目录.git，.git目录就是我们的本地仓库，记录所有版本。</p><h3 id="把已修改添加到暂存区"><a href="#把已修改添加到暂存区" class="headerlink" title="把已修改添加到暂存区"></a>把已修改添加到暂存区</h3><p>$ git add . 把工作目录中所有的修改，都提交到<strong>暂存区</strong>。</p><blockquote><p>暂存区在哪里？<br>当第一次执行git add的时候会在.git文件夹中生成一个index文件，这就是暂存区</p></blockquote><h3 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h3><p>$ git status<br>git status可以查看当前工作区中是否有可以暂存的文件、是否有可以提交的内容。</p><h3 id="提交到版本库"><a href="#提交到版本库" class="headerlink" title="提交到版本库"></a>提交到版本库</h3><p>$ git commit -m ‘提交注释’<br><strong>注意</strong>：git commit的-m参数是本次提交说明，必须填写，可以方便查看历史提交中的修改记录。</p><blockquote><p>注意: git init 只需要写一次</p></blockquote><h3 id="git-远程仓库"><a href="#git-远程仓库" class="headerlink" title="git-远程仓库"></a>git-远程仓库</h3><blockquote><p>代码托管平台(github/码云)</p></blockquote><ol><li>注册</li><li>登录</li><li>新建远程仓库 (右上角+-&gt;new-&gt;命名-&gt;create)</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 关联远程仓库</span><br><span class="line">git remote add origin https://github.com/自己的账号/gitdemos64.git</span><br><span class="line">// 推送代码</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 开发功能1 -&gt; 完成</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;注释1&quot;</span><br><span class="line">// 开发功能2 -&gt; 完成</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;注释2&quot;</span><br><span class="line">// 推送代码</span><br><span class="line">git push</span><br></pre></td></tr></table></figure><h4 id="命令列表"><a href="#命令列表" class="headerlink" title="命令列表"></a>命令列表</h4><table><thead><tr><th>序号</th><th>命令</th><th>功能</th></tr></thead><tbody><tr><td>01</td><td><strong>git config –global user.name “xxx”</strong></td><td>设置用户名</td></tr><tr><td>02</td><td><strong>git config –global user.email <a href="mailto:xxx@example.com" target="_blank" rel="noopener">xxx@example.com</a></strong></td><td>设置邮箱</td></tr><tr><td>03</td><td><strong>git init</strong></td><td>初始化本地仓库</td></tr><tr><td>04</td><td><strong>git add .</strong></td><td>把修改保存到暂存区</td></tr><tr><td>05</td><td><strong>git status</strong></td><td>检查当前文件状态</td></tr><tr><td>06</td><td><strong>git commit -m “msg”</strong></td><td>提交到本地仓库</td></tr></tbody></table>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSS3伸缩布局盒模型</title>
       <link href="/2019/02/02/CSS3%E4%BC%B8%E7%BC%A9%E5%B8%83%E5%B1%80%E7%9B%92%E6%A8%A1%E5%9E%8B/"/>
       <url>/2019/02/02/CSS3%E4%BC%B8%E7%BC%A9%E5%B8%83%E5%B1%80%E7%9B%92%E6%A8%A1%E5%9E%8B/</url>
