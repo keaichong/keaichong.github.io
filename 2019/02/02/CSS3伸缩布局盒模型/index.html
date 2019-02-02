@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>CSS3伸缩布局盒模型 | 愚人阳仔</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###伸缩布局基本概念  　CSS3引入的布局模式Flexbox布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex容器使用Flex项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应布局解决方案 没有具体数字,通过一系列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3伸缩布局盒模型">
+<meta property="og:url" content="http://yoursite.com/2019/02/02/CSS3伸缩布局盒模型/index.html">
+<meta property="og:site_name" content="愚人阳仔">
+<meta property="og:description" content="###伸缩布局基本概念  　CSS3引入的布局模式Flexbox布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex容器使用Flex项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应布局解决方案 没有具体数字,通过一系列">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-02T09:32:11.535Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3伸缩布局盒模型">
+<meta name="twitter:description" content="###伸缩布局基本概念  　CSS3引入的布局模式Flexbox布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex容器使用Flex项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应布局解决方案 没有具体数字,通过一系列">
+  
+    <link rel="alternate" href="/atom.xml" title="愚人阳仔" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">愚人阳仔</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">选择性失忆</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS3伸缩布局盒模型" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/02/CSS3伸缩布局盒模型/" class="article-date">
+  <time datetime="2019-02-02T09:03:21.000Z" itemprop="datePublished">2019-02-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS3伸缩布局盒模型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###伸缩布局基本概念</p>
+<blockquote>
+<p>　CSS3引入的布局模式Flexbox布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex容器使用Flex项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应<br>布局解决方案 没有具体数字,通过一系列属性控制</p>
+</blockquote>
+<h3 id="伸缩盒模型术语"><a href="#伸缩盒模型术语" class="headerlink" title="伸缩盒模型术语"></a>伸缩盒模型术语</h3><blockquote>
+<p>伸缩盒子中有两条轴 -&gt;主轴和侧轴<br><strong>主轴</strong>: 默认水平从左往右显示<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置主轴方向 */</span></span><br><span class="line">flex-direction:row | column</span><br><span class="line"><span class="comment">/* 设置元素在主轴方向对齐方式 */</span></span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-start</span>;  主轴开始位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-end</span>;    主轴结束位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-center</span>;    主轴中间显示</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-between</span>;    两端对齐中间自适应</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-around</span>;  环绕对齐</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>侧轴</strong> :始终垂直与主轴<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置元素在侧轴方向对齐方式 */</span></span><br><span class="line">align-items:flex-start | flex-end | center | baseline | stretch</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">flex-start</span>:伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。</span><br><span class="line"><span class="selector-tag">flex-end</span>:伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。</span><br><span class="line"><span class="selector-tag">center</span>:伸缩项目的外边距盒在该行的侧轴上居中放置。</span><br><span class="line"><span class="selector-tag">baseline</span>:如果伸缩项目的行内轴与侧轴为同一条，则该值和<span class="selector-tag">flex-start</span>等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。</span><br><span class="line"><span class="selector-tag">stretch</span>:拉伸(和父盒子宽高一样)</span><br><span class="line">### <span class="selector-tag">Flex</span>容器属性</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>要改变元素的模式为伸缩容器,需要使用display属性.<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display: flex | inline-flex</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>inline-flex 内联伸缩容器</p>
+</blockquote>
+<p>###flex-wrap 换行</p>
+<blockquote>
+<p>　默认情况下，Flex项目都尽可能在一行显示，会导致子元素原来的宽高失效.所以你可以根据flex-wrap的属性值来改变，让Flex项目多行显示。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-wrap:warp | nowarp  默认nowarp</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>###元素换行后对齐方式<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">align-content:flex-start | flex-end | center |space-between |space-around| strech</span><br></pre></td></tr></table></figure></p>
+<h3 id="设置子元素属性"><a href="#设置子元素属性" class="headerlink" title="设置子元素属性"></a>设置子元素属性</h3><p>伸缩比 flex:1  </p>
+<p>###设置元素自身对齐方式<br>align-self: center|auto |flex-start| flex-end</p>
+<h3 id="设置子元素排列顺序"><a href="#设置子元素排列顺序" class="headerlink" title="设置子元素排列顺序"></a>设置子元素排列顺序</h3><p>order:1,2,3  默认0  数字越小越靠前显示</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/02/CSS3伸缩布局盒模型/" data-id="cjrna4bgc0000egbt9oe28hsu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/02/02/我的第一篇博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">响应式布局总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/02/CSS3伸缩布局盒模型/">CSS3伸缩布局盒模型</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/02/我的第一篇博客/">响应式布局总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/02/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 yangyang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
