@@ -6,7 +6,7 @@
   <link href="/keaichong.github.io/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-02-03T17:19:16.300Z</updated>
+  <updated>2019-02-03T18:02:43.559Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mvc和mvvm</title>
+    <link href="http://yoursite.com/2019/02/04/mvc%E5%92%8Cmvvm/"/>
+    <id>http://yoursite.com/2019/02/04/mvc和mvvm/</id>
+    <published>2019-02-03T17:55:02.000Z</published>
+    <updated>2019-02-03T18:02:43.559Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/keaichong.github.io/2019/02/04/mvc和mvvm/01.MVC和MVVM的关系图解.png" title="MVC和MVVM的关系图解">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/keaichong.github.io/2019/02/04/mvc和mvvm/01.MVC和MVVM的关系图解.png&quot; title=&quot;MVC和MVVM的关系图解&quot;&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Jsonp原理</title>
