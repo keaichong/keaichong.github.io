@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="Git 的 3 个区域 工作目录(working directory)简单理解就是需要进行版本的某个文件夹（假设为 test），这个文件夹有一些特殊之处——多了.git 这个隐藏的文件夹。 暂存区域（Stage 或 Index）暂存区可以理解为一个虚拟工作区，这个虚拟工作区会跟踪工作区的文件变化（增删改等操作）。这个工作区的位于.git 文件夹下的 index 目录下。除非是绕过暂存区直接提交，否">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-03T14:33:32.877Z">
+<meta property="og:updated_time" content="2019-02-03T14:56:13.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git基本使用">
 <meta name="twitter:description" content="Git 的 3 个区域 工作目录(working directory)简单理解就是需要进行版本的某个文件夹（假设为 test），这个文件夹有一些特殊之处——多了.git 这个隐藏的文件夹。 暂存区域（Stage 或 Index）暂存区可以理解为一个虚拟工作区，这个虚拟工作区会跟踪工作区的文件变化（增删改等操作）。这个工作区的位于.git 文件夹下的 index 目录下。除非是绕过暂存区直接提交，否">
@@ -321,17 +321,16 @@
 <li><p><strong>已暂存</strong>(staged)</p>
 </li>
 <li><p><strong>已提交</strong>(committed)​</p>
+<a id="more"></a>
+<h3 id="暂存区作用"><a href="#暂存区作用" class="headerlink" title="暂存区作用"></a>暂存区作用</h3></li>
+<li><p>修改了 4 个文件，在不放弃任何修改的情况下，其中一个文件不想提交，如何操作？（没 add : git add 已经 add: git reset –soft ）</p>
 </li>
-</ol>
-<h3 id="暂存区作用"><a href="#暂存区作用" class="headerlink" title="暂存区作用"></a>暂存区作用</h3><ol>
-<li>修改了 4 个文件，在不放弃任何修改的情况下，其中一个文件不想提交，如何操作？（没 add : git add 已经 add: git reset –soft ）</li>
 <li>修改到一半的文件，突然间不需要或者放弃修改了，怎么恢复未修改前文件？ (git checkout)</li>
 <li>代码写一半，被打断去做其他功能开发，未完成代码保存？(git stash)</li>
 <li>代码写一半，发现忘记切换分支了？(git stash &amp; git checkout)</li>
 <li>代码需要回滚了？（git reset）</li>
 <li>等等</li>
 </ol>
-<a id="more"></a>
 <h3 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h3><ol>
 <li>在工作目录中修改某些文件。</li>
 <li>对修改后的文件进行快照，然后保存到暂存区域。</li>
@@ -528,7 +527,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -541,7 +540,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/keaichong.github.io/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

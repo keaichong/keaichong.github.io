@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="原型的作用 前提：① 将来对象的空间大小，和对象的属性和方法数量有关；② 属性是不一致的，方法是一致。 问题：内存的浪费 原因：对象的方法是一致的，每创建一个对象，都为每一个对象分配一个属于各自的方法，方法的数量随 1. 对象的个数，方法数量越来越多。 方法 → 函数 → 数据类型 → 内存 解决：把多个方法抽取成一个，让所有同类型的对象共享之。 如何实现：通过原型，把方法放入到原型中，就可以被构">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-03T08:10:04.448Z">
+<meta property="og:updated_time" content="2019-02-03T14:56:51.281Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS原型和原型链理解">
 <meta name="twitter:description" content="原型的作用 前提：① 将来对象的空间大小，和对象的属性和方法数量有关；② 属性是不一致的，方法是一致。 问题：内存的浪费 原因：对象的方法是一致的，每创建一个对象，都为每一个对象分配一个属于各自的方法，方法的数量随 1. 对象的个数，方法数量越来越多。 方法 → 函数 → 数据类型 → 内存 解决：把多个方法抽取成一个，让所有同类型的对象共享之。 如何实现：通过原型，把方法放入到原型中，就可以被构">
@@ -327,7 +327,7 @@
 <p>语法:函数名.prototype</p>
 </blockquote>
 <h2 id="获取构造函数"><a href="#获取构造函数" class="headerlink" title="获取构造函数"></a>获取构造函数</h2><blockquote>
-<p>语法: 原型.constructor</p>
+<p>语法: 原型.constructor<br><a id="more"></a></p>
 </blockquote>
 <h2 id="原型添加属性方法"><a href="#原型添加属性方法" class="headerlink" title="原型添加属性方法"></a>原型添加属性方法</h2><blockquote>
 <p>语法:函数名.prototype.key = value</p>
@@ -336,7 +336,6 @@
 <p>注意:数组和字符串中的 prototype 不要修改,修改后自带的方法就没有了,可以采用添加方式</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.getMax = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="JQuery-原型添加方法"><a href="#JQuery-原型添加方法" class="headerlink" title="JQuery 原型添加方法"></a>JQuery 原型添加方法</h2><blockquote>
 <p>语法:$.prototype.方法 = function(){}<br>简写:  $.fn.方法 = function(){}</p>
 </blockquote>
@@ -388,6 +387,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/keaichong.github.io/2019/02/03/JQuery常用api一/" rel="prev" title="JQuery常用api一">
+                JQuery常用api一 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -466,7 +469,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -479,7 +482,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/keaichong.github.io/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

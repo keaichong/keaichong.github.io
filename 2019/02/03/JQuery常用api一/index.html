@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/keaichong.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/keaichong.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/keaichong.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/keaichong.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/keaichong.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/keaichong.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/keaichong.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JQuery,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="jQuery 对象和 DOM 对象的区别 jQuery 对象只能使用 jQuery 对象中提供的属性或方法，不能够使用 DOM 对象中提供的属性或方法 DOM 对象只能使用 DOM 对象中提供的属性或方法，不能使用 jQuery 对象中提供的属性或方法  DOM 对象转 jQuery 对象 语法： ==\$(dom 对象);==  代码： 12345678910111213&amp;lt;div&amp;gt;&amp;">
+<meta name="keywords" content="JQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery常用api一">
+<meta property="og:url" content="http://yoursite.com/2019/02/03/JQuery常用api一/index.html">
+<meta property="og:site_name" content="阳仔的博客">
+<meta property="og:description" content="jQuery 对象和 DOM 对象的区别 jQuery 对象只能使用 jQuery 对象中提供的属性或方法，不能够使用 DOM 对象中提供的属性或方法 DOM 对象只能使用 DOM 对象中提供的属性或方法，不能使用 jQuery 对象中提供的属性或方法  DOM 对象转 jQuery 对象 语法： ==\$(dom 对象);==  代码： 12345678910111213&amp;lt;div&amp;gt;&amp;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-03T14:55:07.485Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JQuery常用api一">
+<meta name="twitter:description" content="jQuery 对象和 DOM 对象的区别 jQuery 对象只能使用 jQuery 对象中提供的属性或方法，不能够使用 DOM 对象中提供的属性或方法 DOM 对象只能使用 DOM 对象中提供的属性或方法，不能使用 jQuery 对象中提供的属性或方法  DOM 对象转 jQuery 对象 语法： ==\$(dom 对象);==  代码： 12345678910111213&amp;lt;div&amp;gt;&amp;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/keaichong.github.io/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/03/JQuery常用api一/">
+
+
+
+
+
+  <title>JQuery常用api一 | 阳仔的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/keaichong.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阳仔的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">选择性失忆</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/keaichong.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/keaichong.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/keaichong.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/03/JQuery常用api一/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JQuery常用api一</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T22:38:16+08:00">
+                2019-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="jQuery-对象和-DOM-对象的区别"><a href="#jQuery-对象和-DOM-对象的区别" class="headerlink" title="jQuery 对象和 DOM 对象的区别"></a>jQuery 对象和 DOM 对象的区别</h2><ul>
+<li>jQuery 对象只能使用 jQuery 对象中提供的属性或方法，不能够使用 DOM 对象中提供的属性或方法</li>
+<li>DOM 对象只能使用 DOM 对象中提供的属性或方法，不能使用 jQuery 对象中提供的属性或方法</li>
+</ul>
+<h2 id="DOM-对象转-jQuery-对象"><a href="#DOM-对象转-jQuery-对象" class="headerlink" title="DOM 对象转 jQuery 对象"></a>DOM 对象转 jQuery 对象</h2><ul>
+<li><p>语法： ==\$(dom 对象);==</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/jquery-1.12.4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 【DOM对象  转  jQuery对象】</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">"div"</span>);</span></span><br><span class="line"><span class="javascript">  <span class="comment">// 转换</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> $div = $(div);</span></span><br><span class="line"><span class="undefined">  $div.css(&#123;</span></span><br><span class="line"><span class="undefined">    width: 500,</span></span><br><span class="line"><span class="undefined">    height: 500,</span></span><br><span class="line"><span class="javascript">    border: <span class="string">"1px solid"</span></span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="jQuery-对象转-DOM-对象"><a href="#jQuery-对象转-DOM-对象" class="headerlink" title="jQuery 对象转 DOM 对象"></a>jQuery 对象转 DOM 对象</h2><ul>
+<li><p>语法：jQuery 对象[索引]; 本质就是从伪数组中取出指定的 dom 对象</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// jQuery对象转DOM对象</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> div = $(<span class="string">"div"</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">  div.innerText = <span class="string">"我是文本"</span>;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="四-jQuery-操作样式"><a href="#四-jQuery-操作样式" class="headerlink" title="四.jQuery 操作样式"></a>四.jQuery 操作样式</h2></li>
+</ul>
+<h2 id="设置样式"><a href="#设置样式" class="headerlink" title="设置样式"></a>设置样式</h2><ul>
+<li><p>设置单个样式： jQuery 对象.css(name,value);</p>
+</li>
+<li><p>设置多个样式：</p>
+<blockquote>
+<p>jQuery 对象.css({</p>
+<p>​ name:value,</p>
+<p>​ name:value,</p>
+<p>​ name:value,</p>
+<p>​ name:value</p>
+<p>});</p>
+</blockquote>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我是文字<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/jquery-1.12.4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 设置单个样式</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).css(<span class="string">"width"</span>, <span class="number">500</span>);</span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).css(<span class="string">"height"</span>, <span class="number">500</span>);</span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).css(<span class="string">"background"</span>, <span class="string">"red"</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="comment">// 设置多个样式</span></span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).css(&#123;</span></span><br><span class="line"><span class="javascript">    border: <span class="string">"10px solid blue"</span>,</span></span><br><span class="line"><span class="javascript">    background: <span class="string">"pink"</span>,</span></span><br><span class="line"><span class="javascript">    color: <span class="string">"green"</span></span></span><br><span class="line"><span class="undefined">  &#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="获取样式值"><a href="#获取样式值" class="headerlink" title="获取样式值"></a>获取样式值</h2><ul>
+<li><p>语法： jQuery 对象.css(‘样式属性名’);</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  div &#123;</span></span><br><span class="line"><span class="undefined">    width: 300px;</span></span><br><span class="line"><span class="undefined">    height: 300px;</span></span><br><span class="line"><span class="undefined">    position: absolute;</span></span><br><span class="line"><span class="undefined">    background-color: red;</span></span><br><span class="line"><span class="undefined">    left: 200px;</span></span><br><span class="line"><span class="undefined">    top: 100px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/jquery-1.12.4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> h = $(<span class="string">"div"</span>).css(<span class="string">"height"</span>);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> l = $(<span class="string">"div"</span>).css(<span class="string">"left"</span>);</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(h);</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(l);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="通过选择器获取-jQuery-对象"><a href="#通过选择器获取-jQuery-对象" class="headerlink" title="通过选择器获取 jQuery 对象"></a>通过选择器获取 jQuery 对象</h2><h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID 选择器</td>
+<td>\$(‘#id’)</td>
+<td style="text-align:left">获取指定 ID 的元素</td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>\$(‘.class’)</td>
+<td style="text-align:left">获取同一类 class 的元素</td>
+</tr>
+<tr>
+<td>标签选择器</td>
+<td>\$(‘div’)</td>
+<td style="text-align:left">获取同一类标签的所有元素</td>
+</tr>
+<tr>
+<td>并集选择器</td>
+<td>\$(‘div,p,li’)</td>
+<td style="text-align:left">使用逗号分隔，只要符合条件之一就可。</td>
+</tr>
+<tr>
+<td>交集选择器</td>
+<td>\$(‘div.redClass’)</td>
+<td style="text-align:left">获取 class 为 redClass 的 div 元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>子代选择器</td>
+<td>\$(‘ul &gt; li’)</td>
+<td style="text-align:left">使用&gt;号，获取儿子层级的元素，注意，并不会获取孙子层级的元素</td>
+</tr>
+<tr>
+<td>后代选择器</td>
+<td>\$(‘ul li’)</td>
+<td style="text-align:left">使用空格，代表后代选择器，获取 ul 下的所有 li 元素，包括孙子等</td>
+</tr>
+</tbody>
+</table>
+<h3 id="过滤器选择器"><a href="#过滤器选择器" class="headerlink" title="过滤器选择器"></a>过滤器选择器</h3><ul>
+<li>这类选择器都带冒号:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:eq(index)</td>
+<td>\$(‘li:eq(2)’).css(‘color’, ‘red’)</td>
+<td style="text-align:left">获取到的 li 元素中，选择索引号为 2 的元素，索引号 index<strong>从 0 开始。</strong></td>
+</tr>
+<tr>
+<td>:odd</td>
+<td>\$(‘li:odd’).css(‘color’, ‘red’)</td>
+<td style="text-align:left">获取到的 li 元素中，选择索引号为奇数的元素</td>
+</tr>
+<tr>
+<td>:even</td>
+<td>\$(‘li:even’).css(‘color’, ‘red’)</td>
+<td style="text-align:left">获取到的 li 元素中，选择索引号为偶数的元素</td>
+</tr>
+</tbody>
+</table>
+<p>案例：隔行变色</p>
+<h3 id="选择器筛选方法"><a href="#选择器筛选方法" class="headerlink" title="选择器筛选方法"></a>选择器筛选方法</h3><ul>
+<li>筛选选择器的功能与过滤选择器有点类似，但是用法不一样，筛选选择器主要是方法。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用法</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>children(selector)</td>
+<td>\$(‘ul’).children(‘li’)</td>
+<td style="text-align:left">相当于\$(‘ull &gt; i’)，子类选择器</td>
+</tr>
+<tr>
+<td>find(selector)</td>
+<td>\$(‘ul’).find(‘li’)</td>
+<td style="text-align:left">相当于\$(‘ul li’),后代选择器</td>
+</tr>
+<tr>
+<td>siblings(selector)</td>
+<td>\$(‘#first’).siblings(‘li’)</td>
+<td style="text-align:left">查找兄弟节点，不包括自己本身。</td>
+</tr>
+<tr>
+<td>parent()</td>
+<td>\$(‘#first’).parent()</td>
+<td style="text-align:left">查找父亲</td>
+</tr>
+<tr>
+<td>eq(index)</td>
+<td>\$(‘li’).eq(2)</td>
+<td style="text-align:left">相当于\$(‘li:eq(2)’),index 从 0 开始</td>
+</tr>
+<tr>
+<td>next()</td>
+<td>\$(‘li’).next()</td>
+<td style="text-align:left">找下一个兄弟</td>
+</tr>
+<tr>
+<td>prev()</td>
+<td>\$(‘li’).prev()</td>
+<td style="text-align:left">找上一次兄弟</td>
+</tr>
+</tbody>
+</table>
+<h2 id="jQuery-操作类名"><a href="#jQuery-操作类名" class="headerlink" title="jQuery 操作类名"></a>jQuery 操作类名</h2><h3 id="添加类名"><a href="#添加类名" class="headerlink" title="添加类名"></a>添加类名</h3><ul>
+<li><p>语法：==jQuery 对象.addClass(‘类名’);==</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).addClass(<span class="string">"show"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="移除类名"><a href="#移除类名" class="headerlink" title="移除类名"></a>移除类名</h3><ul>
+<li><p>语法：==jQuery 对象.removeClass(‘类名’);== 删除指定的类名</p>
+</li>
+<li><p>语法：jQuery 对象.removeClass(); 不传参数，表示删除所有的类名</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).removeClass(<span class="string">"show"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h3 id="检测类名是否存在"><a href="#检测类名是否存在" class="headerlink" title="检测类名是否存在"></a>检测类名是否存在</h3><ul>
+<li><p>语法：==jQuery 对象.hasClass(‘类名’);== 返回 true 和 false</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> isHas = $(<span class="string">"div"</span>).hasClass(<span class="string">"show"</span>);</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(isHas); <span class="comment">// false;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h3 id="类名切换"><a href="#类名切换" class="headerlink" title="类名切换"></a>类名切换</h3><ul>
+<li><p>语法：==jQuery 对象.toggleClass(‘类名’);== 若这个类名存在，则会移除该类名。否则添加该类名</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).toggleClass(<span class="string">"show"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="jQuery-操作标签的属性"><a href="#jQuery-操作标签的属性" class="headerlink" title="jQuery 操作标签的属性"></a>jQuery 操作标签的属性</h2><h3 id="设置标签的属性"><a href="#设置标签的属性" class="headerlink" title="设置标签的属性"></a>设置标签的属性</h3><ul>
+<li><p>语法：jQuery 对象.attr(name,value);</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).attr(<span class="string">"pid"</span>, <span class="number">10010</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<h3 id="获取标签属性值"><a href="#获取标签属性值" class="headerlink" title="获取标签属性值"></a>获取标签属性值</h3><ul>
+<li><p>语法：jQuery 对象.attr(name);</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> r = $(<span class="string">"div"</span>).attr(<span class="string">"pid"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="移除标签的属性"><a href="#移除标签的属性" class="headerlink" title="移除标签的属性"></a>移除标签的属性</h3><ul>
+<li><p>语法：removeAttr(name);</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  $(<span class="string">"div"</span>).removeAttr(<span class="string">"pid"</span>);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="prop-方法操作属性"><a href="#prop-方法操作属性" class="headerlink" title="prop 方法操作属性"></a>prop 方法操作属性</h3><blockquote>
+<p>针对：selected、checked、disabled</p>
+</blockquote>
+<ul>
+<li><p>获取属性值</p>
+<ul>
+<li><p>语法：\$(‘input’).prop(‘属性名’);</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"checkbox"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">  var isC = $('input').prop('checked');</span></span><br><span class="line"><span class="regexp">  console.log(isC); /</span><span class="regexp">/ false;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>设置属性值</p>
+<ul>
+<li>语法：\$(‘input’).prop(‘属性名’,值);</li>
+<li>代码：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  $('input').prop('checked',true);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="jQuery-创建元素"><a href="#jQuery-创建元素" class="headerlink" title="jQuery 创建元素"></a>jQuery 创建元素</h2><ul>
+<li>语法：<strong><code>$(&#39;&lt;li&gt;&lt;/li&gt;&#39;)</code></strong></li>
+</ul>
+<h2 id="jQuery-追加元素"><a href="#jQuery-追加元素" class="headerlink" title="jQuery 追加元素"></a>jQuery 追加元素</h2><h3 id="向父元素最后追加"><a href="#向父元素最后追加" class="headerlink" title="向父元素最后追加"></a>向父元素最后追加</h3><ul>
+<li><p>语法：新创建 jQuery 对象.appendTo(‘父元素选择器’ 或 父元素 jQuery 对象);</p>
+</li>
+<li><p>语法：父元素 jQuery 对象.apeend(新创建的 jQuery 对象);</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;li&gt;后裔&lt;/li&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/jquery-1.12.4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> datas = [<span class="string">"后裔"</span>, <span class="string">"安其拉"</span>, <span class="string">"鲁班"</span>, <span class="string">"小乔"</span>, <span class="string">"虞姬"</span>];</span></span><br><span class="line"><span class="javascript">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; datas.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">"&lt;li&gt;&lt;/li&gt;"</span>)</span></span><br><span class="line"><span class="undefined">      .text(datas[i])</span></span><br><span class="line"><span class="javascript">      .appendTo(<span class="string">"ul"</span>);</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="向父元素最前面追加"><a href="#向父元素最前面追加" class="headerlink" title="向父元素最前面追加"></a>向父元素最前面追加</h3><ul>
+<li><p>语法：新创建 jQuery 对象.prependTo(‘父元素选择器’);</p>
+</li>
+<li><p>语法：父元素 jQuery 对象.prepend(新创建的 jQuery 对象);</p>
+</li>
+<li><p>代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- &lt;li&gt;后裔&lt;/li&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/jquery-1.12.4.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> datas = [<span class="string">"后裔"</span>, <span class="string">"安其拉"</span>, <span class="string">"鲁班"</span>, <span class="string">"小乔"</span>, <span class="string">"虞姬"</span>];</span></span><br><span class="line"><span class="javascript">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; datas.length; i++) &#123;</span></span><br><span class="line"><span class="xml">    // $('<span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>')</span></span><br><span class="line"><span class="javascript">    <span class="comment">// .text(datas[i])</span></span></span><br><span class="line"><span class="javascript">    <span class="comment">// .prependTo('ul');</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    $(<span class="string">"ul"</span>).prepend($(<span class="string">"&lt;li&gt;&lt;/li&gt;"</span>).text(datas[i]));</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="jQuery-删除元素"><a href="#jQuery-删除元素" class="headerlink" title="jQuery 删除元素"></a>jQuery 删除元素</h2><ul>
+<li>语法：jQuery 对象.remove(); 删谁就让谁调用这个方法</li>
+</ul>
+<h2 id="jQuery-清空元素"><a href="#jQuery-清空元素" class="headerlink" title="jQuery 清空元素"></a>jQuery 清空元素</h2><ul>
+<li>清空方式 1：==jQuery 对象.empty();== 推荐使用， 清空内部的所有元素及元素相关的事件</li>
+<li>清空方式 2：jQuery 对象.html(‘’); 仅仅清空内部的元素，不清清理内中的元素的事件。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/keaichong.github.io/tags/JQuery/" rel="tag"># JQuery</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/keaichong.github.io/2019/02/03/JS原型和原型链理解/" rel="next" title="JS原型和原型链理解">
+                <i class="fa fa-chevron-left"></i> JS原型和原型链理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/keaichong.github.io/2019/02/03/JQuery常用api二/" rel="prev" title="JQuery常用api二">
+                JQuery常用api二 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/keaichong.github.io/images/avatar.jpg" alt="愚人阳仔">
+            
+              <p class="site-author-name" itemprop="name">愚人阳仔</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/keaichong.github.io/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/keaichong.github.io/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-对象和-DOM-对象的区别"><span class="nav-number">1.</span> <span class="nav-text">jQuery 对象和 DOM 对象的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-对象转-jQuery-对象"><span class="nav-number">2.</span> <span class="nav-text">DOM 对象转 jQuery 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-对象转-DOM-对象"><span class="nav-number">3.</span> <span class="nav-text">jQuery 对象转 DOM 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-jQuery-操作样式"><span class="nav-number">4.</span> <span class="nav-text">四.jQuery 操作样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置样式"><span class="nav-number">5.</span> <span class="nav-text">设置样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取样式值"><span class="nav-number">6.</span> <span class="nav-text">获取样式值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过选择器获取-jQuery-对象"><span class="nav-number">7.</span> <span class="nav-text">通过选择器获取 jQuery 对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本选择器"><span class="nav-number">7.1.</span> <span class="nav-text">基本选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层级选择器"><span class="nav-number">7.2.</span> <span class="nav-text">层级选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器选择器"><span class="nav-number">7.3.</span> <span class="nav-text">过滤器选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器筛选方法"><span class="nav-number">7.4.</span> <span class="nav-text">选择器筛选方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-操作类名"><span class="nav-number">8.</span> <span class="nav-text">jQuery 操作类名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加类名"><span class="nav-number">8.1.</span> <span class="nav-text">添加类名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除类名"><span class="nav-number">8.2.</span> <span class="nav-text">移除类名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检测类名是否存在"><span class="nav-number">8.3.</span> <span class="nav-text">检测类名是否存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类名切换"><span class="nav-number">8.4.</span> <span class="nav-text">类名切换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-操作标签的属性"><span class="nav-number">9.</span> <span class="nav-text">jQuery 操作标签的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置标签的属性"><span class="nav-number">9.1.</span> <span class="nav-text">设置标签的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取标签属性值"><span class="nav-number">9.2.</span> <span class="nav-text">获取标签属性值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移除标签的属性"><span class="nav-number">9.3.</span> <span class="nav-text">移除标签的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#prop-方法操作属性"><span class="nav-number">9.4.</span> <span class="nav-text">prop 方法操作属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-创建元素"><span class="nav-number">10.</span> <span class="nav-text">jQuery 创建元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-追加元素"><span class="nav-number">11.</span> <span class="nav-text">jQuery 追加元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向父元素最后追加"><span class="nav-number">11.1.</span> <span class="nav-text">向父元素最后追加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#向父元素最前面追加"><span class="nav-number">11.2.</span> <span class="nav-text">向父元素最前面追加</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-删除元素"><span class="nav-number">12.</span> <span class="nav-text">jQuery 删除元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-清空元素"><span class="nav-number">13.</span> <span class="nav-text">jQuery 清空元素</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">愚人阳仔</span>
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/keaichong.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/keaichong.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
