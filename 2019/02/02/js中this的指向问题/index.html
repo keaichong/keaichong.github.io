@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,30 +68,29 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-  <link rel="alternate" href="/keaichong.github.io/atom.xml" title="阳仔的博客" type="application/atom+xml">
+  <meta name="keywords" content="js,">
 
 
 
 
 
 
-<meta name="description" content="this 普通函数和定时器中的this指向window  对象方法中的this指向调用者  构造函数中的this指向实例对象(当前创建对象)  事件处理函数中的this指向事件源  箭头函数没有自己的this,它的this是外部函数的this   bind call apply改变this指向call方法 语法:函数名.call(调用者,参数1,参数2,…) 会立即执行,this指向调用者  ap">
+
+
+
+
+<meta name="description" content="this 普通函数和定时器中的 this 指向 window  对象方法中的 this 指向调用者  构造函数中的 this 指向实例对象(当前创建对象)  事件处理函数中的 this 指向事件源  箭头函数没有自己的 this,它的 this 是外部函数的 this   bind call apply 改变 this 指向">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this指向问题和改变this的方法">
 <meta property="og:url" content="http://yoursite.com/2019/02/02/js中this的指向问题/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="this 普通函数和定时器中的this指向window  对象方法中的this指向调用者  构造函数中的this指向实例对象(当前创建对象)  事件处理函数中的this指向事件源  箭头函数没有自己的this,它的this是外部函数的this   bind call apply改变this指向call方法 语法:函数名.call(调用者,参数1,参数2,…) 会立即执行,this指向调用者  ap">
+<meta property="og:description" content="this 普通函数和定时器中的 this 指向 window  对象方法中的 this 指向调用者  构造函数中的 this 指向实例对象(当前创建对象)  事件处理函数中的 this 指向事件源  箭头函数没有自己的 this,它的 this 是外部函数的 this   bind call apply 改变 this 指向">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-02T15:40:18.082Z">
+<meta property="og:updated_time" content="2019-02-03T07:26:04.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this指向问题和改变this的方法">
-<meta name="twitter:description" content="this 普通函数和定时器中的this指向window  对象方法中的this指向调用者  构造函数中的this指向实例对象(当前创建对象)  事件处理函数中的this指向事件源  箭头函数没有自己的this,它的this是外部函数的this   bind call apply改变this指向call方法 语法:函数名.call(调用者,参数1,参数2,…) 会立即执行,this指向调用者  ap">
+<meta name="twitter:description" content="this 普通函数和定时器中的 this 指向 window  对象方法中的 this 指向调用者  构造函数中的 this 指向实例对象(当前创建对象)  事件处理函数中的 this 指向事件源  箭头函数没有自己的 this,它的 this 是外部函数的 this   bind call apply 改变 this 指向">
 
 
 
@@ -99,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/keaichong.github.io/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -188,6 +187,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/keaichong.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
           </a>
         </li>
       
@@ -302,29 +311,30 @@
 
       
         <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ol>
-<li><p>普通函数和定时器中的this指向window</p>
+<li><p>普通函数和定时器中的 this 指向 window</p>
 </li>
-<li><p>对象方法中的this指向调用者</p>
+<li><p>对象方法中的 this 指向调用者</p>
 </li>
-<li><p>构造函数中的this指向实例对象(当前创建对象)</p>
+<li><p>构造函数中的 this 指向实例对象(当前创建对象)</p>
 </li>
-<li><p>事件处理函数中的this指向事件源</p>
+<li><p>事件处理函数中的 this 指向事件源</p>
 </li>
-<li><p>箭头函数没有自己的this,它的this是外部函数的this</p>
+<li><p>箭头函数没有自己的 this,它的 this 是外部函数的 this</p>
 </li>
 </ol>
-<h2 id="bind-call-apply改变this指向"><a href="#bind-call-apply改变this指向" class="headerlink" title="bind call apply改变this指向"></a>bind call apply改变this指向</h2><h4 id="call方法"><a href="#call方法" class="headerlink" title="call方法"></a>call方法</h4><ol>
-<li>语法:函数名.call(调用者,参数1,参数2,…)</li>
-<li>会立即执行,this指向调用者</li>
+<h2 id="bind-call-apply-改变-this-指向"><a href="#bind-call-apply-改变-this-指向" class="headerlink" title="bind call apply 改变 this 指向"></a>bind call apply 改变 this 指向</h2><a id="more"></a>
+<h4 id="call-方法"><a href="#call-方法" class="headerlink" title="call 方法"></a>call 方法</h4><ol>
+<li>语法:函数名.call(调用者,参数 1,参数 2,…)</li>
+<li>会立即执行,this 指向调用者</li>
 </ol>
-<h4 id="apply方法"><a href="#apply方法" class="headerlink" title="apply方法"></a>apply方法</h4><ol>
+<h4 id="apply-方法"><a href="#apply-方法" class="headerlink" title="apply 方法"></a>apply 方法</h4><ol>
 <li>语法: 函数名.apply(调用者,数组)</li>
-<li>会立即执行,this指向调用者</li>
+<li>会立即执行,this 指向调用者</li>
 </ol>
 <h4 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind()方法"></a>bind()方法</h4><ol>
-<li>语法: 函数名.bind(调用者,参数1,参数2,…)</li>
-<li>call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以</li>
-<li>bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和call()相同</li>
+<li>语法: 函数名.bind(调用者,参数 1,参数 2,…)</li>
+<li>call 和 apply 都是对函数的直接调用，而 bind 方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以</li>
+<li>bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和 call()相同</li>
 </ol>
 
       
@@ -340,6 +350,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/keaichong.github.io/tags/js/" rel="tag"># js</a>
+          
+        </div>
       
 
       
@@ -450,16 +466,18 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/keaichong.github.io/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
 
           </nav>
 
-          
-            <div class="feed-link motion-element">
-              <a href="/keaichong.github.io/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
           
 
           
@@ -485,7 +503,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">1.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-call-apply改变this指向"><span class="nav-number">2.</span> <span class="nav-text">bind call apply改变this指向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#call方法"><span class="nav-number">2.0.1.</span> <span class="nav-text">call方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply方法"><span class="nav-number">2.0.2.</span> <span class="nav-text">apply方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind-方法"><span class="nav-number">2.0.3.</span> <span class="nav-text">bind()方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">1.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-call-apply-改变-this-指向"><span class="nav-number">2.</span> <span class="nav-text">bind call apply 改变 this 指向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#call-方法"><span class="nav-number">2.0.1.</span> <span class="nav-text">call 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply-方法"><span class="nav-number">2.0.2.</span> <span class="nav-text">apply 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind-方法"><span class="nav-number">2.0.3.</span> <span class="nav-text">bind()方法</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -515,15 +533,14 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
 
 
 
-  <span class="post-meta-divider">|</span>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
 
 
 
@@ -622,6 +639,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/keaichong.github.io/js/src/scrollspy.js?v=5.1.4"></script>

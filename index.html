@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,8 +74,6 @@
 
 
 
-  <link rel="alternate" href="/keaichong.github.io/atom.xml" title="阳仔的博客" type="application/atom+xml">
-
 
 
 
@@ -95,7 +93,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/keaichong.github.io/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -189,6 +187,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-tags">
+          <a href="/keaichong.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/keaichong.github.io/archives/" rel="section">
             
@@ -217,6 +225,155 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/03/JS原型和原型链理解/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/02/03/JS原型和原型链理解/" itemprop="url">JS原型和原型链理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T01:47:36+08:00">
+                2019-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="原型的作用"><a href="#原型的作用" class="headerlink" title="原型的作用"></a>原型的作用</h2><ol>
+<li>前提：① 将来对象的空间大小，和对象的属性和方法数量有关；② 属性是不一致的，方法是一致。</li>
+<li>问题：内存的浪费</li>
+<li>原因：对象的方法是一致的，每创建一个对象，都为每一个对象分配一个属于各自的方法，方法的数量随 1. 对象的个数，方法数量越来越多。 方法 → 函数 → 数据类型 → 内存</li>
+<li>解决：把多个方法抽取成一个，让所有同类型的对象共享之。</li>
+<li>如何实现：通过原型，把方法放入到原型中，就可以被构造函数创建的对象共享。</li>
+</ol>
+<h2 id="对象查找属性和方法的流程"><a href="#对象查找属性和方法的流程" class="headerlink" title="对象查找属性和方法的流程"></a>对象查找属性和方法的流程</h2><ol>
+<li>会先从实例对象本身查找</li>
+<li>如果没找到,实例对象通过构造函数对象.<em>proto</em>所提供的原型地址找到原型</li>
+<li>从原型中查找要访问属性或方法</li>
+<li>如果还是没找到,则在原型对象.<em>proto</em>中查找，一直到 null，如果没有则返回 undefined</li>
+</ol>
+<h2 id="获取原型"><a href="#获取原型" class="headerlink" title="获取原型"></a>获取原型</h2><blockquote>
+<p>语法:函数名.prototype</p>
+</blockquote>
+<h2 id="获取构造函数"><a href="#获取构造函数" class="headerlink" title="获取构造函数"></a>获取构造函数</h2><blockquote>
+<p>语法: 原型.constructor</p>
+</blockquote>
+<h2 id="原型添加属性方法"><a href="#原型添加属性方法" class="headerlink" title="原型添加属性方法"></a>原型添加属性方法</h2><blockquote>
+<p>语法:函数名.prototype.key = value</p>
+</blockquote>
+<blockquote>
+<p>注意:数组和字符串中的 prototype 不要修改,修改后自带的方法就没有了,可以采用添加方式</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.getMax = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/03/JS原型和原型链理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -301,35 +458,23 @@
 
       
         
-          
-            <h3 id="闭包closure"><a href="#闭包closure" class="headerlink" title="闭包closure"></a>闭包closure</h3><blockquote>
+          <h3 id="闭包-closure"><a href="#闭包-closure" class="headerlink" title="闭包 closure"></a>闭包 closure</h3><blockquote>
 <p>闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量<br>理解:函数作为返回值，函数作为参数传递</p>
+</blockquote>
 <ol>
 <li>变量保存在内存中 变量的生命周期: 变量什么时候被释放</li>
 <li>全局变量生命周期: 退出程序后才会被释放</li>
 <li>局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量</li>
 </ol>
-</blockquote>
 <h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域是在函数定义时决定的,从内层向外层访问<br>问题: 外层作用域无法操作内层作用域变量<br>原因: 局部作用域生命周期在调用结束后释放了,因此外层不能访问.<br>需求: 让外层作用域操作到内层作用域<br>实现: 用闭包来延长局部变量的生命周期</p>
-<h3 id="闭包中的GC垃圾回收机制"><a href="#闭包中的GC垃圾回收机制" class="headerlink" title="闭包中的GC垃圾回收机制"></a>闭包中的GC垃圾回收机制</h3><p> 运行中的程序的数据是存放在内存中<br> 在运行的过程中有一个叫GC的机制（Garbage Collection垃圾回收机制）<br> GC相当于生活中的保洁，会不定时去清理内存中的没有用的数据,也就是不在被引用的数据。<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bieShu</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">3</span>;  <span class="comment">// 局部变量</span></span><br><span class="line">  <span class="keyword">var</span> guanjia = <span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;  <span class="comment">// 管家</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    a = a + num;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> guanjia;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cyqz = bieShu();</span><br><span class="line"><span class="comment">// 若函数内部中的a不在了，10 是无法和a相加的得出结果13的</span></span><br><span class="line"><span class="comment">// 若a还在，10 和 a得出结果是13， 说a在bieshu这函数调用完毕后没有被释放。</span></span><br><span class="line"><span class="comment">// 怎么延长的？ 内部的子函数当做桥梁和外部关联→ 外部直在应用或操作函数内部的局部变量→ 所以局部变量没有当做垃圾数据释放</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 13</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 23</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 23</span></span><br><span class="line"><span class="comment">// 如何调试： 在子函数内部设置断点→ 进入子函数内部后 → 查看右侧是否有clouser存在</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="闭包用途"><a href="#闭包用途" class="headerlink" title="闭包用途"></a>闭包用途</h3><ol>
-<li>函数外部读取函数内部成员</li>
-<li>函数内成员始终存活在内存之中(延长局部变量生命周期)</li>
-<li>维护私有变量的安全(例如 取款机取钱)</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)  <span class="comment">//The Window</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = object.getNameFunc();</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;　　</span><br><span class="line"><span class="keyword">var</span> object = &#123;　　　　</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>; </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(that.name); <span class="comment">//My Object</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = object.getNameFunc();</span><br><span class="line"><span class="built_in">window</span>.fn();</span><br></pre></td></tr></table></figure>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><blockquote>
-<p>程序调用自身 作用:减少代码量</p>
-</blockquote>
-<h3 id="递归的三个阶段"><a href="#递归的三个阶段" class="headerlink" title="递归的三个阶段"></a>递归的三个阶段</h3><ul>
-<li>递归前进段</li>
-<li>递归边界条件</li>
-<li>递归返回段<br>1,1,2,3,5,8……….求第n个数是多少 斐波那契数列 用递归实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFbi</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> getFbi(n - <span class="number">1</span>) + getFbi(n - <span class="number">2</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(getFbi(<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
+<h3 id="闭包中的-GC-垃圾回收机制"><a href="#闭包中的-GC-垃圾回收机制" class="headerlink" title="闭包中的 GC 垃圾回收机制"></a>闭包中的 GC 垃圾回收机制</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/02/JS闭包和递归/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -446,34 +591,26 @@
 
       
         
-          
-            <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ol>
-<li><p>普通函数和定时器中的this指向window</p>
+          <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ol>
+<li><p>普通函数和定时器中的 this 指向 window</p>
 </li>
-<li><p>对象方法中的this指向调用者</p>
+<li><p>对象方法中的 this 指向调用者</p>
 </li>
-<li><p>构造函数中的this指向实例对象(当前创建对象)</p>
+<li><p>构造函数中的 this 指向实例对象(当前创建对象)</p>
 </li>
-<li><p>事件处理函数中的this指向事件源</p>
+<li><p>事件处理函数中的 this 指向事件源</p>
 </li>
-<li><p>箭头函数没有自己的this,它的this是外部函数的this</p>
+<li><p>箭头函数没有自己的 this,它的 this 是外部函数的 this</p>
 </li>
 </ol>
-<h2 id="bind-call-apply改变this指向"><a href="#bind-call-apply改变this指向" class="headerlink" title="bind call apply改变this指向"></a>bind call apply改变this指向</h2><h4 id="call方法"><a href="#call方法" class="headerlink" title="call方法"></a>call方法</h4><ol>
-<li>语法:函数名.call(调用者,参数1,参数2,…)</li>
-<li>会立即执行,this指向调用者</li>
-</ol>
-<h4 id="apply方法"><a href="#apply方法" class="headerlink" title="apply方法"></a>apply方法</h4><ol>
-<li>语法: 函数名.apply(调用者,数组)</li>
-<li>会立即执行,this指向调用者</li>
-</ol>
-<h4 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind()方法"></a>bind()方法</h4><ol>
-<li>语法: 函数名.bind(调用者,参数1,参数2,…)</li>
-<li>call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以</li>
-<li>bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和call()相同</li>
-</ol>
-
-          
+<h2 id="bind-call-apply-改变-this-指向"><a href="#bind-call-apply-改变-this-指向" class="headerlink" title="bind call apply 改变 this 指向"></a>bind call apply 改变 this 指向</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/02/js中this的指向问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -590,111 +727,24 @@
 
       
         
-          
-            <h2 id="数组常用方法"><a href="#数组常用方法" class="headerlink" title="数组常用方法:"></a>数组常用方法:</h2><ol>
-<li>push(): 向数组尾部添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="number">2</span> <span class="built_in">console</span>.log(arr);        <span class="comment">//  [1, 2, 3]</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">var</span> b = arr.push(<span class="number">4</span>);  </span><br><span class="line"><span class="number">4</span> <span class="built_in">console</span>.log(b);          <span class="comment">//  4   //表示当前数组长度</span></span><br><span class="line"><span class="number">5</span> <span class="built_in">console</span>.log(arr);        <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-</li>
+          <h2 id="数组常用方法"><a href="#数组常用方法" class="headerlink" title="数组常用方法:"></a>数组常用方法:</h2><ol>
+<li>push(): 向数组尾部添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</li>
 </ol>
-<p>pop(): 删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="number">2</span> <span class="built_in">console</span>.log(arr);                <span class="comment">// [1,2,3]</span></span><br><span class="line"><span class="number">3</span> arr.pop();</span><br><span class="line"><span class="number">4</span> <span class="built_in">console</span>.log( arr.pop() );　　<span class="comment">// [3]　　//返回删除的元素</span></span><br><span class="line"><span class="number">5</span> <span class="built_in">console</span>.log(arr);                <span class="comment">// [1,2]</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="number">2</span> <span class="built_in">console</span>.log(arr);        <span class="comment">//  [1, 2, 3]</span></span><br><span class="line"><span class="number">3</span> <span class="keyword">var</span> b = arr.push(<span class="number">4</span>);</span><br><span class="line"><span class="number">4</span> <span class="built_in">console</span>.log(b);          <span class="comment">//  4   //表示当前数组长度</span></span><br><span class="line"><span class="number">5</span> <span class="built_in">console</span>.log(arr);        <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+<p>pop(): 删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="number">2</span> <span class="built_in">console</span>.log(arr);                <span class="comment">// [1,2,3]</span></span><br><span class="line"><span class="number">3</span> arr.pop();</span><br><span class="line"><span class="number">4</span> <span class="built_in">console</span>.log( arr.pop() );　　<span class="comment">// [3]　　//返回删除的元素</span></span><br><span class="line"><span class="number">5</span> <span class="built_in">console</span>.log(arr);                <span class="comment">// [1,2]</span></span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li><p>unshift():在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="number">2</span> arr.unshift(<span class="string">'x'</span>);        <span class="comment">// 4</span></span><br><span class="line"><span class="number">3</span> <span class="built_in">console</span>.log(arr);        <span class="comment">// ['x', 'a', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
-<p>shift():删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="number">2</span> arr.shift()         <span class="comment">// 'a'</span></span><br><span class="line"><span class="number">3</span> <span class="built_in">console</span>.log(arr)     <span class="comment">// ['b', 'c']</span></span><br></pre></td></tr></table></figure>
-<p>shift()方法还可以遍历并清空一个数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="number">2</span> <span class="keyword">var</span> item;</span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> <span class="keyword">while</span> (item = list.shift()) &#123;</span><br><span class="line"><span class="number">5</span>   <span class="built_in">console</span>.log(item);</span><br><span class="line"><span class="number">6</span> &#125;</span><br><span class="line"><span class="number">7</span> </span><br><span class="line"><span class="number">8</span> <span class="built_in">console</span>.log(list);     <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="3">
-<li><p>valueOf():返回数组的本身。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="number">2</span> arr.valueOf()     <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-<p>indexOf():返回指定元素在数组中出现的位置，如果没有出现则返回-1。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> arr.indexOf(<span class="string">'b'</span>) <span class="comment">// 1</span></span><br><span class="line"><span class="number">4</span> arr.indexOf(<span class="string">'y'</span>) <span class="comment">// -1</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>indexOf方法还可以接受第二个参数，表示搜索的开始位置。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>].indexOf(<span class="string">'a'</span>, <span class="number">1</span>)     <span class="comment">// -1</span></span><br></pre></td></tr></table></figure></p>
-<p>上面代码从1号位置开始搜索字符a，结果为-1，表示没有搜索到。</p>
-<p>toString():返回数组的字符串形式。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="number">2</span> arr.toString()     <span class="comment">// "1,2,3"</span></span><br><span class="line"><span class="number">3</span> </span><br><span class="line"><span class="number">4</span> <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]];</span><br><span class="line"><span class="number">5</span> arr.toString()     <span class="comment">// "1,2,3,4,5,6"</span></span><br></pre></td></tr></table></figure></p>
-<ol start="4">
-<li><p>join():以参数作为分隔符，将所有数组成员组成一个字符串返回。如果不提供参数，默认用逗号分隔。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> arr.join(<span class="string">' '</span>)     <span class="comment">// '1 2 3 4'</span></span><br><span class="line"><span class="number">4</span> arr.join(<span class="string">' | '</span>)     <span class="comment">// "1 | 2 | 3 | 4"</span></span><br><span class="line"><span class="number">5</span> arr.join()     <span class="comment">// "1,2,3,4"</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>concat():用于多个数组的合并。它将新数组的成员，添加到原数组的尾部，然后返回一个新数组，原数组不变。</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="number">2</span> <span class="keyword">var</span> b = arr.concat([<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]);</span><br><span class="line"><span class="number">3</span> <span class="built_in">console</span>.log(b);        <span class="comment">//[1,2,3,4,5,6]</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li><p>reverse():用于颠倒数组中元素的顺序，返回改变后的数组。注意，该方法将改变原数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> arr.reverse() <span class="comment">// ["c", "b", "a"]</span></span><br><span class="line"><span class="number">4</span> <span class="built_in">console</span>.log(arr) <span class="comment">// ["c", "b", "a"]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>slice():用于截取原数组的一部分，返回一个新数组，原数组不变。<br>slice(start,end)它的第一个参数为起始位置（从0开始），第二个参数为终止位置（但该位置的元素本身不包括在内）。如果省略第二个参数，则一直返回到原数组的最后一个成员。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"> <span class="number">2</span> </span><br><span class="line"> <span class="number">3</span> arr.slice(<span class="number">0</span>)         <span class="comment">// ["a", "b", "c"]</span></span><br><span class="line"> <span class="number">4</span> arr.slice(<span class="number">1</span>)         <span class="comment">// ["b", "c"]</span></span><br><span class="line"> <span class="number">5</span> arr.slice(<span class="number">1</span>, <span class="number">2</span>)     <span class="comment">// ["b"]</span></span><br><span class="line"> <span class="number">6</span> arr.slice(<span class="number">2</span>, <span class="number">6</span>)     <span class="comment">// ["c"]</span></span><br><span class="line"> <span class="number">7</span> arr.slice()           <span class="comment">// ["a", "b", "c"]    无参数返回原数组</span></span><br><span class="line"> <span class="number">8</span> </span><br><span class="line"> <span class="number">9</span> arr.slice(<span class="number">-2</span>)          <span class="comment">// ["b", "c"]    参数是负数，则表示倒数计算的位置</span></span><br><span class="line"><span class="number">10</span> arr.slice(<span class="number">-2</span>, <span class="number">-1</span>)     <span class="comment">// ["b"]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>splice():删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员，返回值是被删除的元素。注意，该方法会改变原数组。<br>splice(start,delNum,addElement1,addElement2,…)第一个参数是删除的起始位置，第二个参数是被删除的元素个数,第三个参数代表要替换的元素。如果后面还有更多的参数，则表示这些就是要被插入数组的新元素。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</span><br><span class="line"><span class="number">2</span> arr.splice(<span class="number">4</span>, <span class="number">2</span>)     <span class="comment">// ["e", "f"]　　从原数组4号位置，删除了两个数组成员</span></span><br><span class="line"><span class="number">3</span> <span class="built_in">console</span>.log(arr)     <span class="comment">// ["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</span><br><span class="line"><span class="number">2</span> arr.splice(<span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>)     <span class="comment">// ["e", "f"]　　原数组4号位置，删除了两个数组成员,又插入了两个新成员</span></span><br><span class="line"><span class="number">3</span> <span class="built_in">console</span>.log(arr)         <span class="comment">// ["a", "b", "c", "d", 1, 2]</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>];</span><br><span class="line"><span class="number">2</span> arr.splice(<span class="number">-4</span>, <span class="number">2</span>)     <span class="comment">// ["c", "d"]    起始位置如果是负数，就表示从倒数位置开始删除</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>];</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>)     <span class="comment">// []    如果只插入元素,第二个参数可以设为0</span></span><br><span class="line"><span class="number">4</span> conlose.log(arr)     <span class="comment">// [1, 2, 1, 1]</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="number">2</span> arr.splice(<span class="number">2</span>)     <span class="comment">// [3, 4] 如果只有第一个参数，等同于将原数组在指定位置拆分成两个数组</span></span><br><span class="line"><span class="number">3</span> <span class="built_in">console</span>.log(arr)     <span class="comment">// [1, 2]</span></span><br></pre></td></tr></table></figure>
-<ol start="9">
-<li>sort():对数组成员进行排序，默认是按照字典顺序排序。排序后，原数组将被改变。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="number">1</span> [<span class="string">'d'</span>, <span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>].sort()</span><br><span class="line"> <span class="number">2</span> <span class="comment">// ['a', 'b', 'c', 'd']</span></span><br><span class="line"> <span class="number">3</span> </span><br><span class="line"> <span class="number">4</span> [<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>].sort()</span><br><span class="line"> <span class="number">5</span> <span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"> <span class="number">6</span> </span><br><span class="line"> <span class="number">7</span> [<span class="number">11</span>, <span class="number">101</span>].sort()</span><br><span class="line"> <span class="number">8</span> <span class="comment">// [101, 11]</span></span><br><span class="line"> <span class="number">9</span> </span><br><span class="line"><span class="number">10</span> [<span class="number">10111</span>, <span class="number">1101</span>, <span class="number">111</span>].sort()</span><br><span class="line"><span class="number">11</span> <span class="comment">// [10111, 1101, 111]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>上面代码的最后两个例子，需要特殊注意。sort方法不是按照大小排序，而是按照对应字符串的字典顺序排序。也就是说，数值会被先转成字符串，再按照字典顺序进行比较，所以101排在11的前面。</p>
-<p>如果想让sort方法按照自定义方式排序，可以传入一个函数作为参数，表示按照自定义方法进行排序。该函数本身又接受两个参数，表示进行比较的两个元素。如果返回值大于0，表示第一个元素排在第二个元素后面；其他情况下，都是第一个元素排在第二个元素前面。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">10111</span>, <span class="number">1101</span>, <span class="number">111</span>];</span><br><span class="line"> <span class="number">2</span> arr.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line"> <span class="number">3</span>   <span class="keyword">return</span> a - b;</span><br><span class="line"> <span class="number">4</span> &#125;)</span><br><span class="line"> <span class="number">5</span> <span class="comment">// [111, 1101, 10111]</span></span><br><span class="line"> <span class="number">6</span> </span><br><span class="line"> <span class="number">7</span> <span class="keyword">var</span> arr1 = [</span><br><span class="line"> <span class="number">8</span>               &#123; <span class="attr">name</span>: <span class="string">"张三"</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line"> <span class="number">9</span>               &#123; <span class="attr">name</span>: <span class="string">"李四"</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;,</span><br><span class="line"><span class="number">10</span>               &#123; <span class="attr">name</span>: <span class="string">"王五"</span>, <span class="attr">age</span>: <span class="number">28</span> &#125;</span><br><span class="line"><span class="number">11</span>            ]</span><br><span class="line"><span class="number">12</span> </span><br><span class="line"><span class="number">13</span> arr1.sort(<span class="function"><span class="keyword">function</span> (<span class="params">o1, o2</span>) </span>&#123;</span><br><span class="line"><span class="number">14</span>   <span class="keyword">return</span> o1.age - o2.age;</span><br><span class="line"><span class="number">15</span> &#125;) </span><br><span class="line"><span class="number">16</span> <span class="comment">// [</span></span><br><span class="line"><span class="number">17</span> <span class="comment">//   &#123; name: "李四", age: 24 &#125;,</span></span><br><span class="line"><span class="number">18</span> <span class="comment">//   &#123; name: "王五", age: 28 &#125;,</span></span><br><span class="line"><span class="number">19</span> <span class="comment">//   &#123; name: "张三", age: 30 &#125;</span></span><br><span class="line"><span class="number">20</span> <span class="comment">// ]</span></span><br></pre></td></tr></table></figure></p>
-<ol start="10">
-<li>map():对数组的所有成员依次调用一个函数，根据函数结果返回一个新数组。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="number">2</span> </span><br><span class="line"><span class="number">3</span> numbers.map(<span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line"><span class="number">4</span>   <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line"><span class="number">5</span> &#125;);</span><br><span class="line"><span class="number">6</span> <span class="comment">// [2, 3, 4]</span></span><br><span class="line"><span class="number">7</span> </span><br><span class="line"><span class="number">8</span> numbers</span><br><span class="line"><span class="number">9</span> <span class="comment">// [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>上面代码中，numbers数组的所有成员都加上1，组成一个新数组返回，原数组没有变化。</p>
-<ol start="11">
-<li>filter():参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。该方法不会改变原数组。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="number">2</span> arr.filter(<span class="function"><span class="keyword">function</span> (<span class="params">elem</span>) </span>&#123;</span><br><span class="line"><span class="number">3</span>   <span class="keyword">return</span> (elem &gt; <span class="number">3</span>);</span><br><span class="line"><span class="number">4</span> &#125;)</span><br><span class="line"><span class="number">5</span> <span class="comment">// [4, 5]</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol start="12">
-<li>arr.forEach(item,index,array){}   遍历，循环 类似jquery的each<br>其中的item参数是数组中的内容，index为其索引,array表示数组本身<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">      arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="字符串常用方法"><a href="#字符串常用方法" class="headerlink" title="字符串常用方法:"></a>字符串常用方法:</h2><ol>
-<li><p>substring(start开始位置的索引,end结束位置索引) 截取的位置不包含结束位置的字符,只写一个参数表示从开始位置截取到最后</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">var</span> str=<span class="string">'abcdefg'</span>;  </span><br><span class="line"><span class="number">2.</span> str.substring(<span class="number">1</span>) <span class="comment">//得到bcdefg  str.substring(1,3) //得到bc</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>slice(start开始位置索引，end结束位置索引) 基本和substring相似,区别在参数为负数時候。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">var</span> str=<span class="string">'abcdefg'</span>; </span><br><span class="line"><span class="number">2.</span> str.slice(<span class="number">1</span>)  <span class="comment">//bcdefg      str.substring(1,3) // bc</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>substr(start开始位置索引,end需要返回的字符个数)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">var</span> str=<span class="string">'abcdefg'</span>; </span><br><span class="line"><span class="number">2.</span> str.substr(<span class="number">1</span>) <span class="comment">//bcdefg      str.substr(1,1) //b</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>charAt(index) 方法返回指定索引位置处的字符。如果超出有效范围(0与字符串长度减一)的索引值返回空字符串.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="keyword">var</span> str=<span class="string">'abcdefg'</span>;</span><br><span class="line"><span class="number">2.</span> str.charAt(<span class="number">2</span>) <span class="comment">// c</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>index(string)  返回String对象内第一次出现子字符串位置。如果没有找到子字符串，则返回-1</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'abcdefga'</span>  str.indexOf(<span class="string">'a'</span>)  <span class="comment">// 0   str.indexOf('h') //-1</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>lastIndexOf(string)  倒叙查找<br>返回String对象内第一次出现子字符串位置。如果没有找到子字符串，则返回-1。  </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'abcdefga'</span>     str.lastIndexOf(<span class="string">'a'</span>) <span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>split(str)  将字符串以参数分割为数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str=<span class="string">'abcadeafg'</span>     str.split(<span class="string">'a'</span>) <span class="comment">//["", "bc", "de", "fg"]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>toLowerCase方法返回一个字符串，该字符串中的字母被转换成小写。</p>
-</li>
-<li><p>toUpperCase方法返回一个字符串，该字符串中的所有字母都被转换为大写字母。</p>
-</li>
-<li><p>match() – 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配</p>
-</li>
-<li><p>search  方法返回与正则表达式查找内容匹配的第一个字符串的位置。</p>
-</li>
-<li><p>replace 用来查找匹配一个正则表达式的字符串，然后使用新字符串代替匹配</p>
-</li>
-</ol>
-
-          
+<li>unshift():在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/02/js数组字符串常用方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
     
     
     
@@ -808,8 +858,7 @@
 
       
         
-          
-            <h3 id="Git的3个区域"><a href="#Git的3个区域" class="headerlink" title="Git的3个区域"></a>Git的3个区域</h3><ol>
+          <h3 id="Git-的-3-个区域"><a href="#Git-的-3-个区域" class="headerlink" title="Git 的 3 个区域"></a>Git 的 3 个区域</h3><ol>
 <li><strong>工作目录</strong>(working directory)</li>
 <li><strong>暂存区域</strong>(staging area)</li>
 <li><strong>本地仓库</strong>(repository)</li>
@@ -827,74 +876,17 @@
 <li>对修改后的文件进行快照，然后保存到暂存区域。</li>
 <li>提交更新，将保存在暂存区域的文件快照永久转储到 Git 目录中。</li>
 </ol>
-<h3 id="创建工作目录"><a href="#创建工作目录" class="headerlink" title="创建工作目录"></a>创建工作目录</h3><p>可以在本地的任意目录下，创建项目文件夹pinyougou，此项目文件夹就是我们的工作目录。</p>
-<h3 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h3><p>打开Git bash窗口，进入工作目录，输入下面的命令，创建本地仓库。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></p>
-<p>执行完该命令后，在工作目录下会生成一个隐藏的目录.git，.git目录就是我们的本地仓库，记录所有版本。</p>
-<h3 id="把已修改添加到暂存区"><a href="#把已修改添加到暂存区" class="headerlink" title="把已修改添加到暂存区"></a>把已修改添加到暂存区</h3><p>$ git add . 把工作目录中所有的修改，都提交到<strong>暂存区</strong>。</p>
-<blockquote>
-<p>暂存区在哪里？<br>当第一次执行git add的时候会在.git文件夹中生成一个index文件，这就是暂存区</p>
-</blockquote>
-<h3 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h3><p>$ git status<br>git status可以查看当前工作区中是否有可以暂存的文件、是否有可以提交的内容。</p>
-<h3 id="提交到版本库"><a href="#提交到版本库" class="headerlink" title="提交到版本库"></a>提交到版本库</h3><p>$ git commit -m ‘提交注释’<br><strong>注意</strong>：git commit的-m参数是本次提交说明，必须填写，可以方便查看历史提交中的修改记录。</p>
-<blockquote>
-<p>注意: git init 只需要写一次</p>
-</blockquote>
-<h3 id="git-远程仓库"><a href="#git-远程仓库" class="headerlink" title="git-远程仓库"></a>git-远程仓库</h3><blockquote>
-<p>代码托管平台(github/码云)</p>
-</blockquote>
-<ol>
-<li>注册</li>
-<li>登录</li>
-<li>新建远程仓库 (右上角+-&gt;new-&gt;命名-&gt;create)</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 关联远程仓库</span><br><span class="line">git remote add origin https://github.com/自己的账号/gitdemos64.git</span><br><span class="line">// 推送代码</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 开发功能1 -&gt; 完成</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;注释1&quot;</span><br><span class="line">// 开发功能2 -&gt; 完成</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;注释2&quot;</span><br><span class="line">// 推送代码</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-<h4 id="命令列表"><a href="#命令列表" class="headerlink" title="命令列表"></a>命令列表</h4><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01</td>
-<td><strong>git config –global user.name “xxx”</strong></td>
-<td>设置用户名</td>
-</tr>
-<tr>
-<td>02</td>
-<td><strong>git config –global user.email <a href="mailto:xxx@example.com" target="_blank" rel="noopener">xxx@example.com</a></strong></td>
-<td>设置邮箱</td>
-</tr>
-<tr>
-<td>03</td>
-<td><strong>git init</strong></td>
-<td>初始化本地仓库</td>
-</tr>
-<tr>
-<td>04</td>
-<td><strong>git add .</strong></td>
-<td>把修改保存到暂存区</td>
-</tr>
-<tr>
-<td>05</td>
-<td><strong>git status</strong></td>
-<td>检查当前文件状态</td>
-</tr>
-<tr>
-<td>06</td>
-<td><strong>git commit -m “msg”</strong></td>
-<td>提交到本地仓库</td>
-</tr>
-</tbody>
-</table>
-
-          
+<h3 id="创建工作目录"><a href="#创建工作目录" class="headerlink" title="创建工作目录"></a>创建工作目录</h3><p>可以在本地的任意目录下，创建项目文件夹 pinyougou，此项目文件夹就是我们的工作目录。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/02/Git基本使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1008,29 +1000,20 @@
 
       
         
-          
-            <h3 id="伸缩布局基本概念"><a href="#伸缩布局基本概念" class="headerlink" title="伸缩布局基本概念"></a>伸缩布局基本概念</h3><blockquote>
-<p>　CSS3引入的布局模式Flexbox布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex容器使用Flex项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应<br>布局解决方案 没有具体数字,通过一系列属性控制</p>
+          <h3 id="伸缩布局基本概念"><a href="#伸缩布局基本概念" class="headerlink" title="伸缩布局基本概念"></a>伸缩布局基本概念</h3><blockquote>
+<p>CSS3 引入的布局模式 Flexbox 布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex 容器使用 Flex 项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox 布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应<br>布局解决方案 没有具体数字,通过一系列属性控制</p>
 </blockquote>
 <h3 id="伸缩盒模型术语"><a href="#伸缩盒模型术语" class="headerlink" title="伸缩盒模型术语"></a>伸缩盒模型术语</h3><blockquote>
-<p>伸缩盒子中有两条轴 -&gt;主轴和侧轴<br><strong>主轴</strong>: 默认水平从左往右显示<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置主轴方向 */</span></span><br><span class="line">flex-direction:row | column</span><br><span class="line"><span class="comment">/* 设置元素在主轴方向对齐方式 */</span></span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-start</span>;  主轴开始位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-end</span>;    主轴结束位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-center</span>;    主轴中间显示</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-between</span>;    两端对齐中间自适应</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-around</span>;  环绕对齐</span><br></pre></td></tr></table></figure></p>
+<p>伸缩盒子中有两条轴 -&gt;主轴和侧轴<br><strong>主轴</strong>: 默认水平从左往右显示</p>
 </blockquote>
-<p><strong>侧轴</strong> :始终垂直与主轴<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置元素在侧轴方向对齐方式 */</span></span><br><span class="line">align-items:flex-start | flex-end | center | baseline | stretch</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">flex-start</span>:伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。</span><br><span class="line"><span class="selector-tag">flex-end</span>:伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。</span><br><span class="line"><span class="selector-tag">center</span>:伸缩项目的外边距盒在该行的侧轴上居中放置。</span><br><span class="line"><span class="selector-tag">baseline</span>:如果伸缩项目的行内轴与侧轴为同一条，则该值和<span class="selector-tag">flex-start</span>等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。</span><br><span class="line"><span class="selector-tag">stretch</span>:拉伸(和父盒子宽高一样)</span><br><span class="line">### <span class="selector-tag">Flex</span>容器属性</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>要改变元素的模式为伸缩容器,需要使用display属性.<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display: flex | inline-flex</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>inline-flex 内联伸缩容器</p>
-</blockquote>
-<h3 id="flex-wrap-换行"><a href="#flex-wrap-换行" class="headerlink" title="flex-wrap 换行"></a>flex-wrap 换行</h3><blockquote>
-<p>　默认情况下，Flex项目都尽可能在一行显示，会导致子元素原来的宽高失效.所以你可以根据flex-wrap的属性值来改变，让Flex项目多行显示。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-wrap:warp | nowarp  默认nowarp</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="元素换行后对齐方式"><a href="#元素换行后对齐方式" class="headerlink" title="元素换行后对齐方式"></a>元素换行后对齐方式</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">align-content:flex-start | flex-end | center |space-between |space-around| strech</span><br></pre></td></tr></table></figure>
-<h3 id="设置子元素属性"><a href="#设置子元素属性" class="headerlink" title="设置子元素属性"></a>设置子元素属性</h3><p>伸缩比 flex:1  </p>
-<h3 id="设置元素自身对齐方式"><a href="#设置元素自身对齐方式" class="headerlink" title="设置元素自身对齐方式"></a>设置元素自身对齐方式</h3><p>align-self: center|auto |flex-start| flex-end</p>
-<h3 id="设置子元素排列顺序"><a href="#设置子元素排列顺序" class="headerlink" title="设置子元素排列顺序"></a>设置子元素排列顺序</h3><p>order:1,2,3  默认0  数字越小越靠前显示</p>
-
-          
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置主轴方向 */</span></span><br><span class="line">flex-direction:row | column</span><br><span class="line"><span class="comment">/* 设置元素在主轴方向对齐方式 */</span></span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-start</span>;  主轴开始位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-end</span>;    主轴结束位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-center</span>;    主轴中间显示</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-between</span>;    两端对齐中间自适应</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-around</span>;  环绕对齐</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/02/CSS3伸缩布局盒模型/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1147,151 +1130,21 @@
 
       
         
-          
-            <h3 id="响应式布局概念"><a href="#响应式布局概念" class="headerlink" title="响应式布局概念"></a>响应式布局概念</h3><blockquote>
-<p>Responsive Web Design（响应式布局）这个名词是Ethan Marcotte在2010年提出.简单说呢就针对不同的屏幕分辨率应用不同的CSS样式。比如在电脑、Pad设备上，屏幕比较宽，就可以一行放多个Div。到了手机上，或者Pad竖着拿的的时候，一行就只放1到2个Div就差不多了。这样在移动设备上,无论是字体大小还是页面布局就不会显得很局促.一切都是为了客户的体验度.</p>
+          <h3 id="响应式布局概念"><a href="#响应式布局概念" class="headerlink" title="响应式布局概念"></a>响应式布局概念</h3><blockquote>
+<p>Responsive Web Design（响应式布局）这个名词是 Ethan Marcotte 在 2010 年提出.简单说呢就针对不同的屏幕分辨率应用不同的 CSS 样式。比如在电脑、Pad 设备上，屏幕比较宽，就可以一行放多个 Div。到了手机上，或者 Pad 竖着拿的的时候，一行就只放 1 到 2 个 Div 就差不多了。这样在移动设备上,无论是字体大小还是页面布局就不会显得很局促.一切都是为了客户的体验度.</p>
 </blockquote>
-<h3 id="meta标签设置"><a href="#meta标签设置" class="headerlink" title="meta标签设置"></a>meta标签设置</h3><blockquote>
+<h3 id="meta-标签设置"><a href="#meta-标签设置" class="headerlink" title="meta 标签设置"></a>meta 标签设置</h3><blockquote>
 <p>下面的这段话在响应式布局里面必不可少</p>
 </blockquote>
-<h5 id="网页宽度调整"><a href="#网页宽度调整" class="headerlink" title="网页宽度调整"></a>网页宽度调整</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt;</span></span><br><span class="line">上面这行代码的意思是：网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1.0），即网页初始大小占屏幕面积的100%。</span><br><span class="line"></span><br><span class="line">当然这里除了这两个属性之外,还可以加上其他几个属性,比较完整的是这个样子:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span>&gt;</span></span><br><span class="line">maximum-scale=1.0, minimum-scale=1.0;可视区域的缩放级别，maximum-scale用户可将页面放大的程序，1.0将禁止用户放大到实际尺寸之上,minimum-scale=1.0当然就是禁止缩小了。user-scalable:是否可对页面进行缩放，no 禁止缩放</span><br><span class="line"></span><br><span class="line">所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要另外重写。</span><br></pre></td></tr></table></figure>
-<h3 id="不使用绝对宽度和字体"><a href="#不使用绝对宽度和字体" class="headerlink" title="不使用绝对宽度和字体"></a>不使用绝对宽度和字体</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">由于网页会根据屏幕宽度调整布局，所以不能使用绝对宽度的布局，也不能使用具有绝对宽度的元素。</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">CSS</span>代码不能指定像素宽度：</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">width</span><span class="selector-pseudo">:number</span> <span class="selector-tag">px</span>;</span><br><span class="line">只能指定百分比宽度：</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">width</span>: <span class="selector-tag">x</span>%;</span><br><span class="line">或者自动：</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">width</span>: <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="media-query-媒体查询"><a href="#media-query-媒体查询" class="headerlink" title="media query 媒体查询"></a>media query 媒体查询</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> only screen and (max-width: <span class="number">600px</span>) &#123;</span><br><span class="line">	<span class="selector-tag">div</span>&#123;</span><br><span class="line">		<span class="attribute">width</span>: <span class="number">95%</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上面的代码,表示正常情况下div的width还是维持在30%没有变化,但是当检测到screen的最大宽度是600px的时候,就将执行@media里面的css,其实就是相当于利用了层叠样式表的特性,@media里面的代码将原来的覆盖了.由此可见,@media放在div样式前面可以吗?</p>
-<p>当然,既然又max-width,就会有min-width,很多初学者一直没搞清楚这两个的区别,老是搞混淆.其实记住一点. max-width就是当屏幕小于等于多少的时候执行(&lt;=) min-width就是当屏幕大于等于多少的时候执行(&gt;=)</p>
-<p>所以,有时候精确判断的时候,可以写 屏幕&gt;=多少 and 屏幕 &lt;= 多少的时候执行:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">float</span>: left;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">media</span> only screen and (min-width: <span class="number">601px</span>) and (max-width: <span class="number">980px</span>) &#123;</span><br><span class="line">	<span class="selector-tag">div</span>&#123;</span><br><span class="line">    	<span class="attribute">width</span>: <span class="number">45%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> only screen and (max-width: <span class="number">600px</span>) &#123;</span><br><span class="line">	<span class="selector-tag">div</span>&#123;</span><br><span class="line">		<span class="attribute">width</span>: <span class="number">95%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>上面的代码相当于,当 屏幕宽度 &gt;= 601px &amp;&amp; 屏幕宽度 &lt;= 980px的时候,页面上实际上在一行显示2个div,因为2个45%就已经是90%,剩下的那个肯定就被挤下去了.</p>
-<p>当屏幕宽度&lt;=600px的时候,就让一个div占满一行(95%)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="愚人阳仔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阳仔的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/keaichong.github.io/2019/02/02/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-02T02:29:09+08:00">
-                2019-02-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一篇博文"><a href="#创建一篇博文" class="headerlink" title="创建一篇博文"></a>创建一篇博文</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+<h5 id="网页宽度调整"><a href="#网页宽度调整" class="headerlink" title="网页宽度调整"></a>网页宽度调整</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt;</span></span><br><span class="line">上面这行代码的意思是：网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1.0），即网页初始大小占屏幕面积的100%。</span><br><span class="line">当然这里除了这两个属性之外,还可以加上其他几个属性,比较完整的是这个样子:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line">maximum-scale=1.0,</span><br><span class="line">minimum-scale=1.0;可视区域的缩放级别，maximum-scale用户可将页面放大的程序，1.0将禁止用户放大到实际尺寸之上,minimum-scale=1.0当然就是禁止缩小了。user-scalable:是否可对页面进行缩放，no</span><br><span class="line">禁止缩放</span><br><span class="line">所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要另外重写。</span><br></pre></td></tr></table></figure>
+<h3 id="不使用绝对宽度和字体"><a href="#不使用绝对宽度和字体" class="headerlink" title="不使用绝对宽度和字体"></a>不使用绝对宽度和字体</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/02/我的第一篇博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1382,16 +1235,18 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/keaichong.github.io/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
 
           </nav>
 
-          
-            <div class="feed-link motion-element">
-              <a href="/keaichong.github.io/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
           
 
           
@@ -1431,15 +1286,14 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
 
 
 
-  <span class="post-meta-divider">|</span>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
 
 
 
@@ -1538,6 +1392,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
 

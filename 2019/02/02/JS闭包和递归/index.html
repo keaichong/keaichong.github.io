@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,30 +68,29 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-  <link rel="alternate" href="/keaichong.github.io/atom.xml" title="阳仔的博客" type="application/atom+xml">
+  <meta name="keywords" content="js,">
 
 
 
 
 
 
-<meta name="description" content="闭包closure 闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量理解:函数作为返回值，函数作为参数传递  变量保存在内存中 变量的生命周期: 变量什么时候被释放 全局变量生命周期: 退出程序后才会被释放 局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量   作用域作用域是在函数定义时决定的,从内层向外层">
+
+
+
+
+<meta name="description" content="闭包 closure 闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量理解:函数作为返回值，函数作为参数传递   变量保存在内存中 变量的生命周期: 变量什么时候被释放 全局变量生命周期: 退出程序后才会被释放 局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量  作用域作用域是在函数定义时决定的,从内层向外">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS闭包和递归">
 <meta property="og:url" content="http://yoursite.com/2019/02/02/JS闭包和递归/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="闭包closure 闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量理解:函数作为返回值，函数作为参数传递  变量保存在内存中 变量的生命周期: 变量什么时候被释放 全局变量生命周期: 退出程序后才会被释放 局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量   作用域作用域是在函数定义时决定的,从内层向外层">
+<meta property="og:description" content="闭包 closure 闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量理解:函数作为返回值，函数作为参数传递   变量保存在内存中 变量的生命周期: 变量什么时候被释放 全局变量生命周期: 退出程序后才会被释放 局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量  作用域作用域是在函数定义时决定的,从内层向外">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-02T16:27:21.996Z">
+<meta property="og:updated_time" content="2019-02-03T07:25:44.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS闭包和递归">
-<meta name="twitter:description" content="闭包closure 闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量理解:函数作为返回值，函数作为参数传递  变量保存在内存中 变量的生命周期: 变量什么时候被释放 全局变量生命周期: 退出程序后才会被释放 局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量   作用域作用域是在函数定义时决定的,从内层向外层">
+<meta name="twitter:description" content="闭包 closure 闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量理解:函数作为返回值，函数作为参数传递   变量保存在内存中 变量的生命周期: 变量什么时候被释放 全局变量生命周期: 退出程序后才会被释放 局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量  作用域作用域是在函数定义时决定的,从内层向外">
 
 
 
@@ -99,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/keaichong.github.io/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -188,6 +187,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/keaichong.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
           </a>
         </li>
       
@@ -301,32 +310,34 @@
       
 
       
-        <h3 id="闭包closure"><a href="#闭包closure" class="headerlink" title="闭包closure"></a>闭包closure</h3><blockquote>
+        <h3 id="闭包-closure"><a href="#闭包-closure" class="headerlink" title="闭包 closure"></a>闭包 closure</h3><blockquote>
 <p>闭包是一个子函数，子函数一定要把内部和外部关联起来。闭包满足两个条件 一,让内部和外部关联 二,内层子函数可以操作到外层函数变量<br>理解:函数作为返回值，函数作为参数传递</p>
+</blockquote>
 <ol>
 <li>变量保存在内存中 变量的生命周期: 变量什么时候被释放</li>
 <li>全局变量生命周期: 退出程序后才会被释放</li>
 <li>局部变量生命周期: 函数调用时候产生,本次结束后释放局部变量</li>
 </ol>
-</blockquote>
 <h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>作用域是在函数定义时决定的,从内层向外层访问<br>问题: 外层作用域无法操作内层作用域变量<br>原因: 局部作用域生命周期在调用结束后释放了,因此外层不能访问.<br>需求: 让外层作用域操作到内层作用域<br>实现: 用闭包来延长局部变量的生命周期</p>
-<h3 id="闭包中的GC垃圾回收机制"><a href="#闭包中的GC垃圾回收机制" class="headerlink" title="闭包中的GC垃圾回收机制"></a>闭包中的GC垃圾回收机制</h3><p> 运行中的程序的数据是存放在内存中<br> 在运行的过程中有一个叫GC的机制（Garbage Collection垃圾回收机制）<br> GC相当于生活中的保洁，会不定时去清理内存中的没有用的数据,也就是不在被引用的数据。<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bieShu</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">3</span>;  <span class="comment">// 局部变量</span></span><br><span class="line">  <span class="keyword">var</span> guanjia = <span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;  <span class="comment">// 管家</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    a = a + num;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> guanjia;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cyqz = bieShu();</span><br><span class="line"><span class="comment">// 若函数内部中的a不在了，10 是无法和a相加的得出结果13的</span></span><br><span class="line"><span class="comment">// 若a还在，10 和 a得出结果是13， 说a在bieshu这函数调用完毕后没有被释放。</span></span><br><span class="line"><span class="comment">// 怎么延长的？ 内部的子函数当做桥梁和外部关联→ 外部直在应用或操作函数内部的局部变量→ 所以局部变量没有当做垃圾数据释放</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 13</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 23</span></span><br><span class="line">cyqz(<span class="number">10</span>);  <span class="comment">// a = 23</span></span><br><span class="line"><span class="comment">// 如何调试： 在子函数内部设置断点→ 进入子函数内部后 → 查看右侧是否有clouser存在</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="闭包中的-GC-垃圾回收机制"><a href="#闭包中的-GC-垃圾回收机制" class="headerlink" title="闭包中的 GC 垃圾回收机制"></a>闭包中的 GC 垃圾回收机制</h3><a id="more"></a>
+<p>运行中的程序的数据是存放在内存中<br> 在运行的过程中有一个叫 GC 的机制（Garbage Collection 垃圾回收机制）<br>GC 相当于生活中的保洁，会不定时去清理内存中的没有用的数据,也就是不在被引用的数据。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bieShu</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">3</span>; <span class="comment">// 局部变量</span></span><br><span class="line">  <span class="keyword">var</span> guanjia = <span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 管家</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    a = a + num;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> guanjia;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cyqz = bieShu();</span><br><span class="line"><span class="comment">// 若函数内部中的a不在了，10 是无法和a相加的得出结果13的</span></span><br><span class="line"><span class="comment">// 若a还在，10 和 a得出结果是13， 说a在bieshu这函数调用完毕后没有被释放。</span></span><br><span class="line"><span class="comment">// 怎么延长的？ 内部的子函数当做桥梁和外部关联→ 外部直在应用或操作函数内部的局部变量→ 所以局部变量没有当做垃圾数据释放</span></span><br><span class="line">cyqz(<span class="number">10</span>); <span class="comment">// a = 13</span></span><br><span class="line">cyqz(<span class="number">10</span>); <span class="comment">// a = 23</span></span><br><span class="line">cyqz(<span class="number">10</span>); <span class="comment">// a = 23</span></span><br><span class="line"><span class="comment">// 如何调试： 在子函数内部设置断点→ 进入子函数内部后 → 查看右侧是否有clouser存在</span></span><br></pre></td></tr></table></figure>
 <h3 id="闭包用途"><a href="#闭包用途" class="headerlink" title="闭包用途"></a>闭包用途</h3><ol>
 <li>函数外部读取函数内部成员</li>
 <li>函数内成员始终存活在内存之中(延长局部变量生命周期)</li>
 <li>维护私有变量的安全(例如 取款机取钱)</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)  <span class="comment">//The Window</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = object.getNameFunc();</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;　　</span><br><span class="line"><span class="keyword">var</span> object = &#123;　　　　</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>; </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(that.name); <span class="comment">//My Object</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = object.getNameFunc();</span><br><span class="line"><span class="built_in">window</span>.fn();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//The Window</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = object.getNameFunc();</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name: <span class="string">"My Object"</span>,</span><br><span class="line">  getNameFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(that.name); <span class="comment">//My Object</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> fn = object.getNameFunc();</span><br><span class="line"><span class="built_in">window</span>.fn();</span><br></pre></td></tr></table></figure>
 <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><blockquote>
 <p>程序调用自身 作用:减少代码量</p>
 </blockquote>
 <h3 id="递归的三个阶段"><a href="#递归的三个阶段" class="headerlink" title="递归的三个阶段"></a>递归的三个阶段</h3><ul>
 <li>递归前进段</li>
 <li>递归边界条件</li>
-<li>递归返回段<br>1,1,2,3,5,8……….求第n个数是多少 斐波那契数列 用递归实现<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFbi</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">return</span> getFbi(n - <span class="number">1</span>) + getFbi(n - <span class="number">2</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(getFbi(<span class="number">6</span>))</span><br></pre></td></tr></table></figure>
-</li>
+<li>递归返回段<br>1,1,2,3,5,8……….求第 n 个数是多少 斐波那契数列 用递归实现</li>
 </ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFbi</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">1</span> || n == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> getFbi(n - <span class="number">1</span>) + getFbi(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getFbi(<span class="number">6</span>));</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -341,6 +352,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/keaichong.github.io/tags/js/" rel="tag"># js</a>
+          
+        </div>
       
 
       
@@ -360,6 +377,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/keaichong.github.io/2019/02/03/JS原型和原型链理解/" rel="prev" title="JS原型和原型链理解">
+                JS原型和原型链理解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -447,16 +468,18 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/keaichong.github.io/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
 
           </nav>
 
-          
-            <div class="feed-link motion-element">
-              <a href="/keaichong.github.io/atom.xml" rel="alternate">
-                <i class="fa fa-rss"></i>
-                RSS
-              </a>
-            </div>
           
 
           
@@ -482,7 +505,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包closure"><span class="nav-number">1.</span> <span class="nav-text">闭包closure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包中的GC垃圾回收机制"><span class="nav-number">3.</span> <span class="nav-text">闭包中的GC垃圾回收机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包用途"><span class="nav-number">4.</span> <span class="nav-text">闭包用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">5.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归的三个阶段"><span class="nav-number">6.</span> <span class="nav-text">递归的三个阶段</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包-closure"><span class="nav-number">1.</span> <span class="nav-text">闭包 closure</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">2.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包中的-GC-垃圾回收机制"><span class="nav-number">3.</span> <span class="nav-text">闭包中的 GC 垃圾回收机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包用途"><span class="nav-number">4.</span> <span class="nav-text">闭包用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-number">5.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归的三个阶段"><span class="nav-number">6.</span> <span class="nav-text">递归的三个阶段</span></a></li></ol></div>
             
 
           </div>
@@ -512,15 +535,14 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
 
 
 
-  <span class="post-meta-divider">|</span>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
 
 
 
@@ -619,6 +641,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/keaichong.github.io/js/src/scrollspy.js?v=5.1.4"></script>
