@@ -859,9 +859,9 @@
       
         
           <h3 id="Git-的-3-个区域"><a href="#Git-的-3-个区域" class="headerlink" title="Git 的 3 个区域"></a>Git 的 3 个区域</h3><ol>
-<li><strong>工作目录</strong>(working directory)</li>
-<li><strong>暂存区域</strong>(staging area)</li>
-<li><strong>本地仓库</strong>(repository)</li>
+<li><strong>工作目录</strong>(working directory)<br>简单理解就是需要进行版本的某个文件夹（假设为 test），这个文件夹有一些特殊之处——多了.git 这个隐藏的文件夹。</li>
+<li><strong>暂存区域</strong>（Stage 或 Index）<br>暂存区可以理解为一个虚拟工作区，这个虚拟工作区会跟踪工作区的文件变化（增删改等操作）。这个工作区的位于.git 文件夹下的 index 目录下。除非是绕过暂存区直接提交，否则 Git 想把修改提交上去，就必须将修改存入暂存区最后才能 commit。每次提交的是暂存区所对应的文件快照。</li>
+<li><strong>本地仓库</strong>(repository)<br>存放已经提交的数据，push 的时候，就是把这个区的数据 push 到远程仓库了</li>
 </ol>
 <h3 id="文件的三种状态"><a href="#文件的三种状态" class="headerlink" title="文件的三种状态"></a>文件的三种状态</h3><ol>
 <li><p><strong>已修改</strong>(modified)</p>
@@ -871,12 +871,22 @@
 <li><p><strong>已提交</strong>(committed)​</p>
 </li>
 </ol>
+<h3 id="暂存区作用"><a href="#暂存区作用" class="headerlink" title="暂存区作用"></a>暂存区作用</h3><ol>
+<li>修改了 4 个文件，在不放弃任何修改的情况下，其中一个文件不想提交，如何操作？（没 add : git add 已经 add: git reset –soft ）</li>
+<li>修改到一半的文件，突然间不需要或者放弃修改了，怎么恢复未修改前文件？ (git checkout)</li>
+<li>代码写一半，被打断去做其他功能开发，未完成代码保存？(git stash)</li>
+<li>代码写一半，发现忘记切换分支了？(git stash &amp; git checkout)</li>
+<li>代码需要回滚了？（git reset）</li>
+<li>等等</li>
+</ol>
 <h3 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h3><ol>
 <li>在工作目录中修改某些文件。</li>
 <li>对修改后的文件进行快照，然后保存到暂存区域。</li>
 <li>提交更新，将保存在暂存区域的文件快照永久转储到 Git 目录中。</li>
 </ol>
-<h3 id="创建工作目录"><a href="#创建工作目录" class="headerlink" title="创建工作目录"></a>创建工作目录</h3><p>可以在本地的任意目录下，创建项目文件夹 pinyougou，此项目文件夹就是我们的工作目录。<br>
+<h3 id="创建工作目录"><a href="#创建工作目录" class="headerlink" title="创建工作目录"></a>创建工作目录</h3><blockquote>
+<p>可以在本地的任意目录下，创建项目文件夹 pinyougou，此项目文件夹就是我们的工作目录。</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/keaichong.github.io/2019/02/02/Git基本使用/#more" rel="contents">
@@ -886,7 +896,7 @@
           <!--/noindex-->
         
       
-    </p></div>
+    </div>
     
     
     
