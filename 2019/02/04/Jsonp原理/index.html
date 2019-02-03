@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="盒模型,">
+  <meta name="keywords" content="Jsonp,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="伸缩布局基本概念 CSS3 引入的布局模式 Flexbox 布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex 容器使用 Flex 项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox 布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应布局解决方案 没有具体数字,通过一">
-<meta name="keywords" content="盒模型">
+<meta name="description" content="jsonp 前端代码12345678910111213141516// 点击按钮，发送跨域的请求，获取到结果document.querySelector(&quot;#btn&quot;).onclick = function() &amp;#123;  // 1. 创建script标签  var script = document.createElement(&quot;script&quot;);  // 2. 设置src   script">
+<meta name="keywords" content="Jsonp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3伸缩布局盒模型">
-<meta property="og:url" content="http://yoursite.com/2019/02/02/CSS3伸缩布局盒模型/index.html">
+<meta property="og:title" content="Jsonp原理">
+<meta property="og:url" content="http://yoursite.com/2019/02/04/Jsonp原理/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="伸缩布局基本概念 CSS3 引入的布局模式 Flexbox 布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex 容器使用 Flex 项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox 布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应布局解决方案 没有具体数字,通过一">
+<meta property="og:description" content="jsonp 前端代码12345678910111213141516// 点击按钮，发送跨域的请求，获取到结果document.querySelector(&quot;#btn&quot;).onclick = function() &amp;#123;  // 1. 创建script标签  var script = document.createElement(&quot;script&quot;);  // 2. 设置src   script">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-03T07:26:20.227Z">
+<meta property="og:updated_time" content="2019-02-03T17:19:16.300Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3伸缩布局盒模型">
-<meta name="twitter:description" content="伸缩布局基本概念 CSS3 引入的布局模式 Flexbox 布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex 容器使用 Flex 项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox 布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应布局解决方案 没有具体数字,通过一">
+<meta name="twitter:title" content="Jsonp原理">
+<meta name="twitter:description" content="jsonp 前端代码12345678910111213141516// 点击按钮，发送跨域的请求，获取到结果document.querySelector(&quot;#btn&quot;).onclick = function() &amp;#123;  // 1. 创建script标签  var script = document.createElement(&quot;script&quot;);  // 2. 设置src   script">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/02/CSS3伸缩布局盒模型/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/04/Jsonp原理/">
 
 
 
 
 
-  <title>CSS3伸缩布局盒模型 | 阳仔的博客</title>
+  <title>Jsonp原理 | 阳仔的博客</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/CSS3伸缩布局盒模型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/04/Jsonp原理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSS3伸缩布局盒模型</h1>
+          <h1 class="post-title" itemprop="name headline">Jsonp原理</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-02T17:03:21+08:00">
-                2019-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-04T01:13:25+08:00">
+                2019-02-04
               </time>
             
 
@@ -310,31 +310,9 @@
       
 
       
-        <h3 id="伸缩布局基本概念"><a href="#伸缩布局基本概念" class="headerlink" title="伸缩布局基本概念"></a>伸缩布局基本概念</h3><blockquote>
-<p>CSS3 引入的布局模式 Flexbox 布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex 容器使用 Flex 项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox 布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应<br>布局解决方案 没有具体数字,通过一系列属性控制</p>
-</blockquote>
-<h3 id="伸缩盒模型术语"><a href="#伸缩盒模型术语" class="headerlink" title="伸缩盒模型术语"></a>伸缩盒模型术语</h3><blockquote>
-<p>伸缩盒子中有两条轴 -&gt;主轴和侧轴<br><strong>主轴</strong>: 默认水平从左往右显示</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置主轴方向 */</span></span><br><span class="line">flex-direction:row | column</span><br><span class="line"><span class="comment">/* 设置元素在主轴方向对齐方式 */</span></span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-start</span>;  主轴开始位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-end</span>;    主轴结束位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-center</span>;    主轴中间显示</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-between</span>;    两端对齐中间自适应</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-around</span>;  环绕对齐</span><br></pre></td></tr></table></figure>
+        <h2 id="jsonp-前端代码"><a href="#jsonp-前端代码" class="headerlink" title="jsonp 前端代码"></a>jsonp 前端代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击按钮，发送跨域的请求，获取到结果</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#btn"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 创建script标签</span></span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">  <span class="comment">// 2. 设置src </span></span><br><span class="line">  script.src = <span class="string">"http://localhost:3000/query?callback=song"</span>;</span><br><span class="line">  <span class="comment">// 3. 把script添加到body</span></span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">  <span class="comment">//执行script中的代码</span></span><br><span class="line">  <span class="comment">//相当于</span></span><br><span class="line">  <span class="comment">// &lt;script&gt;song(data相应数据)&lt;/\script&gt;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//被调用  这种方式需要前后端配合</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">song</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);<span class="comment">//拿到跨域请求返回的数据 自己根据需要进行后续处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p><strong>侧轴</strong> :始终垂直与主轴</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置元素在侧轴方向对齐方式 */</span></span><br><span class="line">align-items:flex-start | flex-end | center | baseline | stretch</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">flex-start</span>:伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。</span><br><span class="line"><span class="selector-tag">flex-end</span>:伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。</span><br><span class="line"><span class="selector-tag">center</span>:伸缩项目的外边距盒在该行的侧轴上居中放置。</span><br><span class="line"><span class="selector-tag">baseline</span>:如果伸缩项目的行内轴与侧轴为同一条，则该值和<span class="selector-tag">flex-start</span>等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。</span><br><span class="line"><span class="selector-tag">stretch</span>:拉伸(和父盒子宽高一样)</span><br><span class="line">### <span class="selector-tag">Flex</span>容器属性</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>要改变元素的模式为伸缩容器,需要使用 display 属性.</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">display: flex | inline-flex;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>inline-flex 内联伸缩容器</p>
-</blockquote>
-<h3 id="flex-wrap-换行"><a href="#flex-wrap-换行" class="headerlink" title="flex-wrap 换行"></a>flex-wrap 换行</h3><blockquote>
-<p>默认情况下，Flex 项目都尽可能在一行显示，会导致子元素原来的宽高失效.所以你可以根据 flex-wrap 的属性值来改变，让 Flex 项目多行显示。</p>
-</blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flex-wrap: warp | nowarp 默认nowarp;</span><br></pre></td></tr></table></figure>
-<h3 id="元素换行后对齐方式"><a href="#元素换行后对齐方式" class="headerlink" title="元素换行后对齐方式"></a>元素换行后对齐方式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">align-content: flex-start | flex-end | center |space-between |space-around|</span><br><span class="line">  <span class="selector-tag">strech</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="设置子元素属性"><a href="#设置子元素属性" class="headerlink" title="设置子元素属性"></a>设置子元素属性</h3><p>伸缩比 flex:1</p>
-<h3 id="设置元素自身对齐方式"><a href="#设置元素自身对齐方式" class="headerlink" title="设置元素自身对齐方式"></a>设置元素自身对齐方式</h3><p>align-self: center|auto |flex-start| flex-end</p>
-<h3 id="设置子元素排列顺序"><a href="#设置子元素排列顺序" class="headerlink" title="设置子元素排列顺序"></a>设置子元素排列顺序</h3><p>order:1,2,3 默认 0 数字越小越靠前显示</p>
+<h2 id="后端代码"><a href="#后端代码" class="headerlink" title="后端代码"></a>后端代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</span><br><span class="line"><span class="keyword">const</span> app = express();</span><br><span class="line"><span class="comment">// 设置静态资源</span></span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">"public"</span>)));</span><br><span class="line"><span class="keyword">let</span> user = <span class="built_in">require</span>(<span class="string">"./db"</span>);</span><br><span class="line"><span class="comment">// 设置一个路由，返回js代码</span></span><br><span class="line"><span class="comment">// jsonp 的接口</span></span><br><span class="line">app.get(<span class="string">"/query"</span>, (req, res) =&gt; &#123;</span><br><span class="line">  <span class="comment">//设置请求头</span></span><br><span class="line">  res.setHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/javascript"</span>);</span><br><span class="line">  <span class="comment">// 输出的样式  fn(&#123;....&#125;);</span></span><br><span class="line">  <span class="comment">// 接收查询字符串中的callback</span></span><br><span class="line">  <span class="keyword">let</span> cb = req.query.callback;</span><br><span class="line">  <span class="keyword">let</span> jsonStr = <span class="built_in">JSON</span>.stringify(user);</span><br><span class="line">  <span class="comment">// jsonString  ---&gt;  [&#123;&#125;,&#123;&#125;];</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//返回一个调用函数名 把查询字符串的值用模板字符串设为返回的函数名,这样前端就可以通过调用函数拿到script标签返回的数据 cb是函数名song  jsonstr是实参</span></span><br><span class="line">  <span class="keyword">let</span> javascriptString = <span class="string">`<span class="subst">$&#123;cb&#125;</span>(<span class="subst">$&#123;jsonStr&#125;</span>);`</span>;</span><br><span class="line">  <span class="comment">//发送了一个调用方式给前端</span></span><br><span class="line">  res.send(javascriptString);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"开始监听：3000"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -352,7 +330,7 @@
       
         <div class="post-tags">
           
-            <a href="/keaichong.github.io/tags/盒模型/" rel="tag"># 盒模型</a>
+            <a href="/keaichong.github.io/tags/Jsonp/" rel="tag"># Jsonp</a>
           
         </div>
       
@@ -365,8 +343,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/keaichong.github.io/2019/02/02/响应式布局总结/" rel="next" title="响应式布局总结">
-                <i class="fa fa-chevron-left"></i> 响应式布局总结
+              <a href="/keaichong.github.io/2019/02/03/封装原生ajax/" rel="next" title="封装原生ajax">
+                <i class="fa fa-chevron-left"></i> 封装原生ajax
               </a>
             
           </div>
@@ -374,10 +352,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/keaichong.github.io/2019/02/02/Git基本使用/" rel="prev" title="Git基本使用">
-                Git基本使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -502,7 +476,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#伸缩布局基本概念"><span class="nav-number">1.</span> <span class="nav-text">伸缩布局基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伸缩盒模型术语"><span class="nav-number">2.</span> <span class="nav-text">伸缩盒模型术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-wrap-换行"><span class="nav-number">3.</span> <span class="nav-text">flex-wrap 换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素换行后对齐方式"><span class="nav-number">4.</span> <span class="nav-text">元素换行后对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置子元素属性"><span class="nav-number">5.</span> <span class="nav-text">设置子元素属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置元素自身对齐方式"><span class="nav-number">6.</span> <span class="nav-text">设置元素自身对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置子元素排列顺序"><span class="nav-number">7.</span> <span class="nav-text">设置子元素排列顺序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jsonp-前端代码"><span class="nav-number">1.</span> <span class="nav-text">jsonp 前端代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后端代码"><span class="nav-number">2.</span> <span class="nav-text">后端代码</span></a></li></ol></div>
             
 
           </div>
