@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="Git 的 3 个区域 工作目录(working directory)简单理解就是需要进行版本的某个文件夹（假设为 test），这个文件夹有一些特殊之处——多了.git 这个隐藏的文件夹。 暂存区域（Stage 或 Index）暂存区可以理解为一个虚拟工作区，这个虚拟工作区会跟踪工作区的文件变化（增删改等操作）。这个工作区的位于.git 文件夹下的 index 目录下。除非是绕过暂存区直接提交，否">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-03T14:24:55.099Z">
+<meta property="og:updated_time" content="2019-02-03T14:33:32.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git基本使用">
 <meta name="twitter:description" content="Git 的 3 个区域 工作目录(working directory)简单理解就是需要进行版本的某个文件夹（假设为 test），这个文件夹有一些特殊之处——多了.git 这个隐藏的文件夹。 暂存区域（Stage 或 Index）暂存区可以理解为一个虚拟工作区，这个虚拟工作区会跟踪工作区的文件变化（增删改等操作）。这个工作区的位于.git 文件夹下的 index 目录下。除非是绕过暂存区直接提交，否">
@@ -331,15 +331,15 @@
 <li>代码需要回滚了？（git reset）</li>
 <li>等等</li>
 </ol>
+<a id="more"></a>
 <h3 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h3><ol>
 <li>在工作目录中修改某些文件。</li>
 <li>对修改后的文件进行快照，然后保存到暂存区域。</li>
 <li>提交更新，将保存在暂存区域的文件快照永久转储到 Git 目录中。</li>
 </ol>
 <h3 id="创建工作目录"><a href="#创建工作目录" class="headerlink" title="创建工作目录"></a>创建工作目录</h3><blockquote>
-<p>可以在本地的任意目录下，创建项目文件夹 pinyougou，此项目文件夹就是我们的工作目录。</p>
+<p>可以在本地的任意目录下，创建项目文件夹 demo，此项目文件夹就是我们的工作目录。</p>
 </blockquote>
-<a id="more"></a>
 <h3 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h3><blockquote>
 <p>打开 Git bash 窗口，进入工作目录，输入下面的命令，创建本地仓库。</p>
 </blockquote>
