@@ -309,9 +309,14 @@
 
       
         
-          
-            <img src="/keaichong.github.io/2019/02/04/mvc和mvvm/01.MVC和MVVM的关系图解.png" title="MVC和MVVM的关系图解">
-          
+          <img src="/keaichong.github.io/2019/02/04/mvc和mvvm/01.MVC和MVVM的关系图解.png" title="MVC和MVVM的关系图解">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/04/mvc和mvvm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -428,7 +433,8 @@
 
       
         
-          <h2 id="jsonp-前端代码"><a href="#jsonp-前端代码" class="headerlink" title="jsonp 前端代码"></a>jsonp 前端代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击按钮，发送跨域的请求，获取到结果</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#btn"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 创建script标签</span></span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">  <span class="comment">// 2. 设置src </span></span><br><span class="line">  script.src = <span class="string">"http://localhost:3000/query?callback=song"</span>;</span><br><span class="line">  <span class="comment">// 3. 把script添加到body</span></span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">  <span class="comment">//执行script中的代码</span></span><br><span class="line">  <span class="comment">//相当于</span></span><br><span class="line">  <span class="comment">// &lt;script&gt;song(data相应数据)&lt;/\script&gt;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//被调用  这种方式需要前后端配合</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">song</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);<span class="comment">//拿到跨域请求返回的数据 自己根据需要进行后续处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h2 id="jsop-工作原理"><a href="#jsop-工作原理" class="headerlink" title="jsop 工作原理"></a>jsop 工作原理</h2><p>利用<script>标签可以跨域,让服务器端返回可以执行的Javascript函数,参数为要回发的数据,jsonp只能发get请求</p>
+<h2 id="jsonp-前端代码"><a href="#jsonp-前端代码" class="headerlink" title="jsonp 前端代码"></a>jsonp 前端代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击按钮，发送跨域的请求，获取到结果</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#btn"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 创建script标签</span></span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">  <span class="comment">// 2. 设置src </span></span><br><span class="line">  script.src = <span class="string">"http://localhost:3000/query?callback=song"</span>;</span><br><span class="line">  <span class="comment">// 3. 把script添加到body</span></span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">  <span class="comment">//执行script中的代码</span></span><br><span class="line">  <span class="comment">//相当于</span></span><br><span class="line">  <span class="comment">// &lt;script&gt;song(data相应数据)&lt;/\script&gt;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//被调用  这种方式需要前后端配合</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">song</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);<span class="comment">//拿到跨域请求返回的数据 自己根据需要进行后续处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/keaichong.github.io/2019/02/04/Jsonp原理/#more" rel="contents">
@@ -477,20 +483,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/03/封装原生ajax/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="阳仔的博客">
     </span>
 
@@ -566,7 +572,7 @@
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
     
     
     
@@ -605,20 +611,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/03/JQuery常用api二/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="阳仔的博客">
     </span>
 
@@ -714,7 +720,7 @@
           <!--/noindex-->
         
       
-    </p></blockquote></div>
+    </div>
     
     
     
@@ -753,20 +759,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/03/JQuery常用api一/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="阳仔的博客">
     </span>
 
@@ -887,20 +893,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/03/JS原型和原型链理解/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="阳仔的博客">
     </span>
 
@@ -989,7 +995,7 @@
           <!--/noindex-->
         
       
-    </p></blockquote></div>
+    </div>
     
     
     
@@ -1028,20 +1034,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/JS闭包和递归/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="阳仔的博客">
     </span>
 
@@ -1161,20 +1167,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/js中this的指向问题/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="阳仔的博客">
     </span>
 
@@ -1297,20 +1303,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/js数组字符串常用方法/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="阳仔的博客">
     </span>
 
@@ -1389,7 +1395,7 @@
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
     
     
     
@@ -1428,20 +1434,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/Git基本使用/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="阳仔的博客">
     </span>
 
@@ -1523,7 +1529,7 @@
           <!--/noindex-->
         
       
-    </li></ol></div>
+    </div>
     
     
     
@@ -1591,9 +1597,11 @@
 
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/keaichong.github.io/images/avatar.jpg" alt="愚人阳仔">
+              <img class="site-author-image" itemprop="image"
+                src="/keaichong.github.io/images/avatar.jpg"
+                alt="愚人阳仔" />
             
               <p class="site-author-name" itemprop="name">愚人阳仔</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -1843,5 +1851,5 @@
 
   
 
-</body>
+</p></div></div></article></section></div></div></div></main></div></body>
 </html>
