@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="node编程中最重要的思想就是模块化，import和require都是被模块化所使用。  遵循规范 require 是 AMD规范引入方式 import是es6的一个语法标准，如果要兼容浏览器的话必须转化成es5的语法 调用时间 require是运行时调用，所以require理论上可以运用在代码的任何地方  import是编译时调用，所以必须放在文件开头 本质 require是赋值过程，其实re">
+<meta name="description" content="node 和 ES6 中导入模块区别node 中导入模块：var 名称 = require(‘模块标识符’) node 中向外暴露成员的形式：module.exports = {} 在 ES6 中，也通过规范的形式，规定了 ES6 中如何导入和导出模块 ES6 中导入模块，使用 import 模块名称 from ‘模块标识符’    import ‘表示路径’ import _ from _ 是">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="require和import的区别">
-<meta property="og:url" content="http://yoursite.com/2019/02/10/require和import的区别/index.html">
+<meta property="og:title" content="exportdefault和export的使用方式">
+<meta property="og:url" content="http://yoursite.com/2019/02/12/exportdefault和export的使用方式/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="node编程中最重要的思想就是模块化，import和require都是被模块化所使用。  遵循规范 require 是 AMD规范引入方式 import是es6的一个语法标准，如果要兼容浏览器的话必须转化成es5的语法 调用时间 require是运行时调用，所以require理论上可以运用在代码的任何地方  import是编译时调用，所以必须放在文件开头 本质 require是赋值过程，其实re">
+<meta property="og:description" content="node 和 ES6 中导入模块区别node 中导入模块：var 名称 = require(‘模块标识符’) node 中向外暴露成员的形式：module.exports = {} 在 ES6 中，也通过规范的形式，规定了 ES6 中如何导入和导出模块 ES6 中导入模块，使用 import 模块名称 from ‘模块标识符’    import ‘表示路径’ import _ from _ 是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-12T15:27:22.728Z">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/12/exportdefault和export的使用方式/20180826175027288.png">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/12/exportdefault和export的使用方式/20180826175958870.png">
+<meta property="og:updated_time" content="2019-02-12T15:32:27.393Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="require和import的区别">
-<meta name="twitter:description" content="node编程中最重要的思想就是模块化，import和require都是被模块化所使用。  遵循规范 require 是 AMD规范引入方式 import是es6的一个语法标准，如果要兼容浏览器的话必须转化成es5的语法 调用时间 require是运行时调用，所以require理论上可以运用在代码的任何地方  import是编译时调用，所以必须放在文件开头 本质 require是赋值过程，其实re">
+<meta name="twitter:title" content="exportdefault和export的使用方式">
+<meta name="twitter:description" content="node 和 ES6 中导入模块区别node 中导入模块：var 名称 = require(‘模块标识符’) node 中向外暴露成员的形式：module.exports = {} 在 ES6 中，也通过规范的形式，规定了 ES6 中如何导入和导出模块 ES6 中导入模块，使用 import 模块名称 from ‘模块标识符’    import ‘表示路径’ import _ from _ 是">
+<meta name="twitter:image" content="http://yoursite.com/keaichong.github.io/2019/02/12/exportdefault和export的使用方式/20180826175027288.png">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/10/require和import的区别/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/12/exportdefault和export的使用方式/">
 
 
 
 
 
-  <title>require和import的区别 | 阳仔的博客</title>
+  <title>exportdefault和export的使用方式 | 阳仔的博客</title>
   
 
 
@@ -243,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/10/require和import的区别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/12/exportdefault和export的使用方式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
@@ -260,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">require和import的区别</h1>
+          <h1 class="post-title" itemprop="name headline">exportdefault和export的使用方式</h1>
         
 
         <div class="post-meta">
@@ -272,8 +275,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-10T01:16:42+08:00">
-                2019-02-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-12T23:21:26+08:00">
+                2019-02-12
               </time>
             
 
@@ -310,30 +313,32 @@
       
 
       
-        <blockquote>
-<p>node编程中最重要的思想就是模块化，import和require都是被模块化所使用。</p>
-</blockquote>
-<h2 id="遵循规范"><a href="#遵循规范" class="headerlink" title="遵循规范"></a>遵循规范</h2><ol>
-<li>require 是 AMD规范引入方式</li>
-<li><p>import是es6的一个语法标准，如果要兼容浏览器的话必须转化成es5的语法</p>
-<h2 id="调用时间"><a href="#调用时间" class="headerlink" title="调用时间"></a>调用时间</h2></li>
-<li><p>require是运行时调用，所以require理论上可以运用在代码的任何地方</p>
-</li>
-<li><p>import是编译时调用，所以必须放在文件开头</p>
-<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2></li>
-<li><p>require是赋值过程，其实require的结果就是对象、数字、字符串、函数等，再把require的结果赋值给某个变量</p>
-</li>
-<li>import是解构过程，但是目前所有的引擎都还没有实现import，我们在node中使用babel支持ES6，也仅仅是将ES6转码为ES5再执行，import语法会被转码为require<a id="more"></a>
-<h2 id="require-exports-："><a href="#require-exports-：" class="headerlink" title="require / exports ："></a>require / exports ：</h2></li>
-<li>遵循 CommonJS/AMD，只能在运行时确定模块的依赖关系及输入/输出的变量，无法进行静态优化。用法只有以下三种简单的写法：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line">exports.fs = fs</span><br><span class="line"><span class="built_in">module</span>.exports = fs</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="import-export："><a href="#import-export：" class="headerlink" title="import / export："></a>import / export：</h2><ol>
-<li>遵循 ES6 规范，支持编译时静态分析，便于JS引入宏和类型检验。动态绑定。</li>
-<li>写法就比较多种多样：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="keyword">default</span> <span class="keyword">as</span> fs&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fs <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;readFile&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;readFile <span class="keyword">as</span> read&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> fs, &#123;readFile&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> fs</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fs</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">readFile</span></span></span><br><span class="line"><span class="function"><span class="title">export</span> </span>&#123;readFile, read&#125;</span><br><span class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">'fs'</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>通过require引入基础数据类型时，属于复制该变量。<br>通过require引入复杂数据类型时，数据浅拷贝该对象。<br>出现模块之间的循环引用时，会输出已经执行的模块，而未执行的模块不输出（比较复杂）<br>CommonJS模块默认export的是一个对象，即使导出的是基础数据类型</p>
+        <h2 id="node-和-ES6-中导入模块区别"><a href="#node-和-ES6-中导入模块区别" class="headerlink" title="node 和 ES6 中导入模块区别"></a>node 和 ES6 中导入模块区别</h2><p>node 中导入模块：var 名称 = require(‘模块标识符’)</p>
+<p>node 中向外暴露成员的形式：module.exports = {}</p>
+<p>在 ES6 中，也通过规范的形式，规定了 ES6 中如何导入和导出模块</p>
+<p>ES6 中导入模块，使用 import 模块名称 from ‘模块标识符’    import ‘表示路径’</p>
+<p>import <strong>_ from _</strong> 是 ES6 中导入模块的方式</p>
+<a id="more"></a>
+<h2 id="在-ES6-中，使用-export-default-和-export-向外暴露成员"><a href="#在-ES6-中，使用-export-default-和-export-向外暴露成员" class="headerlink" title="在 ES6 中，使用 export default 和 export 向外暴露成员"></a>在 ES6 中，使用 export default 和 export 向外暴露成员</h2><p>例如</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    name: <span class="string">'zs'</span>,</span><br><span class="line">    age: <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<p>或是</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">  name: <span class="string">"zs"</span>,</span><br><span class="line">  age: <span class="number">20</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> info;</span><br></pre></td></tr></table></figure>
+<p>在 main.js 中接收，test.js 使用 export default 向外暴露的成员</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> person <span class="keyword">from</span> <span class="string">"./test.js"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br></pre></td></tr></table></figure>
+<img src="/keaichong.github.io/2019/02/12/exportdefault和export的使用方式/20180826175027288.png">
+<p>注意：</p>
+<p>1、export default 向外暴露的成员，可以使用任意变量来接收</p>
+<p>2、在一个模块中，export default 只允许向外暴露一次</p>
+<p>3、在一个模块中，可以同时使用 export default 和 export 向外暴露成员</p>
+<p>4、使用 export 向外暴露的成员，只能使用{  }的形式来接收，这种形式，叫做【按需导出】</p>
+<p>5、export 可以向外暴露多个成员，同时，如果某些成员，在 import 导入时，不需要，可以不在{ }中定义</p>
+<p>6、使用 export 导出的成员，必须严格按照导出时候的名称，来使用{ }按需接收</p>
+<p>7、使用 export 导出的成员，如果想换个变量名称接收，可以使用 as 来起别名</p>
+<p>例如:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// test.js</span></span><br><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">  name: <span class="string">"zs"</span>,</span><br><span class="line">  age: <span class="number">20</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> info;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> title = <span class="string">"小星星"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> content = <span class="string">"哈哈哈"</span>;</span><br></pre></td></tr></table></figure>
+<p>在 main.js 中接收，test.js 使用 export default 和 export 向外暴露的成员</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> person, &#123; title, content <span class="keyword">as</span> content1 &#125; <span class="keyword">from</span> <span class="string">"./test.js"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br><span class="line"><span class="built_in">console</span>.log(title + <span class="string">"======="</span> + content1);</span><br></pre></td></tr></table></figure>
+<img src="/keaichong.github.io/2019/02/12/exportdefault和export的使用方式/20180826175958870.png">
 
       
     </div>
@@ -364,8 +369,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/keaichong.github.io/2019/02/04/mvc和mvvm/" rel="next" title="mvc和mvvm">
-                <i class="fa fa-chevron-left"></i> mvc和mvvm
+              <a href="/keaichong.github.io/2019/02/10/require和import的区别/" rel="next" title="require和import的区别">
+                <i class="fa fa-chevron-left"></i> require和import的区别
               </a>
             
           </div>
@@ -373,10 +378,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/keaichong.github.io/2019/02/12/exportdefault和export的使用方式/" rel="prev" title="exportdefault和export的使用方式">
-                exportdefault和export的使用方式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遵循规范"><span class="nav-number">1.</span> <span class="nav-text">遵循规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用时间"><span class="nav-number">2.</span> <span class="nav-text">调用时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本质"><span class="nav-number">3.</span> <span class="nav-text">本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#require-exports-："><span class="nav-number">4.</span> <span class="nav-text">require / exports ：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#import-export："><span class="nav-number">5.</span> <span class="nav-text">import / export：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#node-和-ES6-中导入模块区别"><span class="nav-number">1.</span> <span class="nav-text">node 和 ES6 中导入模块区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-ES6-中，使用-export-default-和-export-向外暴露成员"><span class="nav-number">2.</span> <span class="nav-text">在 ES6 中，使用 export default 和 export 向外暴露成员</span></a></li></ol></div>
             
 
           </div>
