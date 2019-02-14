@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/keaichong.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/keaichong.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/keaichong.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/keaichong.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/keaichong.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/keaichong.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/keaichong.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Git,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Git 进阶操作查看历史在多次提交之后，本地仓库中就有了多个版本，如何查看历史版本呢？在 Git bash 中输入如下命令： 1$ git log 结果如下图： 说明： 每次提交都会有一个 SHA-1 校验和(唯一标识)、作者的名字和电子邮件地址、提交时间，最后缩进一个段落显示提交说明。  提示：如果提交次数太多，一屏显示不了，最后一行会显示: 表示未显示全，按键盘上的Q 键，可以显示下一页  可">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git进阶使用">
+<meta property="og:url" content="http://yoursite.com/2019/02/14/Git进阶使用/index.html">
+<meta property="og:site_name" content="阳仔的博客">
+<meta property="og:description" content="Git 进阶操作查看历史在多次提交之后，本地仓库中就有了多个版本，如何查看历史版本呢？在 Git bash 中输入如下命令： 1$ git log 结果如下图： 说明： 每次提交都会有一个 SHA-1 校验和(唯一标识)、作者的名字和电子邮件地址、提交时间，最后缩进一个段落显示提交说明。  提示：如果提交次数太多，一屏显示不了，最后一行会显示: 表示未显示全，按键盘上的Q 键，可以显示下一页  可">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/3C2240A2-B575-4674-A941-B575BFD96F08.png">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/branch-01.png">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/branch-02.png">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/image-201803182313451.png">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/branch-03.png">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/branch-04.png">
+<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/branch-05.png">
+<meta property="og:updated_time" content="2019-02-14T10:27:55.012Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git进阶使用">
+<meta name="twitter:description" content="Git 进阶操作查看历史在多次提交之后，本地仓库中就有了多个版本，如何查看历史版本呢？在 Git bash 中输入如下命令： 1$ git log 结果如下图： 说明： 每次提交都会有一个 SHA-1 校验和(唯一标识)、作者的名字和电子邮件地址、提交时间，最后缩进一个段落显示提交说明。  提示：如果提交次数太多，一屏显示不了，最后一行会显示: 表示未显示全，按键盘上的Q 键，可以显示下一页  可">
+<meta name="twitter:image" content="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/3C2240A2-B575-4674-A941-B575BFD96F08.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/keaichong.github.io/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/14/Git进阶使用/">
+
+
+
+
+
+  <title>Git进阶使用 | 阳仔的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/keaichong.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阳仔的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">选择性失忆</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/keaichong.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/keaichong.github.io/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/keaichong.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git进阶使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-14T18:19:40+08:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Git-进阶操作"><a href="#Git-进阶操作" class="headerlink" title="Git 进阶操作"></a>Git 进阶操作</h1><h2 id="查看历史"><a href="#查看历史" class="headerlink" title="查看历史"></a>查看历史</h2><p>在多次提交之后，本地仓库中就有了多个版本，如何查看历史版本呢？在 Git bash 中输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<p>结果如下图：<br><img src="/keaichong.github.io/2019/02/14/Git进阶使用/3C2240A2-B575-4674-A941-B575BFD96F08.png"></p>
+<p>说明：</p>
+<p>每次提交都会有一个 SHA-1 <strong>校验和(唯一标识)</strong>、<strong>作者的名字</strong>和<strong>电子邮件地址</strong>、<strong>提交时间</strong>，最后缩进一个段落显示<strong>提交说明</strong>。</p>
+<blockquote>
+<p>提示：如果提交次数太多，一屏显示不了，最后一行会显示: 表示未显示全，按键盘上的<strong>Q 键</strong>，可以显示下一页</p>
+</blockquote>
+<p>可以通过<code>git log</code>的参数设置历史提交的展示方式，当历史提交数过多的时候可以使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><p>有了 Git，你就可以吃后悔药了，代码出问题，你可以恢复到之前的某个版本继续开发。任何时候，你都有可以撤消刚才所做的某些操作。</p>
+<h3 id="回退到某个版本"><a href="#回退到某个版本" class="headerlink" title="回退到某个版本"></a>回退到某个版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard commit_id(校验和)</span><br></pre></td></tr></table></figure>
+<p>commit_id(校验和)不用写全，只写<strong>前几位</strong>即可，有了此命令就可以在历史记录里穿梭。HEAD 是指向当前版本的一个指针，使用<code>git reset</code>其实是改变 HEAD 指针，指向指定的版本。</p>
+<blockquote>
+<p>注意：使用此命令可以还原到指定的版本，当前项目中未提交的内容就无法还原。</p>
+</blockquote>
+<h3 id="reflog"><a href="#reflog" class="headerlink" title="reflog"></a>reflog</h3><p>假设有 5 个版本，你回退到第 4 个版本后，第 5 个版本就不存在了(使用<code>git log</code>查看)，此时想要回到第 5 个版本就需要知道第 5 个版本的 commit_id，如何找到这个 commit_id 呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用<code>git reflog</code>可以查看所有的所有操作记录。</p>
+</blockquote>
+<h3 id="检出指定文件"><a href="#检出指定文件" class="headerlink" title="检出指定文件"></a>检出指定文件</h3><p>当某个文件修改出现问题，可以通过<code>git checkout</code>还原到最后一次提交。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- file.js</span><br></pre></td></tr></table></figure>
+<p>通过上面的命令可以把 file.js 撤销到最后一次提交(最近提交的版本)</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td><strong>git log</strong></td>
+<td>查看历史版本</td>
+</tr>
+<tr>
+<td>02</td>
+<td><strong>git log –pretty=oneline</strong></td>
+<td>以更方便的方式查看历史</td>
+</tr>
+<tr>
+<td>03</td>
+<td><strong>git reset –hard commit_id</strong></td>
+<td>回退到指定版本</td>
+</tr>
+<tr>
+<td>04</td>
+<td><strong>git reflog</strong></td>
+<td>查看所有的操作记录</td>
+</tr>
+<tr>
+<td>05</td>
+<td><strong>git checkout – file.js</strong></td>
+<td>检出指定文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><p>当我们使用 Git 第一次提交的时候其实就已经有了一个默认的分支 master。</p>
+<h3 id="什么时候需要使用分支？"><a href="#什么时候需要使用分支？" class="headerlink" title="什么时候需要使用分支？"></a>什么时候需要使用分支？</h3><ul>
+<li>开发新特性(feature 分支)</li>
+<li>正在开发的过程中继续修改一个 bug(bugfix 分支)</li>
+<li>为了保证 master 分支的稳定性，创建 dev 分支</li>
+</ul>
+<h3 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h3><h4 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a><strong>查看分支</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure>
+<h4 id="新建分支"><a href="#新建分支" class="headerlink" title="新建分支"></a><strong>新建分支</strong></h4><p>新建分支会基于当前分支当前版本，新建一个分支(内容和当前分支一样)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch testing</span><br></pre></td></tr></table></figure>
+<img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-01.png">
+<p>当有多个分支的时候，Git 如何知道我们当前在哪个分支工作呢？Git 保存着一个名为<strong>HEAD 的指针</strong>，该指针指向<strong>当前工作的分支</strong>。如下图：</p>
+<img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-02.png">
+<p>使用`git branch’命令可以看到当前所有的分支，和当前工作的分支(前面加*号的分支)，如下图：</p>
+<img src="/keaichong.github.io/2019/02/14/Git进阶使用/image-201803182313451.png">
+<h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><p>假设 testing 是开发分支，我们如何切换到开发分支呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout testing</span><br></pre></td></tr></table></figure>
+<p>此时切换到 testing 分支，可以开心的在当前分支工作了。</p>
+<img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-03.png">
+<p>新建和合并分支可以简化为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b testing</span><br></pre></td></tr></table></figure>
+<p>相当于下面两个命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch testing</span><br><span class="line">$ git checkout testing</span><br></pre></td></tr></table></figure>
+<h4 id="testing-分支提交"><a href="#testing-分支提交" class="headerlink" title="testing 分支提交"></a>testing 分支提交</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改某个文件</span></span><br><span class="line">$ git commit -m <span class="string">'修改内容'</span></span><br></pre></td></tr></table></figure>
+<p>每次提交后 HEAD 随着分支一起向前移动</p>
+<img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-04.png">
+<h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><p>当在 testing 分支某个功能开发完毕后，需要把内容合并到 master 分支，此时需要两步：</p>
+<ol>
+<li><p>切换到 master 分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把 testing 的修改合并到 master 分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge testing</span><br></pre></td></tr></table></figure>
+<p>当合并完毕，master 和 testing 分支同时指向 c2b9e 这次提交</p>
+</li>
+</ol>
+<img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-05.png">
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td><strong>git branch</strong></td>
+<td>查看分支</td>
+</tr>
+<tr>
+<td>02</td>
+<td><strong>git branch testing</strong></td>
+<td>新建分支</td>
+</tr>
+<tr>
+<td>03</td>
+<td><strong>git checkout testing</strong></td>
+<td>切换分支</td>
+</tr>
+<tr>
+<td>04</td>
+<td><strong>git checkout -b testing</strong></td>
+<td>新建和合并分支</td>
+</tr>
+<tr>
+<td>05</td>
+<td><strong>git merge testing</strong></td>
+<td>合并分支</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/keaichong.github.io/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/keaichong.github.io/2019/02/14/localStoragr和cookie区别用法/" rel="next" title="localStoragr和cookie区别用法">
+                <i class="fa fa-chevron-left"></i> localStoragr和cookie区别用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/keaichong.github.io/images/avatar.jpg" alt="愚人阳仔">
+            
+              <p class="site-author-name" itemprop="name">愚人阳仔</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/keaichong.github.io/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/keaichong.github.io/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-进阶操作"><span class="nav-number">1.</span> <span class="nav-text">Git 进阶操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看历史"><span class="nav-number">1.1.</span> <span class="nav-text">查看历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销操作"><span class="nav-number">1.2.</span> <span class="nav-text">撤销操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#回退到某个版本"><span class="nav-number">1.2.1.</span> <span class="nav-text">回退到某个版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reflog"><span class="nav-number">1.2.2.</span> <span class="nav-text">reflog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检出指定文件"><span class="nav-number">1.2.3.</span> <span class="nav-text">检出指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">1.2.4.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支操作"><span class="nav-number">1.3.</span> <span class="nav-text">分支操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候需要使用分支？"><span class="nav-number">1.3.1.</span> <span class="nav-text">什么时候需要使用分支？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用分支命令"><span class="nav-number">1.3.2.</span> <span class="nav-text">常用分支命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看分支"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">查看分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新建分支"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">新建分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切换分支"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">切换分支</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#testing-分支提交"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">testing 分支提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并分支"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">合并分支</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结-1"><span class="nav-number">1.3.3.</span> <span class="nav-text">小结</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">愚人阳仔</span>
+
+  
+</div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/keaichong.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/keaichong.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/keaichong.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/keaichong.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
