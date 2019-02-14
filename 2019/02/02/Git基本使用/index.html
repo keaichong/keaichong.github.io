@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="Git 的 3 个区域 工作目录(working directory)简单理解就是需要进行版本的某个文件夹（假设为 test），这个文件夹有一些特殊之处——多了.git 这个隐藏的文件夹。 暂存区域（Stage 或 Index）暂存区可以理解为一个虚拟工作区，这个虚拟工作区会跟踪工作区的文件变化（增删改等操作）。这个工作区的位于.git 文件夹下的 index 目录下。除非是绕过暂存区直接提交，否">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-03T14:56:13.742Z">
+<meta property="og:updated_time" content="2019-02-14T09:23:13.842Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git基本使用">
 <meta name="twitter:description" content="Git 的 3 个区域 工作目录(working directory)简单理解就是需要进行版本的某个文件夹（假设为 test），这个文件夹有一些特殊之处——多了.git 这个隐藏的文件夹。 暂存区域（Stage 或 Index）暂存区可以理解为一个虚拟工作区，这个虚拟工作区会跟踪工作区的文件变化（增删改等操作）。这个工作区的位于.git 文件夹下的 index 目录下。除非是绕过暂存区直接提交，否">
@@ -363,7 +363,7 @@
 <li>登录</li>
 <li>新建远程仓库 (右上角+-&gt;new-&gt;命名-&gt;create)</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 关联远程仓库</span><br><span class="line">git remote add origin https://github.com/自己的账号/gitdemos64.git</span><br><span class="line">// 推送代码</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 关联远程仓库</span><br><span class="line">git remote add origin 仓库地址</span><br><span class="line">// 推送代码</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 开发功能1 -&gt; 完成</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;注释1&quot;</span><br><span class="line">// 开发功能2 -&gt; 完成</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;注释2&quot;</span><br><span class="line">// 推送代码</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 <h4 id="命令列表"><a href="#命令列表" class="headerlink" title="命令列表"></a>命令列表</h4><table>
 <thead>
@@ -527,7 +527,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
