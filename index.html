@@ -311,7 +311,13 @@
         
           <h2 id="获取首屏数据和操作-dom-元素"><a href="#获取首屏数据和操作-dom-元素" class="headerlink" title="获取首屏数据和操作 dom 元素"></a>获取首屏数据和操作 dom 元素</h2><ol>
 <li>created(){} vm 创建完毕 -&gt;获取首屏的数据 this.getData()</li>
-<li>mounted(){} 挂载完毕-&gt; 操作 dom 元素
+<li>mounted(){} 挂载完毕-&gt; 操作 dom 元素</li>
+</ol>
+<h2 id="全局过滤器在-element-ui-table-中绑定数据"><a href="#全局过滤器在-element-ui-table-中绑定数据" class="headerlink" title="全局过滤器在 element-ui table 中绑定数据"></a>全局过滤器在 element-ui table 中绑定数据</h2><ol>
+<li>v-bind:</li>
+<li>{msg | fmtdate}</li>
+<li>前提:单元格的内容不是 prop 的值 create_time 的值-日期 - 给单元格内容外层加 template - 给 template 设置 slot-scope 一般 slot-scope 值设置为 scope - slot-scope 的值 会自动绑定外层数据结构,这里是 el-table 的 data 的值 tableData - 在内容位置写 scope.row 自动取出数组 tableData 中每个对象,其中 row 是固定写法</li>
+<li>参考:<a href="http://element-cn.eleme.io/#/zh-CN/component/table#zi-ding-yi-lie-mo-ban" target="_blank" rel="noopener">http://element-cn.eleme.io/#/zh-CN/component/table#zi-ding-yi-lie-mo-ban</a><br>自定义列模板
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/keaichong.github.io/2019/02/16/项目中遇到的坑/#more" rel="contents">
