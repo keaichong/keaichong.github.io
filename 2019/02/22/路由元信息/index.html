@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="路由导航守卫为什么会有路由元信息这个东西？我们在做网站登录验证的时候，可以使用到 beforeEach 钩子函数进行验证操作，如下面代码 ，如果页面 path 为’/goodsList’，那么就让它跳转到登录页面，实现了验证登录。 12345router.beforeEach((to, from, next) =&amp;gt; &amp;#123;  if (to.path === &quot;/goodsList&quot;)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-23T03:59:46.272Z">
+<meta property="og:updated_time" content="2019-02-23T04:01:09.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="路由元信息">
 <meta name="twitter:description" content="路由导航守卫为什么会有路由元信息这个东西？我们在做网站登录验证的时候，可以使用到 beforeEach 钩子函数进行验证操作，如下面代码 ，如果页面 path 为’/goodsList’，那么就让它跳转到登录页面，实现了验证登录。 12345router.beforeEach((to, from, next) =&amp;gt; &amp;#123;  if (to.path === &quot;/goodsList&quot;)">
@@ -312,6 +312,7 @@
       
         <h2 id="路由导航守卫"><a href="#路由导航守卫" class="headerlink" title="路由导航守卫"></a>路由导航守卫</h2><h3 id="为什么会有路由元信息这个东西？"><a href="#为什么会有路由元信息这个东西？" class="headerlink" title="为什么会有路由元信息这个东西？"></a>为什么会有路由元信息这个东西？</h3><p>我们在做网站登录验证的时候，可以使用到 beforeEach 钩子函数进行验证操作，如下面代码 ，如果页面 path 为’/goodsList’，那么就让它跳转到登录页面，实现了验证登录。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">"/goodsList"</span>) &#123;</span><br><span class="line">    next(<span class="string">"/login"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>如果需要登录验证的网页多了怎么办？</p>
 <p>1.这里是对比 path。如果需要验证的网页很多，那么在 if 条件里得写下所有的路由地址，将会是非常麻烦的一件事情。</p>
 <p>2.因为路由是可以嵌套的。有’/goodsList’，那么可能会有’/goodsList/online’，再或者还有’/goodsList/offline’、’/goodsList/audit’、’/goodsList/online/edit’等等。</p>
