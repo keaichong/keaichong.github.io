@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="node编程中最重要的思想就是模块化，import和require都是被模块化所使用。  遵循规范 require 是 AMD规范引入方式 import是es6的一个语法标准，如果要兼容浏览器的话必须转化成es5的语法 调用时间 require是运行时调用，所以require理论上可以运用在代码的任何地方  import是编译时调用，所以必须放在文件开头 本质 require是赋值过程，其实re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-12T15:27:22.728Z">
+<meta property="og:updated_time" content="2019-02-22T02:57:05.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="require和import的区别">
 <meta name="twitter:description" content="node编程中最重要的思想就是模块化，import和require都是被模块化所使用。  遵循规范 require 是 AMD规范引入方式 import是es6的一个语法标准，如果要兼容浏览器的话必须转化成es5的语法 调用时间 require是运行时调用，所以require理论上可以运用在代码的任何地方  import是编译时调用，所以必须放在文件开头 本质 require是赋值过程，其实re">
@@ -330,7 +330,12 @@
 </ol>
 <h2 id="import-export："><a href="#import-export：" class="headerlink" title="import / export："></a>import / export：</h2><ol>
 <li>遵循 ES6 规范，支持编译时静态分析，便于JS引入宏和类型检验。动态绑定。</li>
-<li>写法就比较多种多样：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="keyword">default</span> <span class="keyword">as</span> fs&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fs <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;readFile&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;readFile <span class="keyword">as</span> read&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> fs, &#123;readFile&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> fs</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fs</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">readFile</span></span></span><br><span class="line"><span class="function"><span class="title">export</span> </span>&#123;readFile, read&#125;</span><br><span class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">'fs'</span></span><br></pre></td></tr></table></figure>
+<li><p>写法就比较多种多样：(导入的时候有没有大括号的区别是什么)<br> 1.当用export default people导出时，就用 import people 导入（不带大括号）</p>
+<p> 2.一个文件里，有且只能有一个export default。但可以有多个export。</p>
+<p> 3.当用export name 时，就用import { name }导入（记得带上大括号）</p>
+<p> 4.当一个文件里，既有一个export default people, 又有多个export name 或者 export age时，导入就用 import people, { name, age } </p>
+<p> 5.当一个文件里出现n多个 export 导出很多模块，导入时除了一个一个导入，也可以用import * as example</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="keyword">default</span> <span class="keyword">as</span> fs&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fs <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;readFile&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> &#123;readFile <span class="keyword">as</span> read&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"><span class="keyword">import</span> fs, &#123;readFile&#125; <span class="keyword">from</span> <span class="string">'fs'</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> fs</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fs</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">readFile</span></span></span><br><span class="line"><span class="function"><span class="title">export</span> </span>&#123;readFile, read&#125;</span><br><span class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">'fs'</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>通过require引入基础数据类型时，属于复制该变量。<br>通过require引入复杂数据类型时，数据浅拷贝该对象。<br>出现模块之间的循环引用时，会输出已经执行的模块，而未执行的模块不输出（比较复杂）<br>CommonJS模块默认export的是一个对象，即使导出的是基础数据类型</p>
@@ -455,7 +460,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -468,7 +473,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/keaichong.github.io/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
