@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="vue,">
 
 
 
@@ -79,14 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="阳仔的博客">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+<meta name="description" content="vuex 流程 state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果  1234567state:声明数据(响应式数据)-&amp;gt;组件的computedgetters:声明复杂数据-&amp;gt;组件的computedmutations:修改state的">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vuex的基本入门">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/Vuex的基本入门/index.html">
 <meta property="og:site_name" content="阳仔的博客">
+<meta property="og:description" content="vuex 流程 state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果  1234567state:声明数据(响应式数据)-&amp;gt;组件的computedgetters:声明复杂数据-&amp;gt;组件的computedmutations:修改state的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-03T10:00:17.189Z">
+<meta property="og:updated_time" content="2019-02-25T16:27:16.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阳仔的博客">
+<meta name="twitter:title" content="Vuex的基本入门">
+<meta name="twitter:description" content="vuex 流程 state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果  1234567state:声明数据(响应式数据)-&amp;gt;组件的computedgetters:声明复杂数据-&amp;gt;组件的computedmutations:修改state的">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/26/Vuex的基本入门/">
 
 
 
 
 
-  <title>标签 | 阳仔的博客</title>
+  <title>Vuex的基本入门 | 阳仔的博客</title>
   
 
 
@@ -227,40 +231,158 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/26/Vuex的基本入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                目前共计 7 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/keaichong.github.io/tags/Git/" style="font-size: 18px; color: #8e8e8e">Git</a> <a href="/keaichong.github.io/tags/JQuery/" style="font-size: 18px; color: #8e8e8e">JQuery</a> <a href="/keaichong.github.io/tags/Jsonp/" style="font-size: 12px; color: #ccc">Jsonp</a> <a href="/keaichong.github.io/tags/ajax/" style="font-size: 12px; color: #ccc">ajax</a> <a href="/keaichong.github.io/tags/js/" style="font-size: 30px; color: #111">js</a> <a href="/keaichong.github.io/tags/vue/" style="font-size: 24px; color: #4f4f4f">vue</a> <a href="/keaichong.github.io/tags/盒模型/" style="font-size: 18px; color: #8e8e8e">盒模型</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Vuex的基本入门</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-26T00:17:05+08:00">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="vuex-流程"><a href="#vuex-流程" class="headerlink" title="vuex 流程"></a>vuex 流程</h2><ol>
+<li>state-&gt;声明数据(组件可以用,响应式)</li>
+<li>actions-&gt;和后台交互(ajax 请求)-&gt;返回新结果</li>
+<li>mutations-&gt;修改 state,接收 actions 传递的结果</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">state:声明数据(响应式数据)-&gt;组件的computed</span><br><span class="line"></span><br><span class="line">getters:声明复杂数据-&gt;组件的computed</span><br><span class="line"></span><br><span class="line">mutations:修改state的方法(同步方法)-&gt;组件的methods   </span><br><span class="line"></span><br><span class="line">actions:异步操作获取新数据(和后台交互-&gt;ajax) -&gt;通过commit的方法把新数据交给mutations-&gt;组件的methods</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://segmentfault.com/a/1190000015782272" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015782272</a></p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// actions:方法-&gt;异步</span></span><br><span class="line">actions: &#123;</span><br><span class="line">  fnac1(context) &#123;</span><br><span class="line">    <span class="comment">// context就是仓库</span></span><br><span class="line">    <span class="comment">// 异步代码</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> numNew = <span class="number">200</span></span><br><span class="line">      <span class="comment">// 在异步有结果的位置,把结果提交给mutations的方法</span></span><br><span class="line">      context.commit(<span class="string">'setNum'</span>, numNew)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>app.vue</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line"></span><br><span class="line">    fn2()&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.$store.dispatch(<span class="string">"fnac1"</span>)</span><br><span class="line">        ...mapActions([<span class="string">"fnac2"</span>])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/keaichong.github.io/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/keaichong.github.io/2019/02/25/品优购前台项目/" rel="next" title="品优购前台项目">
+                <i class="fa fa-chevron-left"></i> 品优购前台项目
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -293,8 +415,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -347,6 +478,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vuex-流程"><span class="nav-number">1.</span> <span class="nav-text">vuex 流程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

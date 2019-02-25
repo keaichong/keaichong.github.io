@@ -4,6 +4,38 @@
   
     
     <entry>
+      <title>Vuex的基本入门</title>
+      <link href="/keaichong.github.io/2019/02/26/Vuex%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%A5%E9%97%A8/"/>
+      <url>/keaichong.github.io/2019/02/26/Vuex%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="vuex-流程"><a href="#vuex-流程" class="headerlink" title="vuex 流程"></a>vuex 流程</h2><ol><li>state-&gt;声明数据(组件可以用,响应式)</li><li>actions-&gt;和后台交互(ajax 请求)-&gt;返回新结果</li><li>mutations-&gt;修改 state,接收 actions 传递的结果</li></ol><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">state:声明数据(响应式数据)-&gt;组件的computed</span><br><span class="line"></span><br><span class="line">getters:声明复杂数据-&gt;组件的computed</span><br><span class="line"></span><br><span class="line">mutations:修改state的方法(同步方法)-&gt;组件的methods   </span><br><span class="line"></span><br><span class="line">actions:异步操作获取新数据(和后台交互-&gt;ajax) -&gt;通过commit的方法把新数据交给mutations-&gt;组件的methods</span><br></pre></td></tr></table></figure><blockquote><p><a href="https://segmentfault.com/a/1190000015782272" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015782272</a></p></blockquote><a id="more"></a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// actions:方法-&gt;异步</span></span><br><span class="line">actions: &#123;</span><br><span class="line">  fnac1(context) &#123;</span><br><span class="line">    <span class="comment">// context就是仓库</span></span><br><span class="line">    <span class="comment">// 异步代码</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> numNew = <span class="number">200</span></span><br><span class="line">      <span class="comment">// 在异步有结果的位置,把结果提交给mutations的方法</span></span><br><span class="line">      context.commit(<span class="string">'setNum'</span>, numNew)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>app.vue</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line"></span><br><span class="line">    fn2()&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.$store.dispatch(<span class="string">"fnac1"</span>)</span><br><span class="line">        ...mapActions([<span class="string">"fnac2"</span>])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>品优购前台项目</title>
+      <link href="/keaichong.github.io/2019/02/25/%E5%93%81%E4%BC%98%E8%B4%AD%E5%89%8D%E5%8F%B0%E9%A1%B9%E7%9B%AE/"/>
+      <url>/keaichong.github.io/2019/02/25/%E5%93%81%E4%BC%98%E8%B4%AD%E5%89%8D%E5%8F%B0%E9%A1%B9%E7%9B%AE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="使用-mvc-思想构建项目"><a href="#使用-mvc-思想构建项目" class="headerlink" title="使用 mvc 思想构建项目"></a>使用 mvc 思想构建项目</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">models 数据模型   获取接口服务器数据</span><br><span class="line">views  视图层     渲染页面 使用模版引擎</span><br><span class="line">controllers 控制器   组织请求对应的去进行业务处理</span><br><span class="line">public 静态资源</span><br><span class="line">utils 工具类</span><br></pre></td></tr></table></figure><h2 id="开发用插件"><a href="#开发用插件" class="headerlink" title="开发用插件"></a>开发用插件</h2><ol><li>express-favicon 统一处理小图标路径插件</li><li>youch 包 ,具体的错误信息输出到页面, 美化错误信息 ,准确的定位错误的位置</li><li>http-errors 创建 HTTP 错误插件,会让 http 请求产生的 err 更具体</li><li>cross-env 能跨平台地设置及使用环境变量(开发模式/生产模式)<a id="more"></a><h2 id="启动环境配置"><a href="#启动环境配置" class="headerlink" title="启动环境配置"></a>启动环境配置</h2></li></ol><blockquote><p>在 package.json 中的 scripts 对象 自定义指令</p></blockquote><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"dev": "cross-env NODE_ENV=development nodemon app.js","start": "start":"cross-env NODE_ENV=production node app.js"</span><br></pre></td></tr></table></figure><blockquote><p>获取变量环境</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> env = req.app.get(<span class="string">"env"</span>);</span><br></pre></td></tr></table></figure><h2 id="模板引擎-express-art-template"><a href="#模板引擎-express-art-template" class="headerlink" title="模板引擎 express-art-template"></a>模板引擎 express-art-template</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> artTemplate = <span class="built_in">require</span>(<span class="string">'express-art-template'</span>)</span><br><span class="line">app.engine(<span class="string">"art"</span>, artTemplate);</span><br><span class="line"><span class="comment">// app.engine('art', require('express-art-template'));</span></span><br><span class="line"><span class="comment">//告诉express,art后缀模板交给expressTPL去处理  app.set是去view文件夹下面找要渲染的文件</span></span><br><span class="line"><span class="comment">//因为默认页面被缓存了 而且被压缩了  模版引擎默认的是生产环境的配置 所以下面debug进行判断</span></span><br><span class="line"><span class="comment">//debug 使用的布尔值  false 生产环境(压缩缓存页面)  true开发环境实时更新页面 不进行压缩方便开发者调试</span></span><br><span class="line">app.set(<span class="string">"view options"</span>, &#123;</span><br><span class="line">  debug: process.env.NODE_ENV === <span class="string">"development"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>组件之间传值</title>
       <link href="/keaichong.github.io/2019/02/23/%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%80%BC/"/>
       <url>/keaichong.github.io/2019/02/23/%E7%BB%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E4%BC%A0%E5%80%BC/</url>

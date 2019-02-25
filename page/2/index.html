@@ -239,6 +239,258 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/04/mvc和mvvm/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/02/04/mvc和mvvm/" itemprop="url">mvc和mvvm</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-04T01:55:02+08:00">
+                2019-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <img src="/keaichong.github.io/2019/02/04/mvc和mvvm/01.MVC和MVVM的关系图解.png" title="MVC和MVVM的关系图解">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/04/mvc和mvvm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/04/Jsonp原理/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/02/04/Jsonp原理/" itemprop="url">Jsonp原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-04T01:13:25+08:00">
+                2019-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="jsonp-工作原理"><a href="#jsonp-工作原理" class="headerlink" title="jsonp 工作原理"></a>jsonp 工作原理</h2><p>利用 script 标签可以跨域,让服务器端返回可以执行的 Javascript 函数,参数为要回发的数据,jsonp 只能发 get 请求</p>
+<h2 id="相关概念-同源"><a href="#相关概念-同源" class="headerlink" title="相关概念(同源)"></a>相关概念(同源)</h2><p>同源策略是浏览器的一种安全策略，所谓同源是指域名(com/cn/localhost)，协议(http/https)，端口完全相同，只有同源的地址才可以相互通过 AJAX 的方式请求。</p>
+<p>浏览器默认情况下，不允许发送跨域的 ajax 请求</p>
+<p>同源或者不同源说的是两个地址之间的关系，不同源地址之间请求我们称之为跨域请求</p>
+<h2 id="jsonp-前端代码"><a href="#jsonp-前端代码" class="headerlink" title="jsonp 前端代码"></a>jsonp 前端代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击按钮，发送跨域的请求，获取到结果</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#btn"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 1. 创建script标签</span></span><br><span class="line">  <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">  <span class="comment">// 2. 设置src</span></span><br><span class="line">  script.src = <span class="string">"http://localhost:3000/query?callback=song"</span>;</span><br><span class="line">  <span class="comment">// 3. 把script添加到body</span></span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">  <span class="comment">//执行script中的代码</span></span><br><span class="line">  <span class="comment">//相当于</span></span><br><span class="line">  <span class="comment">// &lt;script&gt;song(data相应数据)&lt;/\script&gt;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//被调用  这种方式需要前后端配合</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">song</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data); <span class="comment">//拿到跨域请求返回的数据 自己根据需要进行后续处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/04/Jsonp原理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/03/封装原生ajax/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1306,272 +1558,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/CSS3伸缩布局盒模型/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="愚人阳仔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阳仔的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/keaichong.github.io/2019/02/02/CSS3伸缩布局盒模型/" itemprop="url">CSS3伸缩布局盒模型</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-02T17:03:21+08:00">
-                2019-02-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="伸缩布局基本概念"><a href="#伸缩布局基本概念" class="headerlink" title="伸缩布局基本概念"></a>伸缩布局基本概念</h3><blockquote>
-<p>CSS3 引入的布局模式 Flexbox 布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex 容器使用 Flex 项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox 布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应<br>布局解决方案 没有具体数字,通过一系列属性控制</p>
-</blockquote>
-<h3 id="伸缩盒模型术语"><a href="#伸缩盒模型术语" class="headerlink" title="伸缩盒模型术语"></a>伸缩盒模型术语</h3><blockquote>
-<p>伸缩盒子中有两条轴 -&gt;主轴和侧轴<br><strong>主轴</strong>: 默认水平从左往右显示</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 设置主轴方向 */</span></span><br><span class="line">flex-direction:row | column</span><br><span class="line"><span class="comment">/* 设置元素在主轴方向对齐方式 */</span></span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-start</span>;  主轴开始位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-end</span>;    主轴结束位置对齐</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">flex-center</span>;    主轴中间显示</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-between</span>;    两端对齐中间自适应</span><br><span class="line"><span class="selector-tag">justify-content</span>: <span class="selector-tag">space-around</span>;  环绕对齐</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/keaichong.github.io/2019/02/02/CSS3伸缩布局盒模型/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/响应式布局总结/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="愚人阳仔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阳仔的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/keaichong.github.io/2019/02/02/响应式布局总结/" itemprop="url">响应式布局总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-02T15:19:37+08:00">
-                2019-02-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="响应式布局概念"><a href="#响应式布局概念" class="headerlink" title="响应式布局概念"></a>响应式布局概念</h3><blockquote>
-<p>Responsive Web Design（响应式布局）这个名词是 Ethan Marcotte 在 2010 年提出.简单说呢就针对不同的屏幕分辨率应用不同的 CSS 样式。比如在电脑、Pad 设备上，屏幕比较宽，就可以一行放多个 Div。到了手机上，或者 Pad 竖着拿的的时候，一行就只放 1 到 2 个 Div 就差不多了。这样在移动设备上,无论是字体大小还是页面布局就不会显得很局促.一切都是为了客户的体验度.</p>
-</blockquote>
-<h3 id="meta-标签设置"><a href="#meta-标签设置" class="headerlink" title="meta 标签设置"></a>meta 标签设置</h3><blockquote>
-<p>下面的这段话在响应式布局里面必不可少</p>
-</blockquote>
-<h5 id="网页宽度调整"><a href="#网页宽度调整" class="headerlink" title="网页宽度调整"></a>网页宽度调整</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt;</span></span><br><span class="line">上面这行代码的意思是：网页宽度默认等于屏幕宽度（width=device-width），原始缩放比例（initial-scale=1.0），即网页初始大小占屏幕面积的100%。</span><br><span class="line">当然这里除了这两个属性之外,还可以加上其他几个属性,比较完整的是这个样子:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span></span></span><br><span class="line"><span class="tag">  <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"</span></span></span><br><span class="line"><span class="tag">/&gt;</span></span><br><span class="line">maximum-scale=1.0,</span><br><span class="line">minimum-scale=1.0;可视区域的缩放级别，maximum-scale用户可将页面放大的程序，1.0将禁止用户放大到实际尺寸之上,minimum-scale=1.0当然就是禁止缩小了。user-scalable:是否可对页面进行缩放，no</span><br><span class="line">禁止缩放</span><br><span class="line">所有主流浏览器都支持这个设置，包括IE9。对于那些老式浏览器（主要是IE6、7、8），需要另外重写。</span><br></pre></td></tr></table></figure>
-<h3 id="不使用绝对宽度和字体"><a href="#不使用绝对宽度和字体" class="headerlink" title="不使用绝对宽度和字体"></a>不使用绝对宽度和字体</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/keaichong.github.io/2019/02/02/响应式布局总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/keaichong.github.io/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/keaichong.github.io/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/keaichong.github.io/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/keaichong.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/keaichong.github.io/page/3/">3</a><a class="extend next" rel="next" href="/keaichong.github.io/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1619,7 +1610,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
