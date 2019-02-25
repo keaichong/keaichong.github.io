@@ -310,7 +310,7 @@
       
         
           <h2 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h2><blockquote>
-<p>v-on 指令用于监听 DOM 事件 形式如：v-on:click 缩写为 @click<br>v-model 在表单控件或者组件上创建双向绑定<br>v-bind 缩写 :）动态地绑定一个或多个特性、或一个组件 prop 到表达式<br>触发事件 this.$emit(“事件名”,要传的数据shican)   绑定事件this.$on(“事件名”,要传的数据 xincan)</p>
+<p>v-on 指令用于监听 DOM 事件 形式如：v-on:click 缩写为 @click<br>v-model 在表单控件或者组件上创建双向绑定<br>v-bind 缩写 :）动态地绑定一个或多个特性、或一个组件 prop 到表达式<br>触发事件 this.$emit(“事件名”,要传的数据shican)   绑定事件this.$on(“事件名”,要传的数据 xincan)<br>注意，在 Vue 实例中data属性其实不一定使用data() { return {} }的（方法），可以直接用data: { }（对象）。因为在组件中，如果data声明为一个方法，就可以使组件中的数据独立，避免相互影响。<br>子组件的命名无法识别驼峰命名法，当组件作为标签时，需要使用-和小写字母。</p>
 </blockquote>
 <h2 id="父传子"><a href="#父传子" class="headerlink" title="父传子"></a>父传子</h2><ol>
 <li>声明属性 props:[“属性 a”]</li>
