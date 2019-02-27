@@ -309,9 +309,7 @@
 
       
         
-          <h2 id="忠告"><a href="#忠告" class="headerlink" title="忠告"></a>忠告</h2><p>引用官方文档的话</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">As a guideline, if the relationship between exports and module.exports seems like magic to you, ignore exports and only use module.exports.</span><br><span class="line">当你对module.exports和exports的关系感到困惑的时候，一直使用module.exports，并且忽略exports</span><br></pre></td></tr></table></figure>
-<h2 id="创建-引用-module"><a href="#创建-引用-module" class="headerlink" title="创建/引用 module"></a>创建/引用 module</h2><p>假设这是 rocker.js 文件</p>
+          <h2 id="创建-引用-module"><a href="#创建-引用-module" class="headerlink" title="创建/引用 module"></a>创建/引用 module</h2><p>假设这是 rocker.js 文件</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"my name is cp"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>在另一个文件中引用 rocker.js</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rocker = <span class="built_in">require</span>(<span class="string">"./rocker.js"</span>);</span><br><span class="line">rocker.name(); <span class="comment">// my name is cp</span></span><br></pre></td></tr></table></figure>

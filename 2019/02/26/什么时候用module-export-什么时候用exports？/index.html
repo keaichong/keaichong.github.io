@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="忠告引用官方文档的话 12As a guideline, if the relationship between exports and module.exports seems like magic to you, ignore exports and only use module.exports.当你对module.exports和exports的关系感到困惑的时候，一直使用module.e">
+<meta name="description" content="创建/引用 module假设这是 rocker.js 文件 123exports.name = function() &amp;#123;  console.log(&quot;my name is cp&quot;);&amp;#125;; 在另一个文件中引用 rocker.js 12var rocker = require(&quot;./rocker.js&quot;);rocker.name(); // my name is cp">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="什么时候用module.export?什么时候用exports？">
 <meta property="og:url" content="http://yoursite.com/2019/02/26/什么时候用module-export-什么时候用exports？/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="忠告引用官方文档的话 12As a guideline, if the relationship between exports and module.exports seems like magic to you, ignore exports and only use module.exports.当你对module.exports和exports的关系感到困惑的时候，一直使用module.e">
+<meta property="og:description" content="创建/引用 module假设这是 rocker.js 文件 123exports.name = function() &amp;#123;  console.log(&quot;my name is cp&quot;);&amp;#125;; 在另一个文件中引用 rocker.js 12var rocker = require(&quot;./rocker.js&quot;);rocker.name(); // my name is cp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T16:34:39.134Z">
+<meta property="og:updated_time" content="2019-02-27T08:08:12.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="什么时候用module.export?什么时候用exports？">
-<meta name="twitter:description" content="忠告引用官方文档的话 12As a guideline, if the relationship between exports and module.exports seems like magic to you, ignore exports and only use module.exports.当你对module.exports和exports的关系感到困惑的时候，一直使用module.e">
+<meta name="twitter:description" content="创建/引用 module假设这是 rocker.js 文件 123exports.name = function() &amp;#123;  console.log(&quot;my name is cp&quot;);&amp;#125;; 在另一个文件中引用 rocker.js 12var rocker = require(&quot;./rocker.js&quot;);rocker.name(); // my name is cp">
 
 
 
@@ -310,9 +310,7 @@
       
 
       
-        <h2 id="忠告"><a href="#忠告" class="headerlink" title="忠告"></a>忠告</h2><p>引用官方文档的话</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">As a guideline, if the relationship between exports and module.exports seems like magic to you, ignore exports and only use module.exports.</span><br><span class="line">当你对module.exports和exports的关系感到困惑的时候，一直使用module.exports，并且忽略exports</span><br></pre></td></tr></table></figure>
-<h2 id="创建-引用-module"><a href="#创建-引用-module" class="headerlink" title="创建/引用 module"></a>创建/引用 module</h2><p>假设这是 rocker.js 文件</p>
+        <h2 id="创建-引用-module"><a href="#创建-引用-module" class="headerlink" title="创建/引用 module"></a>创建/引用 module</h2><p>假设这是 rocker.js 文件</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"my name is cp"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>在另一个文件中引用 rocker.js</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rocker = <span class="built_in">require</span>(<span class="string">"./rocker.js"</span>);</span><br><span class="line">rocker.name(); <span class="comment">// my name is cp</span></span><br></pre></td></tr></table></figure>
@@ -343,7 +341,7 @@
 <p>同样，exports 是这样的</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">exports.name = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"my name is cp"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注意： 这两种结果并不相同。前面已经提到 module.exports 是真正的接口，exports 只不过是它的辅助工具。推荐使用 exports 导出，除非你打算从原来的“实例化对象”改变成一个类型。</p>
+<p>推荐使用 exports 导出，除非你打算从原来的“实例化对象”改变成一个类型。</p>
 </blockquote>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
 <li><p>exports 是指向的 module.exports 的引用</p>
@@ -351,6 +349,8 @@
 <li><p>module.exports 初始值为一个空对象 {}，所以 exports 初始值也是 {}</p>
 </li>
 <li><p>require()返回的是 module.exports 而不是 exports</p>
+</li>
+<li><p>module.exports导出的是函数,require引入的也是函数,导出对象,require引入也是对象</p>
 </li>
 </ol>
 
@@ -516,7 +516,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#忠告"><span class="nav-number">1.</span> <span class="nav-text">忠告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-引用-module"><span class="nav-number">2.</span> <span class="nav-text">创建/引用 module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#module-exports-和-exports-到底是什么？"><span class="nav-number">3.</span> <span class="nav-text">module.exports 和 exports 到底是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候用-exports？什么时候用-module-exports？"><span class="nav-number">4.</span> <span class="nav-text">什么时候用 exports？什么时候用 module.exports？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-引用-module"><span class="nav-number">1.</span> <span class="nav-text">创建/引用 module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#module-exports-和-exports-到底是什么？"><span class="nav-number">2.</span> <span class="nav-text">module.exports 和 exports 到底是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候用-exports？什么时候用-module-exports？"><span class="nav-number">3.</span> <span class="nav-text">什么时候用 exports？什么时候用 module.exports？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
