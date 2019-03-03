@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="使用 mvc 思想构建项目12345models 数据模型   获取接口服务器数据views  视图层     渲染页面 使用模版引擎controllers 控制器   组织请求对应的去进行业务处理public 静态资源utils 工具类 开发用插件 express-favicon 统一处理小图标路径插件 youch 包 ,具体的错误信息输出到页面, 美化错误信息 ,准确的定位错误的位置 http">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T02:58:48.128Z">
+<meta property="og:updated_time" content="2019-03-02T08:11:53.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="品优购前台项目">
 <meta name="twitter:description" content="使用 mvc 思想构建项目12345models 数据模型   获取接口服务器数据views  视图层     渲染页面 使用模版引擎controllers 控制器   组织请求对应的去进行业务处理public 静态资源utils 工具类 开发用插件 express-favicon 统一处理小图标路径插件 youch 包 ,具体的错误信息输出到页面, 美化错误信息 ,准确的定位错误的位置 http">
@@ -315,9 +315,9 @@
 <li>youch 包 ,具体的错误信息输出到页面, 美化错误信息 ,准确的定位错误的位置</li>
 <li>http-errors 创建 HTTP 错误插件,会让 http 请求产生的 err 更具体</li>
 <li>cross-env 能跨平台地设置及使用环境变量(开发模式/生产模式)<a id="more"></a>
-<h2 id="启动环境配置"><a href="#启动环境配置" class="headerlink" title="启动环境配置"></a>启动环境配置</h2></li>
+</li>
 </ol>
-<blockquote>
+<h2 id="启动环境配置"><a href="#启动环境配置" class="headerlink" title="启动环境配置"></a>启动环境配置</h2><blockquote>
 <p>在 package.json 中的 scripts 对象 自定义指令</p>
 </blockquote>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"dev": "cross-env NODE_ENV=development nodemon app.js","start": "start":"cross-env NODE_ENV=production node app.js"</span><br></pre></td></tr></table></figure>
@@ -325,8 +325,11 @@
 <p>获取变量环境</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> env = req.app.get(<span class="string">"env"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="模板引擎-express-art-template"><a href="#模板引擎-express-art-template" class="headerlink" title="模板引擎 express-art-template"></a>模板引擎 express-art-template</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> artTemplate = <span class="built_in">require</span>(<span class="string">'express-art-template'</span>)</span><br><span class="line">app.engine(<span class="string">"art"</span>, artTemplate);</span><br><span class="line"><span class="comment">// app.engine('art', require('express-art-template'));</span></span><br><span class="line"><span class="comment">//app.engine告诉express,art后缀模板交给expressTPL去处理  app.set是去view文件夹下面找要渲染的art文件</span></span><br><span class="line"><span class="comment">//因为默认页面被缓存了 而且被压缩了  模版引擎默认的是生产环境的配置 所以下面debug进行判断</span></span><br><span class="line"><span class="comment">//debug 使用的布尔值  false 生产环境(压缩缓存页面)  true开发环境实时更新页面 不进行压缩方便开发者调试</span></span><br><span class="line">app.set(<span class="string">"view options"</span>, &#123;</span><br><span class="line">  debug: process.env.NODE_ENV === <span class="string">"development"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="get"><a href="#get" class="headerlink" title="$.get()"></a>$.get()</h2><p>这是一个简单的 GET 请求功能以取代复杂 $.ajax 。请求成功时可调用回调函数。如果需要在出错时执行函数，请使用 $.ajax</p>
+<h2 id="模板引擎-express-art-template"><a href="#模板引擎-express-art-template" class="headerlink" title="模板引擎 express-art-template"></a>模板引擎 express-art-template</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> artTemplate = <span class="built_in">require</span>(<span class="string">"express-art-template"</span>);</span><br><span class="line">app.engine(<span class="string">"art"</span>, artTemplate);</span><br><span class="line"><span class="comment">// app.engine('art', require('express-art-template'));</span></span><br><span class="line"><span class="comment">//app.engine告诉express,art后缀模板交给expressTPL去处理  app.set是去view文件夹下面找要渲染的art文件</span></span><br><span class="line"><span class="comment">//因为默认页面被缓存了 而且被压缩了  模版引擎默认的是生产环境的配置 所以下面debug进行判断</span></span><br><span class="line"><span class="comment">//debug 使用的布尔值  false 生产环境(压缩缓存页面)  true开发环境实时更新页面 不进行压缩方便开发者调试</span></span><br><span class="line">app.set(<span class="string">"view options"</span>, &#123;</span><br><span class="line">  debug: process.env.NODE_ENV === <span class="string">"development"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="get"><a href="#get" class="headerlink" title="\$.get()"></a>\$.get()</h2><p>这是一个简单的 GET 请求功能以取代复杂 $.ajax 。请求成功时可调用回调函数。如果需要在出错时执行函数，请使用 $.ajax</p>
+<h2 id="报错和-undefined"><a href="#报错和-undefined" class="headerlink" title="报错和 undefined"></a>报错和 undefined</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a.a); <span class="comment">//Cannot read property 'a' of undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//报错 a is not undefined</span></span><br></pre></td></tr></table></figure>
+<p>如果访问一个对象的属性时候,属性如果没有声明赋值,那么就是 undefined,如果访问一个变量,没有声明,就会报错,访问 undefined 的属性也会报错,undefined 上找不到任何属性</p>
+<h2 id="input-type-number-购物车增加减少"><a href="#input-type-number-购物车增加减少" class="headerlink" title="input type=number 购物车增加减少"></a>input type=number 购物车增加减少</h2><p><input type="number" autofocus name="num" min="1" value="1"><br>最小值是 1  自动获取焦点 出现增加减少按</p>
 
       
     </div>
@@ -488,7 +491,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-mvc-思想构建项目"><span class="nav-number">1.</span> <span class="nav-text">使用 mvc 思想构建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发用插件"><span class="nav-number">2.</span> <span class="nav-text">开发用插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动环境配置"><span class="nav-number">3.</span> <span class="nav-text">启动环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板引擎-express-art-template"><span class="nav-number">4.</span> <span class="nav-text">模板引擎 express-art-template</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">5.</span> <span class="nav-text">$.get()</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-mvc-思想构建项目"><span class="nav-number">1.</span> <span class="nav-text">使用 mvc 思想构建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发用插件"><span class="nav-number">2.</span> <span class="nav-text">开发用插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动环境配置"><span class="nav-number">3.</span> <span class="nav-text">启动环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板引擎-express-art-template"><span class="nav-number">4.</span> <span class="nav-text">模板引擎 express-art-template</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">5.</span> <span class="nav-text">\$.get()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错和-undefined"><span class="nav-number">6.</span> <span class="nav-text">报错和 undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-type-number-购物车增加减少"><span class="nav-number">7.</span> <span class="nav-text">input type=number 购物车增加减少</span></a></li></ol></div>
             
 
           </div>
