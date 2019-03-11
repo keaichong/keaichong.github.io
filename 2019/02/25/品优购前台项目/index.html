@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="使用 mvc 思想构建项目12345models 数据模型   获取接口服务器数据views  视图层     渲染页面 使用模版引擎controllers 控制器   组织请求对应的去进行业务处理public 静态资源utils 工具类 开发用插件 express-favicon 统一处理小图标路径插件 youch 包 ,具体的错误信息输出到页面, 美化错误信息 ,准确的定位错误的位置 http">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-05T06:45:46.506Z">
+<meta property="og:updated_time" content="2019-03-09T15:24:59.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="品优购前台项目">
 <meta name="twitter:description" content="使用 mvc 思想构建项目12345models 数据模型   获取接口服务器数据views  视图层     渲染页面 使用模版引擎controllers 控制器   组织请求对应的去进行业务处理public 静态资源utils 工具类 开发用插件 express-favicon 统一处理小图标路径插件 youch 包 ,具体的错误信息输出到页面, 美化错误信息 ,准确的定位错误的位置 http">
@@ -339,6 +339,30 @@
 <h2 id="jquery-parent-和-parents-的区别"><a href="#jquery-parent-和-parents-的区别" class="headerlink" title="jquery parent 和 parents 的区别"></a>jquery parent 和 parents 的区别</h2><p>从字面上不难看出 parent 是指取得一个包含着所有匹配元素的唯一父元素的元素集合。parents 则是取得一个包含着所有匹配元素的祖先元素的元素集合（不包含根元素）。可以通过一个可选的表达式进行筛选可以看出 parent 的取值很明确，就是当前元素的父元素；parents 则是当前元素的祖先元素。下面列出例子说明：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div3"</span> <span class="attr">class</span>=<span class="string">"a"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div4"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>其中：<br>　　$(‘p’).parent()取到的是div2,div3,div4　　<br>　　$(‘p’).parent(‘.a’)取到的是 div3<br>　　$(‘p’).parent().parent()取到的是div1，这点比较奇特；不过Jquery对象本身的特点决定了这是可行的。<br>　　$(‘p’).parents()取到的是 div1,div2,div3,div4<br>　　\$(‘p’).parents(‘.a’)取到的是 div3</p>
+<h2 id="正向代理和反向代理"><a href="#正向代理和反向代理" class="headerlink" title="正向代理和反向代理"></a>正向代理和反向代理</h2><h4 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h4><p>正向代理（forward proxy） ，一个位于客户端和原始服务器之间的服务器，为了从原始服务器取得内容，客户端向代理发送一个请求并制定目标（原始服务器），然后代理向原始服务器转发请求并将获得的内容返回给客户端，客户端才能使用正向代理。我们平时说的代理就是指正向代理。<br>简单一点：A 向 C 借钱，由于一些情况不能直接向 C 借钱，于是 A 想了一个办法，他让 B 去向 C 借钱，这样 B 就代替 A 向 C 借钱，A 就得到了 C 的钱，C 并不知道 A 的存在，B 就充当了 A 的代理人的角色。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">正向代理的用途：</span><br><span class="line">　　（1）访问原来无法访问的资源，如 google</span><br><span class="line">    （2） 可以做缓存，加速访问资源</span><br><span class="line">　　（3）对客户端访问授权，上网进行认证</span><br><span class="line">　　（4）代理可以记录用户访问记录（上网行为管理），对外隐藏用户信息</span><br></pre></td></tr></table></figure>
+<h4 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h4><p>客户端是无感知代理的存在的，反向代理对外都是透明的，访问者并不知道自己访问的是一个代理。因为客户端不需要任何配置就可以访问。<br>反向代理（Reverse Proxy）实际运行方式是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个服务器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">反向代理用途</span><br><span class="line">（1）保证内网的安全，可以使用反向代理提供WAF功能，阻止web攻击,大型网站，通常将反向代理作为公网访问地址，Web服务器是内网。</span><br><span class="line">（2）负载均衡，通过反向代理服务器来优化网站的负载</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>正向代理和反向代理的区别</p>
+</blockquote>
+<ul>
+<li>位置不同</li>
+</ul>
+<ol>
+<li>正向代理，架设在客户机和目标主机之间；</li>
+<li>反向代理，架设在服务器端；</li>
+</ol>
+<ul>
+<li>代理对象不同</li>
+</ul>
+<ol>
+<li>正向代理，代理客户端，服务端不知道实际发起请求的客户端；</li>
+<li>反向代理，代理服务端，客户端不知道实际提供服务的服务端；<blockquote>
+<p>备注：正向代理–HTTP 代理为多个人提供翻墙服务；反向代理–百度外卖为多个商户提供平台给某个用户提供外卖服务。</p>
+</blockquote>
+</li>
+</ol>
 
       
     </div>
@@ -500,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-mvc-思想构建项目"><span class="nav-number">1.</span> <span class="nav-text">使用 mvc 思想构建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发用插件"><span class="nav-number">2.</span> <span class="nav-text">开发用插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动环境配置"><span class="nav-number">3.</span> <span class="nav-text">启动环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板引擎-express-art-template"><span class="nav-number">4.</span> <span class="nav-text">模板引擎 express-art-template</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">5.</span> <span class="nav-text">\$.get()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错和-undefined"><span class="nav-number">6.</span> <span class="nav-text">报错和 undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-type-number-购物车增加减少"><span class="nav-number">7.</span> <span class="nav-text">input type=number 购物车增加减少</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#express-art-template-渲染变量-res-locals"><span class="nav-number">8.</span> <span class="nav-text">express-art-template 渲染变量 res.locals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jquery-parent-和-parents-的区别"><span class="nav-number">9.</span> <span class="nav-text">jquery parent 和 parents 的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-mvc-思想构建项目"><span class="nav-number">1.</span> <span class="nav-text">使用 mvc 思想构建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发用插件"><span class="nav-number">2.</span> <span class="nav-text">开发用插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动环境配置"><span class="nav-number">3.</span> <span class="nav-text">启动环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板引擎-express-art-template"><span class="nav-number">4.</span> <span class="nav-text">模板引擎 express-art-template</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get"><span class="nav-number">5.</span> <span class="nav-text">\$.get()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错和-undefined"><span class="nav-number">6.</span> <span class="nav-text">报错和 undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#input-type-number-购物车增加减少"><span class="nav-number">7.</span> <span class="nav-text">input type=number 购物车增加减少</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#express-art-template-渲染变量-res-locals"><span class="nav-number">8.</span> <span class="nav-text">express-art-template 渲染变量 res.locals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jquery-parent-和-parents-的区别"><span class="nav-number">9.</span> <span class="nav-text">jquery parent 和 parents 的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正向代理和反向代理"><span class="nav-number">10.</span> <span class="nav-text">正向代理和反向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正向代理"><span class="nav-number">10.0.1.</span> <span class="nav-text">正向代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反向代理"><span class="nav-number">10.0.2.</span> <span class="nav-text">反向代理</span></a></li></ol></li></ol></div>
             
 
           </div>
