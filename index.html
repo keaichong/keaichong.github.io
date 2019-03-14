@@ -239,6 +239,353 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/15/react和vue/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/03/15/react和vue/" itemprop="url">react和vue</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-15T00:04:32+08:00">
+                2019-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="路由-vue-router-嵌套路由"><a href="#路由-vue-router-嵌套路由" class="headerlink" title="路由-vue-router-嵌套路由"></a>路由-vue-router-嵌套路由</h4><blockquote>
+<p>children 用法和 routes 一样</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> $route.params.id  路由配置对象$route -&gt; 获取数据时</span><br><span class="line"><span class="number">2.</span> <span class="keyword">this</span>.$router.push()  路由实例化对象 -&gt;调方法</span><br></pre></td></tr></table></figure>
+<h4 id="git-介绍安装"><a href="#git-介绍安装" class="headerlink" title="git-介绍安装"></a>git-介绍安装</h4><blockquote>
+<p>开发中-&gt;管理代码-&gt;1 每次记录代码变化 2 协同开发 3 把代码托管到平台(网站) -&gt; git/svn</p>
+<p>版本控制工具(管理代码-&gt;合代码):git/svn</p>
+</blockquote>
+<ol>
+<li><p>git 命令行工具</p>
+</li>
+<li><p>git 是软件(git 官网-&gt;找系统 32/64-&gt;下一步安装)</p>
+</li>
+<li><p>安装后的结果是: 文件夹-&gt;右键-&gt;gitbash/git-&gt;git 指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 检查git版本</span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="git-基础概念"><a href="#git-基础概念" class="headerlink" title="git-基础概念"></a>git-基础概念</h4><blockquote>
+<p>安装 git 软件-&gt;gitbash(小黑框)-&gt;使用 git 指令</p>
+</blockquote>
+<blockquote>
+<p>在使用 git 指令之前 .配置邮箱名字</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xxx"</span></span><br><span class="line">$ git config --global user.email xxx@example.com</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>可以使用 git 版本控制 -&gt; 管理代码-&gt;管理流程:</p>
+</blockquote>
+<ol>
+<li>工作区(项目代码所在的文件夹)-&gt;暂存区(临时中转) : git add .</li>
+<li>暂存区-&gt;本地仓库(项目代码所在文件夹中有个文件)</li>
+<li>本地仓库的代码-&gt;代码托管平台(网站:github/码云)</li>
+</ol>
+<h4 id="git-基本操作"><a href="#git-基本操作" class="headerlink" title="git-基本操作"></a>git-基本操作</h4><ol>
+<li>新建项目目录 04/code/gitdemos</li>
+<li>gitdemos 右键-&gt;gitbash-&gt;执行 git 指令</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 当前gitdemos项目可以使用git去管理了</span><br><span class="line">// 效果: 生成.git文件</span><br><span class="line">git init</span><br><span class="line">// 检查每个文件的状态(未跟踪/已修改)</span><br><span class="line">// git status</span><br><span class="line">// 把工作区代码-&gt;暂存区</span><br><span class="line">git add .</span><br><span class="line">// 暂存区-&gt; 本地仓库</span><br><span class="line">git commit -m <span class="string">"注释"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: git init 只需要写一次</p>
+</blockquote>
+<h4 id="git-远程仓库"><a href="#git-远程仓库" class="headerlink" title="git-远程仓库"></a>git-远程仓库</h4><blockquote>
+<p>代码托管平台(github/码云)</p>
+</blockquote>
+<ol>
+<li>注册</li>
+<li>登录</li>
+<li>新建远程仓库 (右上角+-&gt;new-&gt;命名-&gt;create)</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 关联远程仓库</span><br><span class="line">git remote add origin https://github.com/自己的账号/gitdemos64.git</span><br><span class="line">// 推送代码 keaichong:Song.316113</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 开发功能1 -&gt; 完成</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;注释1&quot;</span><br><span class="line">// 开发功能2 -&gt; 完成</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;注释2&quot;</span><br><span class="line">// 推送代码</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>git 基本使用-&gt; git 没讲完</p>
+</blockquote>
+<h4 id="vue-cli-工具-介绍"><a href="#vue-cli-工具-介绍" class="headerlink" title="vue-cli 工具-介绍"></a>vue-cli 工具-介绍</h4><blockquote>
+<p>vue 开发项目-&gt; 本地服务器+less 配置+好多辅助开发的工具都需要配置+新建好多文件夹(静态资源的文件/项目入口文件等)-&gt;结果: 使用一个 vue 开发时工具帮助我们生成 vue 项目目录-&gt;vue-cli 脚手架</p>
+</blockquote>
+<ol>
+<li>vue-cli 是 vue 开发时必用工具</li>
+<li>vue-cli 是全局命令行工具(-g 全局安装)</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 全局安装脚手架工具(默认安装最新稳定版3+)</span><br><span class="line">npm install -g @vue/cli</span><br><span class="line">// 检查版本</span><br><span class="line">vue --version</span><br></pre></td></tr></table></figure>
+<h4 id="vue-cli-安装和-2-3-版本解释"><a href="#vue-cli-安装和-2-3-版本解释" class="headerlink" title="vue-cli-安装和 2-3 版本解释"></a>vue-cli-安装和 2-3 版本解释</h4><blockquote>
+<p>目的:安装 3+版本-&gt;使用 2 版本的指令</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 安装桥接工具</span><br><span class="line">npm install -g @vue/cli-init</span><br><span class="line">// 可以使用2版本的指令</span><br><span class="line">// vue项目根据其复杂程度可以有多种不同的目录</span><br><span class="line">// vue复杂 -&gt; 目录文件多一些</span><br><span class="line">// vue项目简单-&gt;少一些文件</span><br><span class="line">// webpack-simple固定写法(简单vue项目目录)</span><br><span class="line">vue init webpack-simple 项目文件所在目录的文件夹名字</span><br><span class="line">//vuecli3</span><br><span class="line">vue create my-project</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意: 2 和 3 版本的指令不一样</p>
+</blockquote>
+<h4 id="vue-cli-创建项目"><a href="#vue-cli-创建项目" class="headerlink" title="vue-cli-创建项目"></a>vue-cli-创建项目</h4><ol>
+<li>来到目录 -&gt; 打开 cmd</li>
+<li>vue init webpack 项目名称</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 提示</span><br><span class="line">// 项目名</span><br><span class="line">// 描述</span><br><span class="line">// 作者</span><br><span class="line">// 认证</span><br><span class="line">// sass -&gt; N</span><br><span class="line"><span class="built_in">cd</span> 项目名称目录</span><br><span class="line">npm i</span><br><span class="line">// 启动开发模式:会把生成的vue项目在一个自带的本地服务器进行运行+ 自动打开浏览器</span><br><span class="line">// 拓展: 开发模式/测试/上线(生产)</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<h4 id="vue-cli-项目目录解释"><a href="#vue-cli-项目目录解释" class="headerlink" title="vue-cli-项目目录解释"></a>vue-cli-项目目录解释</h4><blockquote>
+<p>src</p>
+</blockquote>
+<ol>
+<li>main.js 入口文件 : 引入其他包/样式</li>
+<li>App.vue 根组件: 展示其他组件<ol>
+<li>一个.vue 文件就是一个组件</li>
+<li>.vue 文件代码三部分:template/script/style</li>
+</ol>
+</li>
+<li>assets/静态资源(图片/字体/.css 等)</li>
+</ol>
+<blockquote>
+<p>index.html 不需要写代码</p>
+</blockquote>
+<blockquote>
+<p>.gitignore: git 排除忽略文件</p>
+</blockquote>
+<h4 id="开发-react-脚手架-介绍-安装"><a href="#开发-react-脚手架-介绍-安装" class="headerlink" title="开发-react 脚手架-介绍-安装"></a>开发-react 脚手架-介绍-安装</h4><blockquote>
+<p>30 步-&gt;基于 webpack-&gt;react-&gt;可以写 react 代码-&gt;</p>
+</blockquote>
+<blockquote>
+<p>vue-&gt;脚手架快速生成-&gt;vuecli</p>
+<p>react-&gt;脚手架快速生成-&gt;create-react-app</p>
+</blockquote>
+<ol>
+<li><p>npm i -g create-react-app</p>
+</li>
+<li><p>进入期望的项目所在的位置-&gt;cd</p>
+</li>
+<li><p>create-react-app 文件夹名字 reactclidemo</p>
+<blockquote>
+<p>network 有关-&gt;安装失败-&gt;再安装-&gt;清 npm 产生错误缓存-&gt;</p>
+<ol>
+<li>npm cache clean –force</li>
+<li>找到 cache 目录-&gt;手动删除</li>
+</ol>
+</blockquote>
+</li>
+<li><p>cd reactclidemo</p>
+</li>
+<li><p>npm start-&gt;猜测?启动项目+open</p>
+</li>
+</ol>
+<h4 id="开发-react-脚手架-目录说明-简化模板"><a href="#开发-react-脚手架-目录说明-简化模板" class="headerlink" title="开发-react 脚手架-目录说明-简化模板"></a>开发-react 脚手架-目录说明-简化模板</h4><blockquote>
+<p>npm start-&gt;1.跑项目 2.自动浏览器</p>
+</blockquote>
+<blockquote>
+<p>目录:</p>
+<ol>
+<li>public<ol>
+<li>index.html-&gt;div#root</li>
+<li>manifest.json-&gt;H5 新特性-&gt;离线缓存</li>
+</ol>
+</li>
+<li><strong>src/</strong><ol>
+<li>index.js-&gt;入口-&gt;导入根组件</li>
+<li>index.css-&gt;针对 index.js 的样式</li>
+<li>App.js-&gt;根组件-&gt;显示其他.js 组件</li>
+<li>App.css-&gt;根组件的样式</li>
+<li>serviceWorker-&gt;针对 mainfest 的服务端配置</li>
+</ol>
+</li>
+</ol>
+<p>指令-&gt;readme.md</p>
+<ol>
+<li><p><strong>npm start</strong></p>
+</li>
+<li><p>npm run build</p>
+</li>
+<li><p>npm test-&gt;跑测试用例</p>
+</li>
+<li><p>npm run eject-&gt;暴露出 webpack 配置/服务器配置</p>
+<blockquote>
+<p>不可逆操作!</p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<h4 id="开发-react-脚手架-业务编写"><a href="#开发-react-脚手架-业务编写" class="headerlink" title="开发-react 脚手架-业务编写"></a>开发-react 脚手架-业务编写</h4><blockquote>
+<p>tab 切换-&gt;在脚手架目录-&gt;新建.js 组件-&gt;编码</p>
+</blockquote>
+<h4 id="路由-实现原理"><a href="#路由-实现原理" class="headerlink" title="路由-实现原理"></a>路由-实现原理</h4><blockquote>
+<p>一 开发 SPA 组成原理:1. 前后端分离 2.<strong>前端路由</strong></p>
+<p>vue 开发 SPA-&gt;vue-router-&gt;router-link+router-view this.\$router.push()</p>
+<p>react 开发 SPA-&gt;路由包-&gt;react-router-dom(4 版本)</p>
+<p>二:前端路由-&gt;js-&gt;2 种实现方式</p>
+<ol>
+<li>hash(#)</li>
+<li>H5-&gt;history(浏览器历史访问记录)</li>
+</ol>
+<p>三:效果:url 标识变化-&gt;页面局部内容发生改变-&gt;演示(hash/)</p>
+<p>四:react 提供了独立的包-&gt;实现路由效果</p>
+</blockquote>
+<h4 id="路由-react-router-dom-体验"><a href="#路由-react-router-dom-体验" class="headerlink" title="路由-react-router-dom-体验"></a>路由-react-router-dom-体验</h4><blockquote>
+<p>讲的 4 版本 react-router-dom</p>
+</blockquote>
+<ol>
+<li><p>npm i react-router-dom</p>
+</li>
+<li><p>新建 router/01.js</p>
+</li>
+<li><p>导入 react 和 react-router-dom 解构:</p>
+<blockquote>
+<p>import { BrowserRouter as Router, Route, Link } from ‘react-router-dom’</p>
+</blockquote>
+</li>
+<li><p>配置 Router+Link+Route+提供组件</p>
+</li>
+</ol>
+<h4 id="路由-react-router-dom-步骤"><a href="#路由-react-router-dom-步骤" class="headerlink" title="路由 react-router-dom-步骤"></a>路由 react-router-dom-步骤</h4><ol>
+<li>安装</li>
+<li>导入-&gt;as Router + Link +Route</li>
+<li>return -&gt;Router&gt;(Link<em>n+Route</em>n)</li>
+<li>Router-&gt;所有路由标签的最外层容器</li>
+<li>Router 里面 Link-&gt;导航链接-&gt;to=”/“</li>
+<li>Router 里面 Route-&gt;匹配路由同时提供填充位置-&gt;会把匹配到的组件显示在这个位置</li>
+</ol>
+<blockquote>
+<p>注意: Router 中只能有一个子元素</p>
+</blockquote>
+<h4 id="路由-react-router-dom-嵌套"><a href="#路由-react-router-dom-嵌套" class="headerlink" title="路由-react-router-dom-嵌套"></a>路由-react-router-dom-嵌套</h4><blockquote>
+<p>在一级路由匹配到的组件内容中写 Link+Route</p>
+</blockquote>
+<h4 id="路由-重定向"><a href="#路由-重定向" class="headerlink" title="路由-重定向"></a>路由-重定向</h4><blockquote>
+<ol>
+<li>点击 A-&gt;显示的是 B</li>
+<li>所有的 route 没有匹配到-&gt;显示已经存在的组件</li>
+</ol>
+<blockquote>
+<p>用法</p>
+</blockquote>
+<ol>
+<li>导入</li>
+<li>在 Route 末尾增加<redirect to="/标识"></redirect></li>
+<li>在所有填充位外层包裹 Switch</li>
+</ol>
+</blockquote>
+<h4 id="路由-react-router-dom-嵌套-1"><a href="#路由-react-router-dom-嵌套-1" class="headerlink" title="路由-react-router-dom-嵌套"></a>路由-react-router-dom-嵌套</h4><blockquote>
+<p>在一级路由匹配到的组件内容中写 Link+Route</p>
+</blockquote>
+<h4 id="路由-重定向-1"><a href="#路由-重定向-1" class="headerlink" title="路由-重定向"></a>路由-重定向</h4><blockquote>
+<ol>
+<li>点击 A-&gt;显示的是 B</li>
+<li>所有的 route 没有匹配到-&gt;显示已经存在的组件</li>
+</ol>
+<blockquote>
+<p>用法</p>
+</blockquote>
+<ol>
+<li>导入</li>
+<li>在 Route 末尾增加<redirect to="/标识"></redirect></li>
+<li>在所有填充位外层包裹 Switch</li>
+</ol>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/07/react基础/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1404,139 +1751,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/14/Git进阶使用/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="愚人阳仔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阳仔的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/keaichong.github.io/2019/02/14/Git进阶使用/" itemprop="url">Git进阶使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-14T18:19:40+08:00">
-                2019-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Git-进阶操作"><a href="#Git-进阶操作" class="headerlink" title="Git 进阶操作"></a>Git 进阶操作</h1><h2 id="查看历史"><a href="#查看历史" class="headerlink" title="查看历史"></a>查看历史</h2><p>在多次提交之后，本地仓库中就有了多个版本，如何查看历史版本呢？在 Git bash 中输入如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-<p>结果如下图：<br><img src="/keaichong.github.io/2019/02/14/Git进阶使用/3C2240A2-B575-4674-A941-B575BFD96F08.png"></p>
-<p>说明：</p>
-<p>每次提交都会有一个 SHA-1 <strong>校验和(唯一标识)</strong>、<strong>作者的名字</strong>和<strong>电子邮件地址</strong>、<strong>提交时间</strong>，最后缩进一个段落显示<strong>提交说明</strong>。</p>
-<blockquote>
-<p>提示：如果提交次数太多，一屏显示不了，最后一行会显示: 表示未显示全，按键盘上的<strong>Q 键</strong>，可以显示下一页</p>
-</blockquote>
-<p>可以通过<code>git log</code>的参数设置历史提交的展示方式，当历史提交数过多的时候可以使用如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/keaichong.github.io/2019/02/14/Git进阶使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1589,7 +1803,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
