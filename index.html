@@ -310,7 +310,17 @@
       
         
           
-            <p><a href="https://blog.csdn.net/zjy_android_blog/article/details/81023177" target="_blank" rel="noopener">https://blog.csdn.net/zjy_android_blog/article/details/81023177</a></p>
+            <ol>
+<li>typeof</li>
+<li>instanceof</li>
+<li>constructor</li>
+<li>Object.prototype.toString<br><a href="https://blog.csdn.net/zjy_android_blog/article/details/81023177" target="_blank" rel="noopener">https://blog.csdn.net/zjy_android_blog/article/details/81023177</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">个人理解:假设arr是一个数组,toString是object的原型里面的方法其返回的是类似 &apos;[object class]&apos;的字符串,但是当我们使用arr.toString()时，不能进行复杂数据类型的判断，因为它调用的是Array.prototype.toString，虽然Array也继承自Object，但js在Array.prototype上重写了toString，将toString改变成转换为字符串的一个方法,而我们通过toString.call(arr)实际上是改变object的this指向让object的toString重新通过原型链调用了Object.prototype.toString。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>JavaScript 中一切都是对象，任何都不例外，对所有值类型应用 Object.prototype.toString.call() 方法结果如下：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="number">123</span>)); <span class="comment">//[object Number]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="string">"123"</span>)); <span class="comment">//[object String]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">undefined</span>)); <span class="comment">//[object Undefined]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>)); <span class="comment">//[object Boolean]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;)); <span class="comment">//[object Object]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call([])); <span class="comment">//[object Array]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)); <span class="comment">//[object Function]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.prototype.toString ( )</span></span><br><span class="line"><span class="comment">// 在toString方法被调用时,会执行下面的操作步骤:</span></span><br><span class="line"><span class="comment">// 如果this的值为undefined,则返回"[object Undefined]".</span></span><br><span class="line"><span class="comment">// 如果this的值为null,则返回"[object Null]".</span></span><br><span class="line"><span class="comment">// 让O成为调用ToObject(this)的结果.</span></span><br><span class="line"><span class="comment">// 让class成为O的内部属性[[Class]]的值.</span></span><br><span class="line"><span class="comment">// 返回三个字符串"[object ", class, 以及 "]"连接后的新字符串.</span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -1232,7 +1242,7 @@
       
         
           <h2 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h2><blockquote>
-<p>v-on 指令用于监听 DOM 事件 形式如：v-on:click 缩写为 @click<br>v-model 在表单控件或者组件上创建双向绑定<br>v-bind 缩写 :）动态地绑定一个或多个特性、或一个组件 prop 到表达式<br>触发事件 this.$emit(“事件名”,要传的数据shican)   绑定事件this.$on(“事件名”,要传的数据 xincan)<br>注意，在 Vue 实例中data属性其实不一定使用data() { return {} }的（方法），可以直接用data: { }（对象）。因为在组件中，如果data声明为一个方法，就可以使组件中的数据独立，避免相互影响。<br>子组件的命名无法识别驼峰命名法，当组件作为标签时，需要使用-和小写字母。</p>
+<p>v-on 指令用于监听 DOM 事件 形式如：v-on:click 缩写为 @click<br>v-model 在表单控件或者组件上创建双向绑定<br>v-bind 缩写 :）动态地绑定一个或多个特性、或一个组件 prop 到表达式<br>触发事件 this.$emit(“事件名”,要传的数据shican)   绑定事件this.$on(“事件名”,要传的数据 xincan)<br>注意，在 Vue 实例中 data 属性其实不一定使用 data() { return {} }的（方法），可以直接用 data: { }（对象）。因为在组件中，如果 data 声明为一个方法，就可以使组件中的数据独立，避免相互影响。<br>子组件的命名无法识别驼峰命名法，当组件作为标签时，需要使用-和小写字母。</p>
 </blockquote>
 <h2 id="父传子"><a href="#父传子" class="headerlink" title="父传子"></a>父传子</h2><ol>
 <li>声明属性 props:[“属性 a”]</li>
