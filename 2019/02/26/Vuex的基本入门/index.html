@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="vuex 流程 vuex就像一个无形的仓库，公共的状态我们会抽离出来放进里面   state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果  123456789state:声明数据(响应式数据)-&amp;gt;组件的computedgetters:声明复杂数">
+<meta name="description" content="vuex 流程 vuex就像一个无形的仓库，公共的状态我们会抽离出来放进里面   state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果 dispatch：含有异步操作，例如向后台提交数据，写法： this.$store.dispatch(‘acti">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vuex的基本入门">
 <meta property="og:url" content="http://yoursite.com/2019/02/26/Vuex的基本入门/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="vuex 流程 vuex就像一个无形的仓库，公共的状态我们会抽离出来放进里面   state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果  123456789state:声明数据(响应式数据)-&amp;gt;组件的computedgetters:声明复杂数">
+<meta property="og:description" content="vuex 流程 vuex就像一个无形的仓库，公共的状态我们会抽离出来放进里面   state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果 dispatch：含有异步操作，例如向后台提交数据，写法： this.$store.dispatch(‘acti">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-26T01:16:25.545Z">
+<meta property="og:updated_time" content="2019-03-25T09:53:36.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vuex的基本入门">
-<meta name="twitter:description" content="vuex 流程 vuex就像一个无形的仓库，公共的状态我们会抽离出来放进里面   state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果  123456789state:声明数据(响应式数据)-&amp;gt;组件的computedgetters:声明复杂数">
+<meta name="twitter:description" content="vuex 流程 vuex就像一个无形的仓库，公共的状态我们会抽离出来放进里面   state-&amp;gt;声明数据(组件可以用,响应式) actions-&amp;gt;和后台交互(ajax 请求)-&amp;gt;返回新结果 mutations-&amp;gt;修改 state,接收 actions 传递的结果 dispatch：含有异步操作，例如向后台提交数据，写法： this.$store.dispatch(‘acti">
 
 
 
@@ -317,6 +317,8 @@
 <li>state-&gt;声明数据(组件可以用,响应式)</li>
 <li>actions-&gt;和后台交互(ajax 请求)-&gt;返回新结果</li>
 <li>mutations-&gt;修改 state,接收 actions 传递的结果</li>
+<li>dispatch：含有异步操作，例如向后台提交数据，写法： this.$store.dispatch(‘action方法名’,值)</li>
+<li>commit：同步操作，写法：this.$store.commit(‘mutations方法名’,值)</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">state:声明数据(响应式数据)-&gt;组件的computed</span><br><span class="line"></span><br><span class="line">getters:声明复杂数据将state中的某个状态进行过滤然后获取新的状态-&gt;组件的computed</span><br><span class="line"></span><br><span class="line">mutations:修改state的方法(同步方法)-&gt;组件的methods   </span><br><span class="line"></span><br><span class="line">actions:异步操作获取新数据(和后台交互-&gt;ajax) -&gt;通过commit的方法把新数据交给mutations-&gt;组件的methods</span><br><span class="line"></span><br><span class="line">modules顾名思义，就是当用这个容器来装这些状态还是显得混乱的时候，我们就可以把容器分成几块，把状态和管理规则分类来装。这和我们创建js模块是一个目的，让代码结构更清晰。</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -449,7 +451,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
