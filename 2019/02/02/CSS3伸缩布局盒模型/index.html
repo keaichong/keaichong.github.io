@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="伸缩布局基本概念 CSS3 引入的布局模式 Flexbox 布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex 容器使用 Flex 项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox 布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应布局解决方案 没有具体数字,通过一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-03T07:26:20.227Z">
+<meta property="og:updated_time" content="2019-03-27T02:47:08.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3伸缩布局盒模型">
 <meta name="twitter:description" content="伸缩布局基本概念 CSS3 引入的布局模式 Flexbox 布局，主要思想是让容器有能力让其子项目能够改变其宽度，高度，以最佳方式填充可用空间。Flex 容器使用 Flex 项目可以自动放大与收缩，用来填补可用的空闲空间。更重要的是，Flexbox 布局方向不可预知，不像常规的布局(块级从上到下，内联从左到右)，而那些常规的适合页面布局，但对于支持大型或者复杂的应布局解决方案 没有具体数字,通过一">
@@ -335,6 +335,23 @@
 <h3 id="设置子元素属性"><a href="#设置子元素属性" class="headerlink" title="设置子元素属性"></a>设置子元素属性</h3><p>伸缩比 flex:1</p>
 <h3 id="设置元素自身对齐方式"><a href="#设置元素自身对齐方式" class="headerlink" title="设置元素自身对齐方式"></a>设置元素自身对齐方式</h3><p>align-self: center|auto |flex-start| flex-end</p>
 <h3 id="设置子元素排列顺序"><a href="#设置子元素排列顺序" class="headerlink" title="设置子元素排列顺序"></a>设置子元素排列顺序</h3><p>order:1,2,3 默认 0 数字越小越靠前显示</p>
+<h2 id="视口单位"><a href="#视口单位" class="headerlink" title="视口单位"></a>视口单位</h2><p>根据 CSS3 规范，视口单位主要包括以下 4 个：</p>
+<pre><code>1.vw：1vw等于视口宽度的1%。
+
+2.vh：1vh等于视口高度的1%。
+
+3.vmin：选取vw和vh中最小的那个。
+
+4.vmax：选取vw和vh中最大的那个。
+</code></pre><p>vh and vw：相对于视口的高度和宽度，而不是父元素的（CSS 百分比是相对于包含它的最近的父元素的高度和宽度）。1vh 等于 1/100 的视口高度，1vw 等于 1/100 的视口宽度。</p>
+<h2 id="css3-calc"><a href="#css3-calc" class="headerlink" title="css3 calc"></a>css3 calc</h2><p><a href="https://www.cnblogs.com/avon/p/5908393.html" target="_blank" rel="noopener">https://www.cnblogs.com/avon/p/5908393.html</a></p>
+<ul>
+<li><p>calc() 函数用于动态计算长度值。</p>
+</li>
+<li><p>需要注意的是，运算符前后都需要保留一个空格，例如：width: calc(100% - 10px)；</p>
+</li>
+</ul>
+<p>如果你的元素宽度是 100%时，只要你在元素中添加了 border,padding,margin 任何一值，都将会把元素盒子撑破（标准模式下，除 IE 怪异模式）。<br>为了解决撑破容器的问题，以前我们只能去计算 div.box 的宽度，用容器宽度减去 padding 和 border 的值，但有时候，我们苦于不知道元素的总宽度，比如说是自适应的布局，只知道一个百分值，但其他的值又是 px 之类的值，这就是难点，死卡住了。随着 CSS3 的出现，其中利用 box-sizing 来改变元素的盒模型类型实使实现效果，但今天我们学习的 calc()方法更是方便。<br>知道总宽度是 100%，在这个基础上减去 boder 的宽度（5px _ 2 = 10px）,在减去 padding 的宽度（10px _ 2 = 20px），即”100% - (10px + 5px) * 2 = 30px” ，最终得到的值就是 div.box 的 width 值：</p>
 
       
     </div>
@@ -502,7 +519,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#伸缩布局基本概念"><span class="nav-number">1.</span> <span class="nav-text">伸缩布局基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伸缩盒模型术语"><span class="nav-number">2.</span> <span class="nav-text">伸缩盒模型术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-wrap-换行"><span class="nav-number">3.</span> <span class="nav-text">flex-wrap 换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素换行后对齐方式"><span class="nav-number">4.</span> <span class="nav-text">元素换行后对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置子元素属性"><span class="nav-number">5.</span> <span class="nav-text">设置子元素属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置元素自身对齐方式"><span class="nav-number">6.</span> <span class="nav-text">设置元素自身对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置子元素排列顺序"><span class="nav-number">7.</span> <span class="nav-text">设置子元素排列顺序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#伸缩布局基本概念"><span class="nav-number">1.</span> <span class="nav-text">伸缩布局基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伸缩盒模型术语"><span class="nav-number">2.</span> <span class="nav-text">伸缩盒模型术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-wrap-换行"><span class="nav-number">3.</span> <span class="nav-text">flex-wrap 换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素换行后对齐方式"><span class="nav-number">4.</span> <span class="nav-text">元素换行后对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置子元素属性"><span class="nav-number">5.</span> <span class="nav-text">设置子元素属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置元素自身对齐方式"><span class="nav-number">6.</span> <span class="nav-text">设置元素自身对齐方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置子元素排列顺序"><span class="nav-number">7.</span> <span class="nav-text">设置子元素排列顺序</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#视口单位"><span class="nav-number"></span> <span class="nav-text">视口单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css3-calc"><span class="nav-number"></span> <span class="nav-text">css3 calc</span></a></li></div>
             
 
           </div>

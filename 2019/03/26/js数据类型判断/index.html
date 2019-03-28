@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  1个人理解:假设arr是一个数组,toString是object的原型里面的方法其返回的是类似 &amp;apos;[object class]&amp;apos;的字符串,">
+<meta name="description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js数据类型判断">
+<meta property="og:title" content="js数据类型判断以及watch">
 <meta property="og:url" content="http://yoursite.com/2019/03/26/js数据类型判断/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  1个人理解:假设arr是一个数组,toString是object的原型里面的方法其返回的是类似 &amp;apos;[object class]&amp;apos;的字符串,">
+<meta property="og:description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-26T10:40:26.631Z">
+<meta property="og:updated_time" content="2019-03-28T07:44:01.393Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js数据类型判断">
-<meta name="twitter:description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  1个人理解:假设arr是一个数组,toString是object的原型里面的方法其返回的是类似 &amp;apos;[object class]&amp;apos;的字符串,">
+<meta name="twitter:title" content="js数据类型判断以及watch">
+<meta name="twitter:description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>js数据类型判断 | 阳仔的博客</title>
+  <title>js数据类型判断以及watch | 阳仔的博客</title>
   
 
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js数据类型判断</h1>
+          <h1 class="post-title" itemprop="name headline">js数据类型判断以及watch</h1>
         
 
         <div class="post-meta">
@@ -316,11 +316,26 @@
 <li>constructor</li>
 <li>Object.prototype.toString<br><a href="https://blog.csdn.net/zjy_android_blog/article/details/81023177" target="_blank" rel="noopener">https://blog.csdn.net/zjy_android_blog/article/details/81023177</a></li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">个人理解:假设arr是一个数组,toString是object的原型里面的方法其返回的是类似 &apos;[object class]&apos;的字符串,但是当我们使用arr.toString()时，不能进行复杂数据类型的判断，因为它调用的是Array.prototype.toString，虽然Array也继承自Object，但js在Array.prototype上重写了toString，将toString改变成转换为字符串的一个方法,而我们通过toString.call(arr)实际上是改变object的this指向让object的toString重新通过原型链调用了Object.prototype.toString。</span><br></pre></td></tr></table></figure>
+<p>个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使用 arr.toString()时，不能进行复杂数据类型的判断，因为它调用的是 Array.prototype.toString，虽然 Array 也继承自 Object，但 js 在 Array.prototype 上重写了 toString，将 toString 改变成转换为字符串的一个方法,而我们通过 toString.call(arr)实际上是改变 object 的 this 指向让 object 的 toString 重新通过原型链调用了 Object.prototype.toString。</p>
+<a id="more"></a>
 <blockquote>
 <p>JavaScript 中一切都是对象，任何都不例外，对所有值类型应用 Object.prototype.toString.call() 方法结果如下：</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="number">123</span>)); <span class="comment">//[object Number]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="string">"123"</span>)); <span class="comment">//[object String]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">undefined</span>)); <span class="comment">//[object Undefined]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="literal">true</span>)); <span class="comment">//[object Boolean]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(&#123;&#125;)); <span class="comment">//[object Object]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call([])); <span class="comment">//[object Array]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)); <span class="comment">//[object Function]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.prototype.toString ( )</span></span><br><span class="line"><span class="comment">// 在toString方法被调用时,会执行下面的操作步骤:</span></span><br><span class="line"><span class="comment">// 如果this的值为undefined,则返回"[object Undefined]".</span></span><br><span class="line"><span class="comment">// 如果this的值为null,则返回"[object Null]".</span></span><br><span class="line"><span class="comment">// 让O成为调用ToObject(this)的结果.</span></span><br><span class="line"><span class="comment">// 让class成为O的内部属性[[Class]]的值.</span></span><br><span class="line"><span class="comment">// 返回三个字符串"[object ", class, 以及 "]"连接后的新字符串.</span></span><br></pre></td></tr></table></figure>
+<h2 id="ES6-高阶箭头函数-函数柯里化"><a href="#ES6-高阶箭头函数-函数柯里化" class="headerlink" title="ES6 高阶箭头函数 函数柯里化"></a>ES6 高阶箭头函数 函数柯里化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> y + x;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">2</span>)(<span class="number">3</span>); <span class="comment">//5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> adc = <span class="function"><span class="params">x</span> =&gt;</span> y =&gt; x + y;</span><br><span class="line">adc(<span class="number">2</span>)(<span class="number">3</span>); <span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+<h2 id="watch-高级用法"><a href="#watch-高级用法" class="headerlink" title="watch 高级用法"></a>watch 高级用法</h2><ol>
+<li>watch 和 computed 详解 推荐阅读***<br><a href="https://segmentfault.com/a/1190000012948175?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012948175?utm_source=tag-newest</a></li>
+<li>watch 高级用法<br><a href="https://www.cnblogs.com/forward-wuyi/p/9627962.html" target="_blank" rel="noopener">https://www.cnblogs.com/forward-wuyi/p/9627962.html</a></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听复杂数据类型需用深度监听</span></span><br><span class="line">data()&#123;</span><br><span class="line">      <span class="keyword">return</span>&#123;</span><br><span class="line">        first:&#123;</span><br><span class="line">          second:<span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch:&#123;</span><br><span class="line">      secondChange:&#123;</span><br><span class="line">        handler(oldVal,newVal)&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(oldVal)  <span class="comment">//当改变first.second值为2  打印2</span></span><br><span class="line">          <span class="built_in">console</span>.log(newVal)  <span class="comment">//当改变first.second值为2  打印2</span></span><br><span class="line">        &#125;,</span><br><span class="line">        deep:<span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<ul>
+<li>问题</li>
+</ul>
+<ol>
+<li>console.log 打印的结果,发现 oldVal 和 newVal 值是一样的都是修改后的,因为深度监听虽然可以监听到对象的变化,但是无法监听到具体对象里面那个属性的变化</li>
+<li>oldVal 和 newVal 值一样的原因是它们索引同一个对象/数组。Vue 不会保留修改之前值的副本</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一：可以直接对用对象.属性的方法拿到属性</span></span><br><span class="line">data()&#123;</span><br><span class="line">          <span class="keyword">return</span>&#123;</span><br><span class="line">            first:&#123;</span><br><span class="line">              second:<span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch:&#123;</span><br><span class="line">          <span class="string">'first.second'</span>:<span class="function"><span class="keyword">function</span>(<span class="params">newVal,oldVal</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(newVal,oldVal);<span class="comment">//当改变first.second值为2  打印2和0</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="comment">// 方法二：watch如果想要监听对象的单个属性的变化,必须用computed作为中间件转化,因为computed可以取到对应的属性值</span></span><br><span class="line">data()&#123;</span><br><span class="line">      <span class="keyword">return</span>&#123;</span><br><span class="line">        first:&#123;</span><br><span class="line">          second:<span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed:&#123;</span><br><span class="line">      secondChange()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.first.second</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch:&#123;</span><br><span class="line">      secondChange()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'second属性值变化了'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -411,8 +426,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -465,6 +489,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-高阶箭头函数-函数柯里化"><span class="nav-number">1.</span> <span class="nav-text">ES6 高阶箭头函数 函数柯里化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch-高级用法"><span class="nav-number">2.</span> <span class="nav-text">watch 高级用法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
