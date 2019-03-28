@@ -82,14 +82,14 @@
 <meta name="description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js数据类型判断以及watch">
+<meta property="og:title" content="数据类型判断watch回调">
 <meta property="og:url" content="http://yoursite.com/2019/03/26/js数据类型判断/index.html">
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T07:44:01.393Z">
+<meta property="og:updated_time" content="2019-03-28T14:38:38.193Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js数据类型判断以及watch">
+<meta name="twitter:title" content="数据类型判断watch回调">
 <meta name="twitter:description" content="typeof instanceof constructor Object.prototype.toStringhttps://blog.csdn.net/zjy_android_blog/article/details/81023177  个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>js数据类型判断以及watch | 阳仔的博客</title>
+  <title>数据类型判断watch回调 | 阳仔的博客</title>
   
 
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js数据类型判断以及watch</h1>
+          <h1 class="post-title" itemprop="name headline">数据类型判断watch回调</h1>
         
 
         <div class="post-meta">
@@ -336,6 +336,8 @@
 <li>oldVal 和 newVal 值一样的原因是它们索引同一个对象/数组。Vue 不会保留修改之前值的副本</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方法一：可以直接对用对象.属性的方法拿到属性</span></span><br><span class="line">data()&#123;</span><br><span class="line">          <span class="keyword">return</span>&#123;</span><br><span class="line">            first:&#123;</span><br><span class="line">              second:<span class="number">0</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        watch:&#123;</span><br><span class="line">          <span class="string">'first.second'</span>:<span class="function"><span class="keyword">function</span>(<span class="params">newVal,oldVal</span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(newVal,oldVal);<span class="comment">//当改变first.second值为2  打印2和0</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="comment">// 方法二：watch如果想要监听对象的单个属性的变化,必须用computed作为中间件转化,因为computed可以取到对应的属性值</span></span><br><span class="line">data()&#123;</span><br><span class="line">      <span class="keyword">return</span>&#123;</span><br><span class="line">        first:&#123;</span><br><span class="line">          second:<span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    computed:&#123;</span><br><span class="line">      secondChange()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.first.second</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    watch:&#123;</span><br><span class="line">      secondChange()&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'second属性值变化了'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="js-回调函数"><a href="#js-回调函数" class="headerlink" title="js 回调函数"></a>js 回调函数</h2><p><a href="https://www.cnblogs.com/lishuxue/p/5999682.html" target="_blank" rel="noopener">https://www.cnblogs.com/lishuxue/p/5999682.html</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义主函数，回调函数作为参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  callback();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"我是主函数"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="string">"console.log('我是回调函数')"</span>, <span class="number">3000</span>); <span class="comment">//模仿耗时操作</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用主函数，将函数B传进去</span></span><br><span class="line">A(B);</span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">我是主函数;</span><br><span class="line">我是回调函数;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -499,7 +501,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-高阶箭头函数-函数柯里化"><span class="nav-number">1.</span> <span class="nav-text">ES6 高阶箭头函数 函数柯里化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch-高级用法"><span class="nav-number">2.</span> <span class="nav-text">watch 高级用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6-高阶箭头函数-函数柯里化"><span class="nav-number">1.</span> <span class="nav-text">ES6 高阶箭头函数 函数柯里化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch-高级用法"><span class="nav-number">2.</span> <span class="nav-text">watch 高级用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-回调函数"><span class="nav-number">3.</span> <span class="nav-text">js 回调函数</span></a></li></ol></div>
             
 
           </div>
