@@ -83,18 +83,14 @@
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue双绑原理组件之间传值">
-<meta property="og:url" content="http://yoursite.com/2019/02/23/组件之间传值/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/02/23/vue组件之间传值/index.html">
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="复习 v-on 指令用于监听 DOM 事件 形式如：v-on:click 缩写为 @clickv-model 在表单控件或者组件上创建双向绑定v-bind 缩写 :）动态地绑定一个或多个特性、或一个组件 prop 到表达式触发事件 this.$emit(“事件名”,要传的数据shican)   绑定事件this.$on(“事件名”,要传的数据 xincan)注意，在 Vue 实例中 data 属性">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/23/组件之间传值/ps.png">
-<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/23/组件之间传值/sp.png">
-<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/02/23/组件之间传值/BC.png">
-<meta property="og:updated_time" content="2019-03-29T10:17:56.169Z">
+<meta property="og:updated_time" content="2019-03-29T10:18:26.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue双绑原理组件之间传值">
 <meta name="twitter:description" content="复习 v-on 指令用于监听 DOM 事件 形式如：v-on:click 缩写为 @clickv-model 在表单控件或者组件上创建双向绑定v-bind 缩写 :）动态地绑定一个或多个特性、或一个组件 prop 到表达式触发事件 this.$emit(“事件名”,要传的数据shican)   绑定事件this.$on(“事件名”,要传的数据 xincan)注意，在 Vue 实例中 data 属性">
-<meta name="twitter:image" content="http://yoursite.com/keaichong.github.io/2019/02/23/组件之间传值/ps.png">
 
 
 
@@ -124,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/23/组件之间传值/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/23/vue组件之间传值/">
 
 
 
@@ -247,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/23/组件之间传值/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/23/vue组件之间传值/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
@@ -324,7 +320,7 @@
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 子组件页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>你好吗<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">data-st</span> <span class="attr">:msg</span>=<span class="string">"str"</span> <span class="attr">class</span>=<span class="string">"xx"</span>&gt;</span><span class="tag">&lt;/<span class="name">data-st</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<img src="/keaichong.github.io/2019/02/23/组件之间传值/ps.png">
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">"DataChild"</span>, &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      count: <span class="number">100</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">            &lt;div&gt;</span></span><br><span class="line"><span class="string">            &lt;h3 &gt;你好啊---&#123;&#123;msg&#125;&#125;   &lt;/h3&gt;</span></span><br><span class="line"><span class="string">            &lt;div&gt;&#123;&#123;count&#125;&#125;&lt;/div&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;`</span>,</span><br><span class="line">  props: [<span class="string">"msg"</span>]</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    str: <span class="string">"我是父组件data的数据"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 选项props</span></span><br><span class="line"><span class="comment">// 1. props是组件的选项</span></span><br><span class="line"><span class="comment">// 2. props的值可以是字符串数组</span></span><br><span class="line"><span class="comment">// 3. props数组里面的元素称之为prop(属性) 属性=?值</span></span><br><span class="line"><span class="comment">// 4. prop的值来源于外部的(组件的外部)</span></span><br><span class="line"><span class="comment">// 5. prop(我们这里是msg)是组件的属性-&gt;自定义标签的属性</span></span><br><span class="line"><span class="comment">// 6. prop的赋值位置(在使用组件时,通过标签属性去赋值)</span></span><br><span class="line"><span class="comment">// 7. prop的用法和data中的数据用法一样-&gt;&#123;&#123;msg&#125;&#125;</span></span><br><span class="line"><span class="comment">// 补充 : 组件的数据的值来源于自己(内容),此时这个数据的声明写在data中</span></span><br><span class="line"><span class="comment">// 推论-&gt; data的数据的值只能来源于自己-&gt;</span></span><br><span class="line"><span class="comment">// 2个组件-&gt; newVue的视图当成整个网页的根组件</span></span><br><span class="line"><span class="comment">// 此时 根组件就是newVue的视图div#app  子组件就是DataChild</span></span><br></pre></td></tr></table></figure>
 <h2 id="子传父"><a href="#子传父" class="headerlink" title="子传父"></a>子传父</h2><ol>
 <li>子组件创建自定义事件，事件的处理函数是父组件的函数，子组件再通过 this.\$emit 触发自定义事件</li>
@@ -333,7 +329,7 @@
 <li>在使用组件时绑定自定义事件</li>
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件页面 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">data-child</span> <span class="attr">class</span>=<span class="string">"xx"</span> @<span class="attr">transfer</span>=<span class="string">"parent"</span>&gt;</span><span class="tag">&lt;/<span class="name">data-child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<img src="/keaichong.github.io/2019/02/23/组件之间传值/sp.png">
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">"DataChild"</span>, &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      str: <span class="string">"我从子组件data传过来"</span>,</span><br><span class="line">      str1: <span class="string">"我是子组件data里面的数据"</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: <span class="string">`</span></span><br><span class="line"><span class="string">            &lt;div&gt;</span></span><br><span class="line"><span class="string">            &lt;h3&gt;右边插值表达式展示子组件data数据---&gt;&#123;&#123;str1&#125;&#125;&lt;/h3&gt;</span></span><br><span class="line"><span class="string">            &lt;button @click="son" &gt;点我传值给父组件&lt;/button&gt;</span></span><br><span class="line"><span class="string">            &lt;/div&gt;`</span>,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    son() &#123;</span><br><span class="line">      <span class="comment">//触发事件</span></span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">"transfer"</span>, <span class="keyword">this</span>.str);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">"#app"</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    count: <span class="number">100</span></span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    parent(str) &#123;</span><br><span class="line">      alert(str + <span class="string">"---"</span> + <span class="keyword">this</span>.count);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h2 id="兄弟组件传值"><a href="#兄弟组件传值" class="headerlink" title="兄弟组件传值"></a>兄弟组件传值</h2><blockquote>
 <p>b 组件传值给 c 组件<br>方法: eventBus.js(中央事件总线):给其他文件提供了共享/公用的对象(newVue())</p>
@@ -345,7 +341,7 @@
 <blockquote>
 <p>注意:先绑定事件,再触发事件 代码写在 created 是为了让事件自动绑定触发</p>
 </blockquote>
-<img src="/keaichong.github.io/2019/02/23/组件之间传值/BC.png">
+
 <p>argv 就是 B 组件传过来的值 100</p>
 <blockquote>
 <p>下面是 eventBus.js</p>
@@ -405,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/keaichong.github.io/2019/02/22/路由元信息/" rel="next" title="路由元信息">
-                <i class="fa fa-chevron-left"></i> 路由元信息
+              <a href="/keaichong.github.io/2019/02/23/组件之间传值/" rel="next" title="vue双绑原理组件之间传值">
+                <i class="fa fa-chevron-left"></i> vue双绑原理组件之间传值
               </a>
             
           </div>
@@ -415,8 +411,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/keaichong.github.io/2019/02/23/vue组件之间传值/" rel="prev" title="vue双绑原理组件之间传值">
-                vue双绑原理组件之间传值 <i class="fa fa-chevron-right"></i>
+              <a href="/keaichong.github.io/2019/02/25/品优购前台项目/" rel="prev" title="品优购前台项目">
+                品优购前台项目 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
