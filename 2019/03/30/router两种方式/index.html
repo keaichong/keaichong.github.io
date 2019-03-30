@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="js,">
+  <meta name="keywords" content="vue,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="this 普通函数和定时器中的 this 指向 window  对象方法中的 this 指向调用者  构造函数中的 this 指向实例对象(当前创建对象)  事件处理函数中的 this 指向事件源  箭头函数没有自己的 this,它的 this 是外部函数的 this   bind call apply 改变 this 指向">
-<meta name="keywords" content="js">
+<meta name="description" content="声明式12345678910111213141516171819202122// 字符串&amp;lt;router-link to=&quot;apple&quot;&amp;gt; to apple&amp;lt;/router-link&amp;gt;// 对象&amp;lt;router-link :to=&quot;&amp;#123;path:&apos;apple&apos;&amp;#125;&quot;&amp;gt; to apple&amp;lt;/router-link&amp;gt;// 命名路由&amp;lt;ro">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="this指向问题和改变this的方法">
-<meta property="og:url" content="http://yoursite.com/2019/02/02/js中this的指向问题/index.html">
+<meta property="og:title" content="router两种方式">
+<meta property="og:url" content="http://yoursite.com/2019/03/30/router两种方式/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="this 普通函数和定时器中的 this 指向 window  对象方法中的 this 指向调用者  构造函数中的 this 指向实例对象(当前创建对象)  事件处理函数中的 this 指向事件源  箭头函数没有自己的 this,它的 this 是外部函数的 this   bind call apply 改变 this 指向">
+<meta property="og:description" content="声明式12345678910111213141516171819202122// 字符串&amp;lt;router-link to=&quot;apple&quot;&amp;gt; to apple&amp;lt;/router-link&amp;gt;// 对象&amp;lt;router-link :to=&quot;&amp;#123;path:&apos;apple&apos;&amp;#125;&quot;&amp;gt; to apple&amp;lt;/router-link&amp;gt;// 命名路由&amp;lt;ro">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-03T07:26:04.555Z">
+<meta property="og:updated_time" content="2019-03-30T13:28:55.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="this指向问题和改变this的方法">
-<meta name="twitter:description" content="this 普通函数和定时器中的 this 指向 window  对象方法中的 this 指向调用者  构造函数中的 this 指向实例对象(当前创建对象)  事件处理函数中的 this 指向事件源  箭头函数没有自己的 this,它的 this 是外部函数的 this   bind call apply 改变 this 指向">
+<meta name="twitter:title" content="router两种方式">
+<meta name="twitter:description" content="声明式12345678910111213141516171819202122// 字符串&amp;lt;router-link to=&quot;apple&quot;&amp;gt; to apple&amp;lt;/router-link&amp;gt;// 对象&amp;lt;router-link :to=&quot;&amp;#123;path:&apos;apple&apos;&amp;#125;&quot;&amp;gt; to apple&amp;lt;/router-link&amp;gt;// 命名路由&amp;lt;ro">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/02/js中this的指向问题/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/30/router两种方式/">
 
 
 
 
 
-  <title>this指向问题和改变this的方法 | 阳仔的博客</title>
+  <title>router两种方式 | 阳仔的博客</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/js中this的指向问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/30/router两种方式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="愚人阳仔">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">this指向问题和改变this的方法</h1>
+          <h1 class="post-title" itemprop="name headline">router两种方式</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-02T23:27:59+08:00">
-                2019-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T21:24:00+08:00">
+                2019-03-30
               </time>
             
 
@@ -310,32 +310,30 @@
       
 
       
-        <h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><ol>
-<li><p>普通函数和定时器中的 this 指向 window</p>
-</li>
-<li><p>对象方法中的 this 指向调用者</p>
-</li>
-<li><p>构造函数中的 this 指向实例对象(当前创建对象)</p>
-</li>
-<li><p>事件处理函数中的 this 指向事件源</p>
-</li>
-<li><p>箭头函数没有自己的 this,它的 this 是外部函数的 this</p>
-</li>
+        <h2 id="声明式"><a href="#声明式" class="headerlink" title="声明式"></a><router-link :to="...">声明式</router-link></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 字符串</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"apple"</span>&gt;</span> to apple<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">// 对象</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;path:'apple'&#125;"</span>&gt;</span> to apple<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">// 命名路由</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name: 'applename'&#125;"</span>&gt;</span> to apple<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">//直接路由带查询参数query，地址栏变成 /apple?color=red</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;path: 'apple', query: &#123;color: 'red' &#125;&#125;"</span>&gt;</span></span><br><span class="line">  to apple<span class="tag">&lt;/<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">// 命名路由带查询参数query，地址栏变成/apple?color=red</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name: 'applename', query: &#123;color: 'red' &#125;&#125;"</span>&gt;</span></span><br><span class="line">  to apple<span class="tag">&lt;/<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">//直接路由带路由参数params，params 不生效，如果提供了 path，params 会被忽略</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;path: 'apple', params: &#123; color: 'red' &#125;&#125;"</span>&gt;</span></span><br><span class="line">  to apple<span class="tag">&lt;/<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">// 命名路由带路由参数params，地址栏是/apple/red</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name: 'applename', params: &#123; color: 'red' &#125;&#125;"</span>&gt;</span></span><br><span class="line">  to apple<span class="tag">&lt;/<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="router-push-…-编程式方法"><a href="#router-push-…-编程式方法" class="headerlink" title="router.push(…) 编程式方法"></a>router.push(…) 编程式方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串</span></span><br><span class="line">router.push(<span class="string">"apple"</span>);</span><br><span class="line"><span class="comment">// 对象</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">"apple"</span> &#125;);</span><br><span class="line"><span class="comment">// 命名路由</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">"applename"</span> &#125;);</span><br><span class="line"><span class="comment">//直接路由带查询参数query，地址栏变成 /apple?color=red</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">"apple"</span>, <span class="attr">query</span>: &#123; <span class="attr">color</span>: <span class="string">"red"</span> &#125; &#125;);</span><br><span class="line"><span class="comment">// 命名路由带查询参数query，地址栏变成/apple?color=red</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">"applename"</span>, <span class="attr">query</span>: &#123; <span class="attr">color</span>: <span class="string">"red"</span> &#125; &#125;);</span><br><span class="line"><span class="comment">//直接路由带路由参数params，params 不生效，如果提供了 path，params 会被忽略</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">"applename"</span>, <span class="attr">params</span>: &#123; <span class="attr">color</span>: <span class="string">"red"</span> &#125; &#125;);</span><br><span class="line"><span class="comment">// 命名路由带路由参数params，地址栏是/apple/red</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">"applename"</span>, <span class="attr">params</span>: &#123; <span class="attr">color</span>: <span class="string">"red"</span> &#125; &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li>关于带参数的路由总结如下</li>
 </ol>
-<h2 id="bind-call-apply-改变-this-指向"><a href="#bind-call-apply-改变-this-指向" class="headerlink" title="bind call apply 改变 this 指向"></a>bind call apply 改变 this 指向</h2><a id="more"></a>
-<h4 id="call-方法"><a href="#call-方法" class="headerlink" title="call 方法"></a>call 方法</h4><ol>
-<li>语法:函数名.call(调用者,参数 1,参数 2,…)</li>
-<li>会立即执行,this 指向调用者</li>
+<ul>
+<li>无论是直接路由“path” 还是命名路由“name”，带查询参数 query，地址栏会变成“/url?查询参数名：查询参数值“;</li>
+<li>直接路由“path” 带路由参数 params params 不生效;</li>
+<li>命名路由“name” 带路由参数 params 地址栏保持是“/url/路由参数值”;</li>
+</ul>
+<ol start="2">
+<li>设置路由 map 里的 path 值：</li>
 </ol>
-<h4 id="apply-方法"><a href="#apply-方法" class="headerlink" title="apply 方法"></a>apply 方法</h4><ol>
-<li>语法: 函数名.apply(调用者,数组)</li>
-<li>会立即执行,this 指向调用者</li>
+<ul>
+<li>带路由参数 params 时，路由 map 里的 path 应该写成: path:’/apple/:color’ ;</li>
+<li>带查询参数 query 时，路由 map 里的 path 应该写成: path:’/apple’ ；</li>
+</ul>
+<ol start="3">
+<li>获取参数方法：</li>
 </ol>
-<h4 id="bind-方法"><a href="#bind-方法" class="headerlink" title="bind()方法"></a>bind()方法</h4><ol>
-<li>语法: 函数名.bind(调用者,参数 1,参数 2,…)</li>
-<li>call 和 apply 都是对函数的直接调用，而 bind 方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以</li>
-<li>bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和 call()相同</li>
-</ol>
+<ul>
+<li>在 template 中：</li>
+<li>在 script 里： this.\$route.params.color</li>
+</ul>
 
       
     </div>
@@ -353,7 +351,7 @@
       
         <div class="post-tags">
           
-            <a href="/keaichong.github.io/tags/js/" rel="tag"># js</a>
+            <a href="/keaichong.github.io/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -366,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/keaichong.github.io/2019/02/02/js数组字符串常用方法/" rel="next" title="js数组字符串常用方法">
-                <i class="fa fa-chevron-left"></i> js数组字符串常用方法
+              <a href="/keaichong.github.io/2019/03/30/菜虫网后台项目过程/" rel="next" title="菜虫网后台项目过程">
+                <i class="fa fa-chevron-left"></i> 菜虫网后台项目过程
               </a>
             
           </div>
@@ -375,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/keaichong.github.io/2019/02/02/JS闭包和递归/" rel="prev" title="JS闭包和递归">
-                JS闭包和递归 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,7 +497,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">1.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind-call-apply-改变-this-指向"><span class="nav-number">2.</span> <span class="nav-text">bind call apply 改变 this 指向</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#call-方法"><span class="nav-number">2.0.1.</span> <span class="nav-text">call 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply-方法"><span class="nav-number">2.0.2.</span> <span class="nav-text">apply 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind-方法"><span class="nav-number">2.0.3.</span> <span class="nav-text">bind()方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明式"><span class="nav-number">1.</span> <span class="nav-text">声明式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#router-push-…-编程式方法"><span class="nav-number">2.</span> <span class="nav-text">router.push(…) 编程式方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意点"><span class="nav-number">3.</span> <span class="nav-text">注意点</span></a></li></ol></div>
             
 
           </div>
