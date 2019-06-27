@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="登陆页 在封装 axios 在挂载到 vue.prototype.\$http=axios; methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 toke ; localStorage.setItem(“token”, data.token); 在用编程式导航 this.\$router.push({name: “home”})跳转到后台的首页 met">
+<meta name="description" content="登陆页 在封装 axios 在挂载到 vue.prototype.\$http=axios; methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 token ; localStorage.setItem(“token”, data.token); 在用编程式导航 this.\$router.push({name: “home”})跳转到后台的首页 me">
 <meta name="keywords" content="vue项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="菜虫网后台项目过程">
 <meta property="og:url" content="http://yoursite.com/2019/03/30/菜虫网后台项目过程/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="登陆页 在封装 axios 在挂载到 vue.prototype.\$http=axios; methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 toke ; localStorage.setItem(“token”, data.token); 在用编程式导航 this.\$router.push({name: “home”})跳转到后台的首页 met">
+<meta property="og:description" content="登陆页 在封装 axios 在挂载到 vue.prototype.\$http=axios; methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 token ; localStorage.setItem(“token”, data.token); 在用编程式导航 this.\$router.push({name: “home”})跳转到后台的首页 me">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-30T10:43:36.796Z">
+<meta property="og:updated_time" content="2019-04-01T06:53:22.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="菜虫网后台项目过程">
-<meta name="twitter:description" content="登陆页 在封装 axios 在挂载到 vue.prototype.\$http=axios; methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 toke ; localStorage.setItem(“token”, data.token); 在用编程式导航 this.\$router.push({name: “home”})跳转到后台的首页 met">
+<meta name="twitter:description" content="登陆页 在封装 axios 在挂载到 vue.prototype.\$http=axios; methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 token ; localStorage.setItem(“token”, data.token); 在用编程式导航 this.\$router.push({name: “home”})跳转到后台的首页 me">
 
 
 
@@ -312,20 +312,26 @@
       
         <h2 id="登陆页"><a href="#登陆页" class="headerlink" title="登陆页"></a>登陆页</h2><ol>
 <li>在封装 axios 在挂载到 vue.prototype.\$http=axios;</li>
-<li>methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 toke ; localStorage.setItem(“token”, data.token);</li>
+<li>methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 token ; localStorage.setItem(“token”, data.token);</li>
 <li>在用编程式导航 this.\$router.push({name: “home”})跳转到后台的首页</li>
-<li>methods 中发请求的位置用 async await</li>
+<li>methods 中发请求的位置用 async await ,await 绑定在异步操作请求前面,async 写在离异步操作最近的外层函数前面</li>
 <li>cookie 存小数据客户端 seession 服务端存数据 localstorge 存在浏览器内存中</li>
-<li>element-ui中的属性如果是布尔值 要在属性前加上:绑定.比如:opend=”true”,不加会认为属性是一个true字符串</li>
+<li>element-ui 中的属性如果是布尔值 要在属性前加上:绑定.比如:opend=”true”,不加会认为属性是一个 true 字符串</li>
 </ol>
 <h2 id="退出登陆"><a href="#退出登陆" class="headerlink" title="退出登陆"></a>退出登陆</h2><ol>
 <li>退出登陆 localStorage.clear();this.\$router.push({name: “login”});</li>
 </ol>
 <h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><ol>
-<li>在main.js全局过滤器 - 处理日期格式Vue.filter(‘fmtdate’, (v) =&gt; {return moment(v).format(‘YYYY-MM-DD’);})</li>
-<li>element-ui中一些自己的事件,比如搜索框当点击清空按钮@clear会触发你绑定事件 事件中设置页码为1 然后重新调用请求方法获取第一页数据</li>
-<li>用户状态开关</li>
+<li>在 main.js 全局过滤器 - 处理日期格式 Vue.filter(‘fmtdate’, (v) =&gt; {return moment(v).format(‘YYYY-MM-DD’);})</li>
+<li>element-ui 中一些自己的事件,比如搜索框当点击清空按钮@clear 会触发你绑定事件 事件中设置页码为 1 然后重新调用请求方法获取第一页数据</li>
+<li>通过 template 标签里面设置 v-slot=”scope”绑定外层数据 scope.row 获取当前的对象,在获取对象属性的值发请求更改用户状态开关 删除和编辑和下拉框分配用户角色</li>
 </ol>
+<h2 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h2><ol>
+<li>封装面包屑组件 在 main.js 导入封装好的面包屑 import CusBread from ‘@/components/cusBread.vue’然后在全局自定义 Vue.component(CusBread.name, CusBread);</li>
+<li>表格展开行显示三层权限,用行列布局展示,element-ui 是一行 24 份,先分为 4:20;在 20 份中在分 4:20 完成效果</li>
+<li>tree 形控件,只需要给最里层的id添加到数组中,然后就会选中,只有当最里层全部选中,外层会自动选上,如果给外层也选中,会导致里面所有层都全选</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">role.children.forEach(<span class="function"><span class="params">item1</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// temp2.push(item1.id);// 最外层id-&gt;temp-&gt;arrCheck</span></span><br><span class="line">  item1.children.forEach(<span class="function"><span class="params">item2</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// temp2.push(item2.id);</span></span><br><span class="line">    item2.children.forEach(<span class="function"><span class="params">item3</span> =&gt;</span> &#123;</span><br><span class="line">      temp2.push(item3.id);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -447,7 +453,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -493,7 +499,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#登陆页"><span class="nav-number">1.</span> <span class="nav-text">登陆页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出登陆"><span class="nav-number">2.</span> <span class="nav-text">退出登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理"><span class="nav-number">3.</span> <span class="nav-text">用户管理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#登陆页"><span class="nav-number">1.</span> <span class="nav-text">登陆页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#退出登陆"><span class="nav-number">2.</span> <span class="nav-text">退出登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理"><span class="nav-number">3.</span> <span class="nav-text">用户管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限管理"><span class="nav-number">4.</span> <span class="nav-text">权限管理</span></a></li></ol></div>
             
 
           </div>
