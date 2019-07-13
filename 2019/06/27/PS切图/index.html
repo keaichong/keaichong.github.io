@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="阳仔的博客">
 <meta property="og:description" content="切图 选择工具栏矩形选框工具 顶栏样式选择固定大小 选中切图区域后标注辅助线 ctrl+c 复制选中图层 ctrl+n 新建图层 ctrl+v 粘贴图层 ctrl+shift+alt+s 保存剪切好的图层到指定位置  判断页面是否是微信浏览器打开">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T13:26:53.217Z">
+<meta property="og:updated_time" content="2019-07-11T02:02:00.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PS切图">
 <meta name="twitter:description" content="切图 选择工具栏矩形选框工具 顶栏样式选择固定大小 选中切图区域后标注辅助线 ctrl+c 复制选中图层 ctrl+n 新建图层 ctrl+v 粘贴图层 ctrl+shift+alt+s 保存剪切好的图层到指定位置  判断页面是否是微信浏览器打开">
@@ -331,15 +331,44 @@
 <li>假设我们的宽带是 100Mbps, 第二个 b 就是 bit;但是下载网速是 12.5MB/S; 第二个 B 代表的 Byte;所以要用 100%8 才会是我们下载的理论大小速度</li>
 </ul>
 <h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><ol>
-<li>jvm  java虚拟机</li>
-<li>jre  java运行环境(封装有jvm)  运行java代码</li>
-<li>jdk  java工具包 (封装有jre)   开发java代码</li>
+<li>jvm java 虚拟机</li>
+<li>jre java 运行环境(封装有 jvm) 运行 java 代码</li>
+<li>jdk java 工具包 (封装有 jre) 开发 java 代码</li>
 </ol>
 <h2 id="url-image-1-png-v-1-a-css-v-f02bc2"><a href="#url-image-1-png-v-1-a-css-v-f02bc2" class="headerlink" title="url(image/1.png?v=1) a.css?v=f02bc2"></a>url(image/1.png?v=1) a.css?v=f02bc2</h2><ul>
 <li>向图片传参本身不会对图片有任何影响,一般是为了避免缓存才这么干，可能是由于这张图片经常更换，但又必须实时显示的缘故</li>
-<li>css文件后缀传参 利用 数据摘要要算法 对文件求摘要信息，摘要信息与文件内容一一对应，就有了一种可以精确到单个文件粒度的缓存控制依据了 (摘要算法又称哈希算法，它表示输入任意长度的数据，输出固定长度的数据，相同的输入数据始终得到相同的输出，不同的输入数据尽量得到不同的输出。)</li>
+<li>css 文件后缀传参 利用 数据摘要要算法 对文件求摘要信息，摘要信息与文件内容一一对应，就有了一种可以精确到单个文件粒度的缓存控制依据了 (摘要算法又称哈希算法，它表示输入任意长度的数据，输出固定长度的数据，相同的输入数据始终得到相同的输出，不同的输入数据尽量得到不同的输出。)</li>
 </ul>
-<h2 id="js对时间进行排序"><a href="#js对时间进行排序" class="headerlink" title="js对时间进行排序"></a>js对时间进行排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [&#123;<span class="attr">id</span>: <span class="number">1</span>, <span class="attr">value</span> : <span class="string">"value1"</span>, <span class="attr">date</span>: <span class="string">"2018-08-08"</span>, <span class="attr">time</span>: <span class="string">"15:27:17"</span>&#125;,</span><br><span class="line">&#123;<span class="attr">id</span>: <span class="number">2</span>, <span class="attr">value</span> : <span class="string">"value2"</span>, <span class="attr">date</span>: <span class="string">"2018-08-09"</span>, <span class="attr">time</span>: <span class="string">"12:27:17"</span>&#125;,</span><br><span class="line">&#123;<span class="attr">id</span>: <span class="number">3</span>, <span class="attr">value</span> : <span class="string">"value3"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"17:27:17"</span>&#125;,</span><br><span class="line">&#123;<span class="attr">id</span>: <span class="number">4</span>, <span class="attr">value</span> : <span class="string">"value4"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"01:27:17"</span>&#125;,</span><br><span class="line">&#123;<span class="attr">id</span>: <span class="number">5</span>, <span class="attr">value</span> : <span class="string">"value5"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"09:27:17"</span>&#125;,</span><br><span class="line">&#123;<span class="attr">id</span>: <span class="number">6</span>, <span class="attr">value</span> : <span class="string">"value6"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"23:27:17"</span>&#125;,</span><br><span class="line">&#123;<span class="attr">id</span>: <span class="number">7</span>, <span class="attr">value</span> : <span class="string">"value7"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"16:27:17"</span>&#125;,</span><br><span class="line">&#123;<span class="attr">id</span>: <span class="number">8</span>, <span class="attr">value</span> : <span class="string">"value8"</span>, <span class="attr">date</span>: <span class="string">"2018-08-11"</span>, <span class="attr">time</span>: <span class="string">"10:27:17"</span>&#125;</span><br><span class="line">];</span><br><span class="line"><span class="comment">//time: "2019-06-13" 这种日期格式也可以升序降序</span></span><br><span class="line"><span class="comment">// 升序</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.date.localeCompare(b.date) || a.time.localeCompare(b.time));</span><br><span class="line"><span class="comment">// 降序</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b.date.localeCompare(a.date) || b.time.localeCompare(a.time));</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+<h2 id="js-对时间进行排序"><a href="#js-对时间进行排序" class="headerlink" title="js 对时间进行排序"></a>js 对时间进行排序</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">value</span>: <span class="string">"value1"</span>, <span class="attr">date</span>: <span class="string">"2018-08-08"</span>, <span class="attr">time</span>: <span class="string">"15:27:17"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">value</span>: <span class="string">"value2"</span>, <span class="attr">date</span>: <span class="string">"2018-08-09"</span>, <span class="attr">time</span>: <span class="string">"12:27:17"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">value</span>: <span class="string">"value3"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"17:27:17"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">value</span>: <span class="string">"value4"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"01:27:17"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">5</span>, <span class="attr">value</span>: <span class="string">"value5"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"09:27:17"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">6</span>, <span class="attr">value</span>: <span class="string">"value6"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"23:27:17"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">7</span>, <span class="attr">value</span>: <span class="string">"value7"</span>, <span class="attr">date</span>: <span class="string">"2018-08-10"</span>, <span class="attr">time</span>: <span class="string">"16:27:17"</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">8</span>, <span class="attr">value</span>: <span class="string">"value8"</span>, <span class="attr">date</span>: <span class="string">"2018-08-11"</span>, <span class="attr">time</span>: <span class="string">"10:27:17"</span> &#125;</span><br><span class="line">];</span><br><span class="line"><span class="comment">//time: "2019-06-13" 这种日期格式也可以升序降序</span></span><br><span class="line"><span class="comment">// 升序</span></span><br><span class="line">arr.sort(</span><br><span class="line">  (a, b) =&gt; a.date.localeCompare(b.date) || a.time.localeCompare(b.time)</span><br><span class="line">);</span><br><span class="line"><span class="comment">// 降序</span></span><br><span class="line">arr.sort(</span><br><span class="line">  (a, b) =&gt; b.date.localeCompare(a.date) || b.time.localeCompare(a.time)</span><br><span class="line">);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+<h2 id="取消事件的方法"><a href="#取消事件的方法" class="headerlink" title="取消事件的方法"></a>取消事件的方法</h2><ol>
+<li>event.preventDefault()</li>
+<li>event.stopPropagation()</li>
+</ol>
+<ul>
+<li>这两种是在 JS 中的常用取消事件的方法，但是其实还有一种用纯 css 就能实现取消事件响应的方法，pointer-events，使用起来更加简单，它可以：</li>
+</ul>
+<ol>
+<li><p>阻止用户的点击动作产生任何效果</p>
+</li>
+<li><p>阻止缺省鼠标指针的显示</p>
+</li>
+<li><p>阻止 CSS 里的 hover 和 active 状态的变化触发事件</p>
+</li>
+<li><p>阻止 JavaScript 点击动作触发的事件</p>
+</li>
+</ol>
+<h2 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h2><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2017/04/memory-leak.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2017/04/memory-leak.html</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="comment">// "引用计数"（reference counting）：语言引擎有一张"引用表"，保存了内存里面所有的资源（通常是各种值）的引用次数。如果一个值的引用次数是0，就表示这个值不再用到了，因此可以将这块内存释放。</span></span><br><span class="line"><span class="comment">//数组[1,2,3,4]是一个值,会占用内存,arr是对这个数组的引用,因为引用次数为1,所以不会被系统释放掉,可以增加一行代码,接触对这个数值的引用</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="literal">null</span>;</span><br><span class="line"><span class="comment">//arr重置为null，就解除了对[1, 2, 3, 4]的引用，引用次数变成了0，内存就可以释放出来了。</span></span><br><span class="line"><span class="comment">//因此，并不是说有了垃圾回收机制，程序员就轻松了。你还是需要关注内存占用：那些很占空间的值，一旦不再用到，你必须检查是否还存在对它们的引用。如果是的话，就必须手动解除引用。</span></span><br></pre></td></tr></table></figure>
+<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><ul>
+<li>加密和解密需要两把钥匙 一把公钥 一把私钥</li>
+<li>公钥是公开的，任何人都可以获取。私钥是保密的，只有拥有者才能使用。他人使用你的公钥加密信息，然后发送给你，你用私钥解密，取出信息。反过来，你也可以用私钥加密信息，别人用你的公钥解开，从而证明这个信息确实是你发出的，且未被篡改，这叫做数字签名</li>
+</ul>
+<h2 id="vue-三元运算符"><a href="#vue-三元运算符" class="headerlink" title="vue 三元运算符"></a>vue 三元运算符</h2><ul>
+<li>gender: userInfo.gender == ‘F’ ? ‘2’ : userInfo.gender == ‘M’ ? ‘1’ : ‘0’, 可以判断男女其他</li>
+</ul>
+
       
     </div>
     
@@ -372,6 +401,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/keaichong.github.io/2019/07/11/axios封装/" rel="prev" title="axios封装">
+                axios封装 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -450,7 +483,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -463,7 +496,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/keaichong.github.io/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -496,7 +529,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#切图"><span class="nav-number">1.</span> <span class="nav-text">切图</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#判断页面是否是微信浏览器打开"><span class="nav-number"></span> <span class="nav-text">判断页面是否是微信浏览器打开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url-地址栏路径的问题"><span class="nav-number"></span> <span class="nav-text">url 地址栏路径的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bit-位和-Byte-字节"><span class="nav-number"></span> <span class="nav-text">bit 位和 Byte 字节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-number"></span> <span class="nav-text">java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url-image-1-png-v-1-a-css-v-f02bc2"><span class="nav-number"></span> <span class="nav-text">url(image/1.png?v=1) a.css?v=f02bc2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js对时间进行排序"><span class="nav-number"></span> <span class="nav-text">js对时间进行排序</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#切图"><span class="nav-number">1.</span> <span class="nav-text">切图</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#判断页面是否是微信浏览器打开"><span class="nav-number"></span> <span class="nav-text">判断页面是否是微信浏览器打开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url-地址栏路径的问题"><span class="nav-number"></span> <span class="nav-text">url 地址栏路径的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bit-位和-Byte-字节"><span class="nav-number"></span> <span class="nav-text">bit 位和 Byte 字节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-number"></span> <span class="nav-text">java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#url-image-1-png-v-1-a-css-v-f02bc2"><span class="nav-number"></span> <span class="nav-text">url(image/1.png?v=1) a.css?v=f02bc2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-对时间进行排序"><span class="nav-number"></span> <span class="nav-text">js 对时间进行排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消事件的方法"><span class="nav-number"></span> <span class="nav-text">取消事件的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存泄漏"><span class="nav-number"></span> <span class="nav-text">内存泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非对称加密"><span class="nav-number"></span> <span class="nav-text">非对称加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-三元运算符"><span class="nav-number"></span> <span class="nav-text">vue 三元运算符</span></a></li></div>
             
 
           </div>
