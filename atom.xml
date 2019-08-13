@@ -6,7 +6,7 @@
   <link href="/keaichong.github.io/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-12T08:05:50.412Z</updated>
+  <updated>2019-08-13T01:44:53.252Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue-cli跨域代理</title>
+    <link href="http://yoursite.com/2019/08/13/vue-cli%E8%B7%A8%E5%9F%9F%E4%BB%A3%E7%90%86/"/>
+    <id>http://yoursite.com/2019/08/13/vue-cli跨域代理/</id>
+    <published>2019-08-13T01:28:47.000Z</published>
+    <updated>2019-08-13T01:44:53.252Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/keaichong.github.io/2019/08/13/vue-cli跨域代理/1565659808(1).jpg"><ul><li>问：proxyTable 里面的pathRewrite里面的‘^/iclient’:’’ 什么意思？</li></ul><ol><li><p>答：用代理, 首先你得有一个标识, 告诉他你这个连接要用代理. 不然的话, 可能你的 html, css, js这些静态资源都跑去代理. 所以我们只要接口用代理, 静态文件用本地.</p></li><li><p>‘/iclient’: {}, 就是告诉node, 我接口只要是’/iclient’开头的才用代理.所以你的接口就要这么写 /iclient/xx/xx. 最后代理的路径就是 <a href="http://xxx.xx.com/iclient/xx/xx" target="_blank" rel="noopener">http://xxx.xx.com/iclient/xx/xx</a>.</p></li><li><p>可是不对啊, 我正确的接口路径里面没有/iclient啊. 所以就需要 pathRewrite,用’’^/iclient’’:’’, 把’/iclient’去掉, 这样既能有正确标识, 又能在请求接口的时候去掉iclient.如果本身的接口地址就有’/iclient’这种通用前缀,就可以把pathRewrite删掉.注意这个方式只能在开发环境中使用</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/keaichong.github.io/2019/08/13/vue-cli跨域代理/1565659808(1).jpg&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;问：proxyTable 里面的pathRewrite里面的‘^/iclient’:’’ 什么意思？&lt;/li&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
   
   <entry>
     <title>git stash和git add</title>
@@ -516,32 +542,6 @@
     
     
       <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>localStoragr和cookie区别用法</title>
-    <link href="http://yoursite.com/2019/02/14/localStoragr%E5%92%8Ccookie%E5%8C%BA%E5%88%AB%E7%94%A8%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/02/14/localStoragr和cookie区别用法/</id>
-    <published>2019-02-14T09:43:23.000Z</published>
-    <updated>2019-02-14T10:05:26.004Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h2><blockquote><p>localStorage 生命周期是永久，这意味着除非用户显示在浏览器提供的 UI 上清除 localStorage 信息，否则这些信息将永远存在。存放数据大小为一般为 5MB,而且它仅在客户端（即浏览器）中保存，不参与和服务器的通信。</p></blockquote><h2 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h2><blockquote><p>sessionStorage 仅在当前会话下有效，关闭页面或浏览器后被清除。存放数据大小为一般为 5MB,而且它仅在客户端（即浏览器）中保存，不参与和服务器的通信。源生接口可以接受，亦可再次封装来对 Object 和 Array 有更好的支持。</p></blockquote><ul><li>localStorage 和 sessionStorage 使用时使用相同的 API：</li><li>写入和读取都有三种写法<a id="more"></a></li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> storage = <span class="built_in">window</span>.localStorage;</span><br><span class="line"><span class="comment">//写入a字段</span></span><br><span class="line">storage[<span class="string">"a"</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="comment">//写入b字段</span></span><br><span class="line">storage.a = <span class="number">1</span>;</span><br><span class="line"><span class="comment">//写入c字段</span></span><br><span class="line">storage.setItem(<span class="string">"c"</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure><img src="/keaichong.github.io/2019/02/14/localStoragr和cookie区别用法/localStorage.png"><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//官方推荐写法</span></span><br><span class="line"> localStorage.setItem(<span class="string">"key"</span>,<span class="string">"value"</span>);<span class="comment">//以“key”为名称存储一个值“value”</span></span><br><span class="line"></span><br><span class="line">localStorage.getItem(<span class="string">"key"</span>);<span class="comment">//获取名称为“key”的值</span></span><br><span class="line"></span><br><span class="line">localStorage.removeItem(<span class="string">"key"</span>);<span class="comment">//删除名称为“key”的信息。</span></span><br><span class="line"></span><br><span class="line">localStorage.clear();​<span class="comment">//清空localStorage中所有信息</span></span><br></pre></td></tr></table></figure><p>京东官网顶部的广告关闭，效果为第一次进入官网会出现广告，然后点击关闭，刷新网页不会再显示广告，但是当清除 localStorage 存入的数据，刷新网页会再显示广告。<br>苏宁官网顶部广告数据保存在 cookie 中,当清除 cookie 中的数据时候,刷新网页也会再次显示广告</p><p>京东广告相关 js 写法</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//localStorage方法</span></span><br><span class="line">&lt;script src=<span class="string">"../js/jquery.min.js"</span> /&gt;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">haxi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//判断localStorage里有没有isClose</span></span><br><span class="line">  <span class="keyword">if</span> (localStorage.getItem(<span class="string">"isClose"</span>)) &#123;</span><br><span class="line">    $(<span class="string">".header"</span>).hide();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $(<span class="string">".header"</span>).show();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//点击关闭隐藏图片存取数据</span></span><br><span class="line">  $(<span class="string">".close"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    $(<span class="string">".header"</span>).fadeOut(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    localStorage.setItem(<span class="string">"isClose"</span>, <span class="string">"1"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line">haxi();</span><br></pre></td></tr></table></figure><h3 id="作用域不同"><a href="#作用域不同" class="headerlink" title="作用域不同"></a>作用域不同</h3><p>不同浏览器无法共享 localStorage 或 sessionStorage 中的信息。相同浏览器的不同页面间可以共享相同的 localStorage（页面属于相同域名和端口），但是不同页面或标签页间无法共享 sessionStorage 的信息。这里需要注意的是，页面及标 签页仅指顶级窗口，如果一个标签页包含多个 iframe 标签且他们属于同源页面，那么他们之间是可以共享 sessionStorage 的。</p><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>生命期为只在设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭。 存放数据大小为 4K 左右 。有个数限制（各浏览器不同），一般不能超过 20 个。与服务器端通信：每次都会携带在 HTTP 头中，如果使用 cookie 保存过多数据会带来性能问题。但 Cookie 需要程序员自己封装，源生的 Cookie 接口不友好</p><h3 id="cookie-的优点：具有极高的扩展性和可用性"><a href="#cookie-的优点：具有极高的扩展性和可用性" class="headerlink" title="cookie 的优点：具有极高的扩展性和可用性"></a>cookie 的优点：具有极高的扩展性和可用性</h3><p>1.通过良好的编程，控制保存在 cookie 中的 session 对象的大小。<br>2.通过加密和安全传输技术，减少 cookie 被破解的可能性。<br>3.只有在 cookie 中存放不敏感的数据，即使被盗取也不会有很大的损失。<br>4.控制 cookie 的生命期，使之不会永远有效。这样的话偷盗者很可能拿到的就 是一个过期的 cookie。</p><h3 id="cookie-的缺点："><a href="#cookie-的缺点：" class="headerlink" title="cookie 的缺点："></a>cookie 的缺点：</h3><p>1.cookie 的长度和数量的限制。每个 domain 最多只有 20 条 cookie，每个 cookie 长度不能超过 4KB。则会被截掉。<br>2.安全性问题。如果 cookie 被人拦掉了，那个人就可获取到所有 session 信息。加密的话也不起什么作用。<br>3.有些状态不可能保存在客户端。例如，为了防止重复提表单，我们需要在服务端保存一个计数器。若吧计数器保在客户端，则起不到什么作用。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;localStorage&quot;&gt;&lt;a href=&quot;#localStorage&quot; class=&quot;headerlink&quot; title=&quot;localStorage&quot;&gt;&lt;/a&gt;localStorage&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;localStorage 生命周期是永久，这意味着除非用户显示在浏览器提供的 UI 上清除 localStorage 信息，否则这些信息将永远存在。存放数据大小为一般为 5MB,而且它仅在客户端（即浏览器）中保存，不参与和服务器的通信。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;sessionStorage&quot;&gt;&lt;a href=&quot;#sessionStorage&quot; class=&quot;headerlink&quot; title=&quot;sessionStorage&quot;&gt;&lt;/a&gt;sessionStorage&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;sessionStorage 仅在当前会话下有效，关闭页面或浏览器后被清除。存放数据大小为一般为 5MB,而且它仅在客户端（即浏览器）中保存，不参与和服务器的通信。源生接口可以接受，亦可再次封装来对 Object 和 Array 有更好的支持。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;localStorage 和 sessionStorage 使用时使用相同的 API：&lt;/li&gt;
-&lt;li&gt;写入和读取都有三种写法
-    
-    </summary>
-    
     
   </entry>
   
