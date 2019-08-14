@@ -6,7 +6,7 @@
   <link href="/keaichong.github.io/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-13T01:44:53.252Z</updated>
+  <updated>2019-08-14T06:27:26.496Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>vue-router的history坑</title>
+    <link href="http://yoursite.com/2019/08/14/vue-router%E7%9A%84history%E5%9D%91/"/>
+    <id>http://yoursite.com/2019/08/14/vue-router的history坑/</id>
+    <published>2019-08-14T06:20:04.000Z</published>
+    <updated>2019-08-14T06:27:26.496Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="解决使用-vue-cli-生成项目后项目地址自动添加-号的问题"><a href="#解决使用-vue-cli-生成项目后项目地址自动添加-号的问题" class="headerlink" title="解决使用 vue-cli 生成项目后项目地址自动添加#号的问题"></a>解决使用 vue-cli 生成项目后项目地址自动添加#号的问题</h2><p><strong>vue 的路由在默认的 hash 模式下,url 会带有一个#,不美观,而且在微信分享,授权登录等都会有一些坑.所以 history 模式（不带#号）也会有一些应用场景.</strong></p><h2 id="问题一："><a href="#问题一：" class="headerlink" title="问题一："></a>问题一：</h2><p><strong>变为 history 模式，子路由在刷新情况下会出现样式变乱的情况，解决方法如下：</strong><br><a id="more"></a></p><ul><li>直接修改 index.html 文件中的静态文件引入路径就 OK 了</li></ul><ol><li><p>修改前:<link rel="stylesheet" href="./static/css/base.css"></p></li><li><p>修改后:<link rel="stylesheet" href="/static/css/base.css"></p></li></ol><h2 id="修改原理："><a href="#修改原理：" class="headerlink" title="修改原理："></a>修改原理：</h2><ol><li><p>./ 是指用户所在的当前目录（相对路径）；</p></li><li><p>/ 是指根目录（绝对路径，项目根目录），也就是项目根目录；</p></li><li><p>对于 hash 模式，根路径是固定的，就是项目的根目录，但是 history 模式下，以 / 开头的嵌套路径会被当作根路径，所以使用“./”引入文件，就会找不到文件了，因为文件本身就是在项目根目录下的，并不在嵌套路径这个目录下。</p></li><li><p>总结，无论 hash 模式还是 history 模式，可以直接使用“/”从项目根目录引入静态文件。</p></li></ol><h2 id="问题二"><a href="#问题二" class="headerlink" title="问题二:"></a>问题二:</h2><p><strong>vue 的路由在默认的 hash 模式下,默认打包一般不会有什么问题，而 history 模式打包后回出现页面一片空白的情况,而且没有资源加载错误的报错信息.</strong></p><ol><li><p>参考文章<a href="https://www.jb51.net/article/142831.htm" target="_blank" rel="noopener">https://www.jb51.net/article/142831.htm</a></p></li><li><p><a href="https://blog.csdn.net/g1531997389/article/details/79154179" target="_blank" rel="noopener">https://blog.csdn.net/g1531997389/article/details/79154179</a></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;解决使用-vue-cli-生成项目后项目地址自动添加-号的问题&quot;&gt;&lt;a href=&quot;#解决使用-vue-cli-生成项目后项目地址自动添加-号的问题&quot; class=&quot;headerlink&quot; title=&quot;解决使用 vue-cli 生成项目后项目地址自动添加#号的问题&quot;&gt;&lt;/a&gt;解决使用 vue-cli 生成项目后项目地址自动添加#号的问题&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;vue 的路由在默认的 hash 模式下,url 会带有一个#,不美观,而且在微信分享,授权登录等都会有一些坑.所以 history 模式（不带#号）也会有一些应用场景.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;问题一：&quot;&gt;&lt;a href=&quot;#问题一：&quot; class=&quot;headerlink&quot; title=&quot;问题一：&quot;&gt;&lt;/a&gt;问题一：&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;变为 history 模式，子路由在刷新情况下会出现样式变乱的情况，解决方法如下：&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vue-cli跨域代理</title>
     <link href="http://yoursite.com/2019/08/13/vue-cli%E8%B7%A8%E5%9F%9F%E4%BB%A3%E7%90%86/"/>
     <id>http://yoursite.com/2019/08/13/vue-cli跨域代理/</id>
     <published>2019-08-13T01:28:47.000Z</published>
-    <updated>2019-08-13T01:44:53.252Z</updated>
+    <updated>2019-08-13T02:00:45.747Z</updated>
     
     <content type="html"><![CDATA[<img src="/keaichong.github.io/2019/08/13/vue-cli跨域代理/1565659808(1).jpg"><ul><li>问：proxyTable 里面的pathRewrite里面的‘^/iclient’:’’ 什么意思？</li></ul><ol><li><p>答：用代理, 首先你得有一个标识, 告诉他你这个连接要用代理. 不然的话, 可能你的 html, css, js这些静态资源都跑去代理. 所以我们只要接口用代理, 静态文件用本地.</p></li><li><p>‘/iclient’: {}, 就是告诉node, 我接口只要是’/iclient’开头的才用代理.所以你的接口就要这么写 /iclient/xx/xx. 最后代理的路径就是 <a href="http://xxx.xx.com/iclient/xx/xx" target="_blank" rel="noopener">http://xxx.xx.com/iclient/xx/xx</a>.</p></li><li><p>可是不对啊, 我正确的接口路径里面没有/iclient啊. 所以就需要 pathRewrite,用’’^/iclient’’:’’, 把’/iclient’去掉, 这样既能有正确标识, 又能在请求接口的时候去掉iclient.如果本身的接口地址就有’/iclient’这种通用前缀,就可以把pathRewrite删掉.注意这个方式只能在开发环境中使用</p></li></ol>]]></content>
     
@@ -513,35 +534,6 @@
     
     
       <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git进阶使用</title>
-    <link href="http://yoursite.com/2019/02/14/Git%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2019/02/14/Git进阶使用/</id>
-    <published>2019-02-14T10:19:40.000Z</published>
-    <updated>2019-02-14T10:27:55.012Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git-进阶操作"><a href="#Git-进阶操作" class="headerlink" title="Git 进阶操作"></a>Git 进阶操作</h1><h2 id="查看历史"><a href="#查看历史" class="headerlink" title="查看历史"></a>查看历史</h2><p>在多次提交之后，本地仓库中就有了多个版本，如何查看历史版本呢？在 Git bash 中输入如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure><p>结果如下图：<br><img src="/keaichong.github.io/2019/02/14/Git进阶使用/3C2240A2-B575-4674-A941-B575BFD96F08.png"></p><p>说明：</p><p>每次提交都会有一个 SHA-1 <strong>校验和(唯一标识)</strong>、<strong>作者的名字</strong>和<strong>电子邮件地址</strong>、<strong>提交时间</strong>，最后缩进一个段落显示<strong>提交说明</strong>。</p><blockquote><p>提示：如果提交次数太多，一屏显示不了，最后一行会显示: 表示未显示全，按键盘上的<strong>Q 键</strong>，可以显示下一页</p></blockquote><p>可以通过<code>git log</code>的参数设置历史提交的展示方式，当历史提交数过多的时候可以使用如下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --pretty=oneline</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h2><p>有了 Git，你就可以吃后悔药了，代码出问题，你可以恢复到之前的某个版本继续开发。任何时候，你都有可以撤消刚才所做的某些操作。</p><h3 id="回退到某个版本"><a href="#回退到某个版本" class="headerlink" title="回退到某个版本"></a>回退到某个版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard commit_id(校验和)</span><br></pre></td></tr></table></figure><p>commit_id(校验和)不用写全，只写<strong>前几位</strong>即可，有了此命令就可以在历史记录里穿梭。HEAD 是指向当前版本的一个指针，使用<code>git reset</code>其实是改变 HEAD 指针，指向指定的版本。</p><blockquote><p>注意：使用此命令可以还原到指定的版本，当前项目中未提交的内容就无法还原。</p></blockquote><h3 id="reflog"><a href="#reflog" class="headerlink" title="reflog"></a>reflog</h3><p>假设有 5 个版本，你回退到第 4 个版本后，第 5 个版本就不存在了(使用<code>git log</code>查看)，此时想要回到第 5 个版本就需要知道第 5 个版本的 commit_id，如何找到这个 commit_id 呢？</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure><blockquote><p>使用<code>git reflog</code>可以查看所有的所有操作记录。</p></blockquote><h3 id="检出指定文件"><a href="#检出指定文件" class="headerlink" title="检出指定文件"></a>检出指定文件</h3><p>当某个文件修改出现问题，可以通过<code>git checkout</code>还原到最后一次提交。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- file.js</span><br></pre></td></tr></table></figure><p>通过上面的命令可以把 file.js 撤销到最后一次提交(最近提交的版本)</p><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><table><thead><tr><th>序号</th><th>命令</th><th>功能</th></tr></thead><tbody><tr><td>01</td><td><strong>git log</strong></td><td>查看历史版本</td></tr><tr><td>02</td><td><strong>git log –pretty=oneline</strong></td><td>以更方便的方式查看历史</td></tr><tr><td>03</td><td><strong>git reset –hard commit_id</strong></td><td>回退到指定版本</td></tr><tr><td>04</td><td><strong>git reflog</strong></td><td>查看所有的操作记录</td></tr><tr><td>05</td><td><strong>git checkout – file.js</strong></td><td>检出指定文件</td></tr></tbody></table><h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><p>当我们使用 Git 第一次提交的时候其实就已经有了一个默认的分支 master。</p><h3 id="什么时候需要使用分支？"><a href="#什么时候需要使用分支？" class="headerlink" title="什么时候需要使用分支？"></a>什么时候需要使用分支？</h3><ul><li>开发新特性(feature 分支)</li><li>正在开发的过程中继续修改一个 bug(bugfix 分支)</li><li>为了保证 master 分支的稳定性，创建 dev 分支</li></ul><h3 id="常用分支命令"><a href="#常用分支命令" class="headerlink" title="常用分支命令"></a>常用分支命令</h3><h4 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a><strong>查看分支</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch</span><br></pre></td></tr></table></figure><h4 id="新建分支"><a href="#新建分支" class="headerlink" title="新建分支"></a><strong>新建分支</strong></h4><p>新建分支会基于当前分支当前版本，新建一个分支(内容和当前分支一样)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch testing</span><br></pre></td></tr></table></figure><img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-01.png"><p>当有多个分支的时候，Git 如何知道我们当前在哪个分支工作呢？Git 保存着一个名为<strong>HEAD 的指针</strong>，该指针指向<strong>当前工作的分支</strong>。如下图：</p><img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-02.png"><p>使用`git branch’命令可以看到当前所有的分支，和当前工作的分支(前面加*号的分支)，如下图：</p><img src="/keaichong.github.io/2019/02/14/Git进阶使用/image-201803182313451.png"><h4 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h4><p>假设 testing 是开发分支，我们如何切换到开发分支呢？</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout testing</span><br></pre></td></tr></table></figure><p>此时切换到 testing 分支，可以开心的在当前分支工作了。</p><img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-03.png"><p>新建和合并分支可以简化为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -b testing</span><br></pre></td></tr></table></figure><p>相当于下面两个命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git branch testing</span><br><span class="line">$ git checkout testing</span><br></pre></td></tr></table></figure><h4 id="testing-分支提交"><a href="#testing-分支提交" class="headerlink" title="testing 分支提交"></a>testing 分支提交</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改某个文件</span></span><br><span class="line">$ git commit -m <span class="string">'修改内容'</span></span><br></pre></td></tr></table></figure><p>每次提交后 HEAD 随着分支一起向前移动</p><img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-04.png"><h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><p>当在 testing 分支某个功能开发完毕后，需要把内容合并到 master 分支，此时需要两步：</p><ol><li><p>切换到 master 分支</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br></pre></td></tr></table></figure></li><li><p>把 testing 的修改合并到 master 分支</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git merge testing</span><br></pre></td></tr></table></figure><p>当合并完毕，master 和 testing 分支同时指向 c2b9e 这次提交</p></li></ol><img src="/keaichong.github.io/2019/02/14/Git进阶使用/branch-05.png"><h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><table><thead><tr><th>序号</th><th>命令</th><th>功能</th></tr></thead><tbody><tr><td>01</td><td><strong>git branch</strong></td><td>查看分支</td></tr><tr><td>02</td><td><strong>git branch testing</strong></td><td>新建分支</td></tr><tr><td>03</td><td><strong>git checkout testing</strong></td><td>切换分支</td></tr><tr><td>04</td><td><strong>git checkout -b testing</strong></td><td>新建和合并分支</td></tr><tr><td>05</td><td><strong>git merge testing</strong></td><td>合并分支</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Git-进阶操作&quot;&gt;&lt;a href=&quot;#Git-进阶操作&quot; class=&quot;headerlink&quot; title=&quot;Git 进阶操作&quot;&gt;&lt;/a&gt;Git 进阶操作&lt;/h1&gt;&lt;h2 id=&quot;查看历史&quot;&gt;&lt;a href=&quot;#查看历史&quot; class=&quot;headerlink&quot; title=&quot;查看历史&quot;&gt;&lt;/a&gt;查看历史&lt;/h2&gt;&lt;p&gt;在多次提交之后，本地仓库中就有了多个版本，如何查看历史版本呢？在 Git bash 中输入如下命令：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git &lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;结果如下图：&lt;br&gt;&lt;img src=&quot;/keaichong.github.io/2019/02/14/Git进阶使用/3C2240A2-B575-4674-A941-B575BFD96F08.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;说明：&lt;/p&gt;
-&lt;p&gt;每次提交都会有一个 SHA-1 &lt;strong&gt;校验和(唯一标识)&lt;/strong&gt;、&lt;strong&gt;作者的名字&lt;/strong&gt;和&lt;strong&gt;电子邮件地址&lt;/strong&gt;、&lt;strong&gt;提交时间&lt;/strong&gt;，最后缩进一个段落显示&lt;strong&gt;提交说明&lt;/strong&gt;。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;提示：如果提交次数太多，一屏显示不了，最后一行会显示: 表示未显示全，按键盘上的&lt;strong&gt;Q 键&lt;/strong&gt;，可以显示下一页&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;可以通过&lt;code&gt;git log&lt;/code&gt;的参数设置历史提交的展示方式，当历史提交数过多的时候可以使用如下命令：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git &lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt; --pretty=oneline&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
     
   </entry>
   
