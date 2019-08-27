@@ -239,6 +239,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/03/JS原型和原型链理解/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/02/03/JS原型和原型链理解/" itemprop="url">JS原型和原型链理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T01:47:36+08:00">
+                2019-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="原型的作用"><a href="#原型的作用" class="headerlink" title="原型的作用"></a>原型的作用</h2><ol>
+<li>前提：① 将来对象的空间大小，和对象的属性和方法数量有关；② 属性是不一致的，方法是一致。</li>
+<li>问题：内存的浪费</li>
+<li>原因：对象的方法是一致的，每创建一个对象，都为每一个对象分配一个属于各自的方法，方法的数量随 1. 对象的个数，方法数量越来越多。 方法 → 函数 → 数据类型 → 内存</li>
+<li>解决：把多个方法抽取成一个，让所有同类型的对象共享之。</li>
+<li>如何实现：通过原型，把方法放入到原型中，就可以被构造函数创建的对象共享。</li>
+</ol>
+<h2 id="对象查找属性和方法的流程"><a href="#对象查找属性和方法的流程" class="headerlink" title="对象查找属性和方法的流程"></a>对象查找属性和方法的流程</h2><ol>
+<li>会先从实例对象本身查找</li>
+<li>如果没找到,实例对象通过构造函数对象.<em>proto</em>所提供的原型地址找到原型</li>
+<li>从原型中查找要访问属性或方法</li>
+<li>如果还是没找到,则在原型对象.<em>proto</em>中查找，一直到 null，如果没有则返回 undefined</li>
+</ol>
+<h2 id="获取原型"><a href="#获取原型" class="headerlink" title="获取原型"></a>获取原型</h2><blockquote>
+<p>语法:函数名.prototype</p>
+</blockquote>
+<h2 id="获取构造函数"><a href="#获取构造函数" class="headerlink" title="获取构造函数"></a>获取构造函数</h2><blockquote>
+<p>语法: 原型.constructor<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/02/03/JS原型和原型链理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></blockquote></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/02/JS闭包和递归/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1068,7 +1209,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

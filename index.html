@@ -239,6 +239,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/08/19/rem适配问题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/08/19/rem适配问题/" itemprop="url">rem适配问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-19T14:57:58+08:00">
+                2019-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="如何把-UE-图中获取像素单位值转换位-rem-单位的值"><a href="#如何把-UE-图中获取像素单位值转换位-rem-单位的值" class="headerlink" title="如何把 UE 图中获取像素单位值转换位 rem 单位的值"></a>如何把 UE 图中获取像素单位值转换位 rem 单位的值</h2><ul>
+<li>公式是元素宽度/UE 宽度<em>100,让我们举个例子,假设 UE 图尺寸是 640px,UE 图中的一个元素宽度是 100px,根据公式 100/640</em>100=15.625</li>
+</ul>
+<h2 id="一：使用-rem-来设置字体"><a href="#一：使用-rem-来设置字体" class="headerlink" title="一：使用 rem 来设置字体"></a>一：使用 rem 来设置字体</h2><ol>
+<li><p>为了方便计算字体，我们来设置浏览器 10px，我们都知道浏览器默认的像素是 16px，因此我们需要对 html{font-size:62.5%;} // 10 / 16 = 62.5%;</p>
+</li>
+<li><p>首先假如设计搞在移动端上是按照 750px 设计稿上的话，假如字体在 750px 下字体大小我们使用 rem 来写大小；那么他们的字体大小在各个独立像素下如下计算：</p>
+</li>
+</ol>
+<ul>
+<li>针对设备独立像素为 640px ~ 999px 的 css</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">640px</span>) and (max-width: <span class="number">999px</span>) &#123;</span><br><span class="line">  <span class="comment">/* 750/640 = 1.17*/</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">53.42%</span>;</span><br><span class="line">  &#125; <span class="comment">/*62.5% / 1.17 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">400px</span>) and (max-width: <span class="number">450px</span>) &#123;</span><br><span class="line">  <span class="comment">/*  750 / 400 = 1.875 */</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">33.33%</span>;</span><br><span class="line">  &#125; <span class="comment">/* 62.5% / 1.875 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">360px</span>) and (max-width: <span class="number">399px</span>) &#123;</span><br><span class="line">  <span class="comment">/*  750 / 360 = 2.08 */</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30%</span>;</span><br><span class="line">  &#125; <span class="comment">/* 62.5% / 2.08  */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">320px</span>) and (max-width: <span class="number">359px</span>) &#123;</span><br><span class="line">  <span class="comment">/*  750/320 = 2.34 */</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">26.7%</span>;</span><br><span class="line">  &#125; <span class="comment">/* 62.5 / 2.34 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二：-针对宽度，高度，background-size-margin-及-padding-的计算方法；"><a href="#二：-针对宽度，高度，background-size-margin-及-padding-的计算方法；" class="headerlink" title="二： 针对宽度，高度，background-size, margin 及 padding 的计算方法；"></a>二： 针对宽度，高度，background-size, margin 及 padding 的计算方法；</h2><ol>
+<li>假如在 750px 下的宽度是 132px；高度是 132px；background-size:132px 132px; margin:20px;Padding:20px;<br>针对设备独立像素为 640px ~ 999px 的 css</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> (min-width: <span class="number">640px</span>) and (max-width: <span class="number">999px</span>) &#123;</span><br><span class="line">  <span class="comment">/* 750/640 = 1.17*/</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">53.42%</span>;</span><br><span class="line">  &#125; <span class="comment">/*62.5% / 1.17 */</span></span><br><span class="line"></span><br><span class="line">  // 下面的属性都是 本身的像素 / 1.17 得来的</span><br><span class="line"></span><br><span class="line">  width: 112.82px; // 132 / 1.17</span><br><span class="line"></span><br><span class="line">  height: 112.82px; // 132 / 1.17</span><br><span class="line"></span><br><span class="line">  background-size: 112.82px 112.82px; // 132 / 1.17</span><br><span class="line"></span><br><span class="line">  margin: 17.09px; // 20 / 1.17</span><br><span class="line"></span><br><span class="line">  padding: 17.09px; // 20 / 1.17</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/08/14/vue-router的history坑/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -969,26 +1105,20 @@
 <li>document.getElementById(“d1”).style.cssText = “color:red; font-size:13px;”;</li>
 <li>document.getElementById(“myDIV”).classList.add(“mystyle”);</li>
 </ol>
-<h2 id="less的-amp-用法"><a href="#less的-amp-用法" class="headerlink" title="less的&amp;用法"></a>less的&amp;用法</h2><ol>
+<h2 id="less-的-amp-用法"><a href="#less-的-amp-用法" class="headerlink" title="less 的&amp;用法"></a>less 的&amp;用法</h2><ol>
 <li><ul>
-<li>p+p兄弟选择器,某元素后相邻的兄弟元素,p后面的p样式</li>
+<li>p+p 兄弟选择器,某元素后相邻的兄弟元素,p 后面的 p 样式<br>2.</li>
 </ul>
 </li>
-<li><h2 id="startswith-和-endswith"><a href="#startswith-和-endswith" class="headerlink" title="startswith 和 endswith"></a>startswith 和 endswith</h2></li>
 </ol>
-<ul>
+<h2 id="startswith-和-endswith"><a href="#startswith-和-endswith" class="headerlink" title="startswith 和 endswith"></a>startswith 和 endswith</h2><ul>
 <li>定义: startsWith() 方法用于检测字符串是否以指定的子字符串开始。如果是以指定的子字符串开头返回 true，否则 false。startsWith() 方法对大小写敏感。</li>
 </ul>
 <ol>
 <li>string.startsWith(searchvalue, 开始索引)</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str1 = <span class="string">"file:///C:/Users/iTAze/Desktop/1.html.png"</span>;</span><br><span class="line"><span class="keyword">let</span> str2 = <span class="string">"https://mp.csdn.net/postedit.jpg"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str1.endsWith(<span class="string">".png"</span>)); <span class="comment">// true;</span></span><br><span class="line"><span class="built_in">console</span>.log(str1.endsWith(<span class="string">".jpg"</span>)); <span class="comment">// false;</span></span><br><span class="line"><span class="built_in">console</span>.log(str2.endsWith(<span class="string">".png"</span>)); <span class="comment">// false;</span></span><br><span class="line"><span class="built_in">console</span>.log(str2.endsWith(<span class="string">".jpg"</span>)); <span class="comment">// true;</span></span><br></pre></td></tr></table></figure>
-<h2 id="if-后面不加大括号-只执行第一句"><a href="#if-后面不加大括号-只执行第一句" class="headerlink" title="if 后面不加大括号 只执行第一句"></a>if 后面不加大括号 只执行第一句</h2><h2 id="jQuery-遍历-is-方法"><a href="#jQuery-遍历-is-方法" class="headerlink" title="jQuery 遍历 - is() 方法"></a>jQuery 遍历 - is() 方法</h2><ul>
-<li>is() 根据选择器、元素或 jQuery 对象来检测匹配元素集合，如果这些元素中至少有一个元素匹配给定的参数，则返回 true。</li>
-</ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>list <span class="tag">&lt;<span class="name">strong</span>&gt;</span>item 1<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>list item 2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>list item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"ul"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> $target = $(event.target);</span><br><span class="line">  <span class="keyword">if</span> ($target.is(<span class="string">"li"</span>)) &#123;</span><br><span class="line">    $target.css(<span class="string">"background-color"</span>, <span class="string">"red"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="判断页面是否是微信浏览器打开"><a href="#判断页面是否是微信浏览器打开" class="headerlink" title="判断页面是否是微信浏览器打开"></a>判断页面是否是微信浏览器打开</h2>
+<h2 id="if-后面不加大括号-只执行第一句"><a href="#if-后面不加大括号-只执行第一句" class="headerlink" title="if 后面不加大括号 只执行第一句"></a>if 后面不加大括号 只执行第一句</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/keaichong.github.io/2019/06/27/PS切图/#more" rel="contents">
@@ -1447,136 +1577,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/26/js数据类型判断/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="愚人阳仔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阳仔的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/keaichong.github.io/2019/03/26/js数据类型判断/" itemprop="url">数据类型判断watch回调</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T15:05:34+08:00">
-                2019-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li>typeof</li>
-<li>instanceof</li>
-<li>constructor</li>
-<li>Object.prototype.toString<br><a href="https://blog.csdn.net/zjy_android_blog/article/details/81023177" target="_blank" rel="noopener">https://blog.csdn.net/zjy_android_blog/article/details/81023177</a></li>
-</ol>
-<p>个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使用 arr.toString()时，不能进行复杂数据类型的判断，因为它调用的是 Array.prototype.toString，虽然 Array 也继承自 Object，但 js 在 Array.prototype 上重写了 toString，将 toString 改变成转换为字符串的一个方法,而我们通过 toString.call(arr)实际上是改变 object 的 this 指向让 object 的 toString 重新通过原型链调用了 Object.prototype.toString。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/keaichong.github.io/2019/03/26/js数据类型判断/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1629,7 +1629,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

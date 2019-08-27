@@ -239,6 +239,136 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/26/js数据类型判断/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/03/26/js数据类型判断/" itemprop="url">数据类型判断watch回调</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T15:05:34+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>typeof</li>
+<li>instanceof</li>
+<li>constructor</li>
+<li>Object.prototype.toString<br><a href="https://blog.csdn.net/zjy_android_blog/article/details/81023177" target="_blank" rel="noopener">https://blog.csdn.net/zjy_android_blog/article/details/81023177</a></li>
+</ol>
+<p>个人理解:假设 arr 是一个数组,toString 是 object 的原型里面的方法其返回的是类似 ‘[object class]’的字符串,但是当我们使用 arr.toString()时，不能进行复杂数据类型的判断，因为它调用的是 Array.prototype.toString，虽然 Array 也继承自 Object，但 js 在 Array.prototype 上重写了 toString，将 toString 改变成转换为字符串的一个方法,而我们通过 toString.call(arr)实际上是改变 object 的 this 指向让 object 的 toString 重新通过原型链调用了 Object.prototype.toString。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/keaichong.github.io/2019/03/26/js数据类型判断/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/15/react和vue/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1414,139 +1544,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/16/项目中遇到的坑/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="愚人阳仔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阳仔的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/keaichong.github.io/2019/02/16/项目中遇到的坑/" itemprop="url">vue项目中遇到的坑</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-16T08:52:45+08:00">
-                2019-02-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="获取首屏数据和操作-dom-元素"><a href="#获取首屏数据和操作-dom-元素" class="headerlink" title="获取首屏数据和操作 dom 元素"></a>获取首屏数据和操作 dom 元素</h2><ol>
-<li>created(){} vm 创建完毕 -&gt;获取首屏的数据 this.getData()</li>
-<li>mounted(){} 挂载完毕-&gt; 操作 dom 元素</li>
-</ol>
-<h2 id="全局过滤器在-element-ui-table-中绑定数据"><a href="#全局过滤器在-element-ui-table-中绑定数据" class="headerlink" title="全局过滤器在 element-ui table 中绑定数据"></a>全局过滤器在 element-ui table 中绑定数据</h2><!-- E:\北京顺义黑马前端与移动开发基础62期\就业班 Vue\08\03-视频 9分 -->
-<ol>
-<li>v-bind:</li>
-<li>{msg | fmtdate}</li>
-<li>前提:单元格的内容不是 prop 的值 create_time 的值-日期 - 给单元格内容外层加 template - 给 template 设置 slot-scope 一般 slot-scope 值设置为 scope - slot-scope 的值 会自动绑定外层数据结构,这里是 el-table 的 data 的值 tableData - 在内容位置写 scope.row 自动取出数组 tableData 中每个对象,其中 row 是固定写法</li>
-<li>参考:<a href="http://element-cn.eleme.io/#/zh-CN/component/table#zi-ding-yi-lie-mo-ban" target="_blank" rel="noopener">http://element-cn.eleme.io/#/zh-CN/component/table#zi-ding-yi-lie-mo-ban</a><br>自定义列模板
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/keaichong.github.io/2019/02/16/项目中遇到的坑/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ol></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1599,7 +1596,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
