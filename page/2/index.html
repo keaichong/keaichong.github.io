@@ -239,6 +239,295 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/30/router两种方式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/03/30/router两种方式/" itemprop="url">router两种方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T21:24:00+08:00">
+                2019-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="关于-this-router-push、replace、go-的用法和区别"><a href="#关于-this-router-push、replace、go-的用法和区别" class="headerlink" title="关于 this.\$router.push、replace、go 的用法和区别"></a>关于 this.\$router.push、replace、go 的用法和区别</h2><ol>
+<li>this.\$router.push 跳转到指定 url 路径，并想 history 栈中添加一个记录，点击后退会返回到上一个页面</li>
+<li>this.\$router.replace 跳转到指定 url 路径，但是 history 栈中不会有记录，点击返回会跳转到上上个页面</li>
+<li>this.\$router.go(n)向前或者向后跳转 n 个页面，n 可为正整数或负整数</li>
+</ol>
+<h2 id="声明式"><a href="#声明式" class="headerlink" title="声明式"></a><router-link :to="...">声明式</router-link></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 字符串</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"apple"</span>&gt;</span> to apple<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">// 对象</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;path:'apple'&#125;"</span>&gt;</span> to apple<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">// 命名路由</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name: 'applename'&#125;"</span>&gt;</span> to apple<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">//直接路由带查询参数query，地址栏变成 /apple?color=red</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;path: 'apple', query: &#123;color: 'red' &#125;&#125;"</span>&gt;</span></span><br><span class="line">  to apple<span class="tag">&lt;/<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">// 命名路由带查询参数query，地址栏变成/apple?color=red</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name: 'applename', query: &#123;color: 'red' &#125;&#125;"</span>&gt;</span></span><br><span class="line">  to apple<span class="tag">&lt;/<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">//直接路由带路由参数params，params 不生效，如果提供了 path，params 会被忽略</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;path: 'apple', params: &#123; color: 'red' &#125;&#125;"</span>&gt;</span></span><br><span class="line">  to apple<span class="tag">&lt;/<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">// 命名路由带路由参数params，地址栏是/apple/red</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"&#123;name: 'applename', params: &#123; color: 'red' &#125;&#125;"</span>&gt;</span></span><br><span class="line">  to apple<span class="tag">&lt;/<span class="name">router-link</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="router-push-…-编程式方法"><a href="#router-push-…-编程式方法" class="headerlink" title="router.push(…) 编程式方法"></a>router.push(…) 编程式方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串</span></span><br><span class="line">router.push(<span class="string">"apple"</span>);</span><br><span class="line"><span class="comment">// 对象</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">"apple"</span> &#125;);</span><br><span class="line"><span class="comment">// 命名路由</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">"applename"</span> &#125;);</span><br><span class="line"><span class="comment">//直接路由带查询参数query，地址栏变成 /apple?color=red</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">"apple"</span>, <span class="attr">query</span>: &#123; <span class="attr">color</span>: <span class="string">"red"</span> &#125; &#125;);</span><br><span class="line"><span class="comment">// 命名路由带查询参数query，地址栏变成/apple?color=red</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">"applename"</span>, <span class="attr">query</span>: &#123; <span class="attr">color</span>: <span class="string">"red"</span> &#125; &#125;);</span><br><span class="line"><span class="comment">//直接路由带路由参数params，params 不生效，如果提供了 path，params 会被忽略,必须使用命名路由</span></span><br><span class="line">router.push(&#123; <span class="attr">path</span>: <span class="string">"applename"</span>, <span class="attr">params</span>: &#123; <span class="attr">color</span>: <span class="string">"red"</span> &#125; &#125;);</span><br><span class="line"><span class="comment">// 命名路由带路由参数params，地址栏是/apple/red</span></span><br><span class="line">router.push(&#123; <span class="attr">name</span>: <span class="string">"applename"</span>, <span class="attr">params</span>: &#123; <span class="attr">color</span>: <span class="string">"red"</span> &#125; &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ol>
+<li>关于带参数的路由总结如下</li>
+</ol>
+<ul>
+<li>无论是直接路由“path” 还是命名路由“name”，带查询参数 query，地址栏会变成“/url?查询参数名：查询参数值“;</li>
+<li>直接路由“path” 带路由参数 params params 不生效;</li>
+<li>命名路由“name” 带路由参数 params 地址栏保持是“/url/路由参数值”;</li>
+</ul>
+<ol start="2">
+<li>设置路由 map 里的 path 值：</li>
+</ol>
+<ul>
+<li>带路由参数 params 时，路由 map 里的 path 应该写成: path:’/apple/:color’ ;</li>
+<li>带查询参数 query 时，路由 map 里的 path 应该写成: path:’/apple’ ；</li>
+</ul>
+<ol start="3">
+<li>获取参数方法：</li>
+</ol>
+<ul>
+<li>在 template 中：</li>
+<li>在 script 里： this.\$route.params.color</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/30/菜虫网后台项目过程/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="愚人阳仔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阳仔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/keaichong.github.io/2019/03/30/菜虫网后台项目过程/" itemprop="url">菜虫网后台项目过程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T16:42:08+08:00">
+                2019-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="登陆页"><a href="#登陆页" class="headerlink" title="登陆页"></a>登陆页</h2><ol>
+<li>在封装 axios 在挂载到 vue.prototype.\$http=axios;</li>
+<li>methods 中用 axios 发送登陆请求,请求成功之后在 localStorage 里保存 token ; localStorage.setItem(“token”, data.token);</li>
+<li>在用编程式导航 this.\$router.push({name: “home”})跳转到后台的首页</li>
+<li>methods 中发请求的位置用 async await ,await 绑定在异步操作请求前面,async 写在离异步操作最近的外层函数前面</li>
+<li>cookie 存小数据客户端 seession 服务端存数据 localstorge 存在浏览器内存中</li>
+<li>element-ui 中的属性如果是布尔值 要在属性前加上:绑定.比如:opend=”true”,不加会认为属性是一个 true 字符串</li>
+</ol>
+<h2 id="退出登陆"><a href="#退出登陆" class="headerlink" title="退出登陆"></a>退出登陆</h2><ol>
+<li>退出登陆 localStorage.clear();this.\$router.push({name: “login”});</li>
+</ol>
+<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><ol>
+<li>在 main.js 全局过滤器 - 处理日期格式 Vue.filter(‘fmtdate’, (v) =&gt; {return moment(v).format(‘YYYY-MM-DD’);})</li>
+<li>element-ui 中一些自己的事件,比如搜索框当点击清空按钮@clear 会触发你绑定事件 事件中设置页码为 1 然后重新调用请求方法获取第一页数据</li>
+<li>通过 template 标签里面设置 v-slot=”scope”绑定外层数据 scope.row 获取当前的对象,在获取对象属性的值发请求更改用户状态开关 删除和编辑和下拉框分配用户角色</li>
+</ol>
+<h2 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h2><ol>
+<li>封装面包屑组件 在 main.js 导入封装好的面包屑 import CusBread from ‘@/components/cusBread.vue’然后在全局自定义 Vue.component(CusBread.name, CusBread);</li>
+<li>表格展开行显示三层权限,用行列布局展示,element-ui 是一行 24 份,先分为 4:20;在 20 份中在分 4:20 完成效果</li>
+<li>tree 形控件,只需要给最里层的id添加到数组中,然后就会选中,只有当最里层全部选中,外层会自动选上,如果给外层也选中,会导致里面所有层都全选</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">role.children.forEach(<span class="function"><span class="params">item1</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// temp2.push(item1.id);// 最外层id-&gt;temp-&gt;arrCheck</span></span><br><span class="line">  item1.children.forEach(<span class="function"><span class="params">item2</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// temp2.push(item2.id);</span></span><br><span class="line">    item2.children.forEach(<span class="function"><span class="params">item3</span> =&gt;</span> &#123;</span><br><span class="line">      temp2.push(item3.id);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/03/26/js数据类型判断/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1290,260 +1579,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/22/路由元信息/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="愚人阳仔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阳仔的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/keaichong.github.io/2019/02/22/路由元信息/" itemprop="url">路由元信息</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T13:10:39+08:00">
-                2019-02-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="路由导航守卫"><a href="#路由导航守卫" class="headerlink" title="路由导航守卫"></a>路由导航守卫</h2><h3 id="为什么会有路由元信息这个东西？"><a href="#为什么会有路由元信息这个东西？" class="headerlink" title="为什么会有路由元信息这个东西？"></a>为什么会有路由元信息这个东西？</h3><p>我们在做网站登录验证的时候，可以使用到 beforeEach 钩子函数进行验证操作，如下面代码 ，如果页面 path 为’/goodsList’，那么就让它跳转到登录页面，实现了验证登录。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">"/goodsList"</span>) &#123;</span><br><span class="line">    next(<span class="string">"/login"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/keaichong.github.io/2019/02/22/路由元信息/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/keaichong.github.io/2019/02/22/some-every-fiflter-map区别/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="愚人阳仔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/keaichong.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阳仔的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/keaichong.github.io/2019/02/22/some-every-fiflter-map区别/" itemprop="url">some,every,fiflter,map区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T12:57:38+08:00">
-                2019-02-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li>some():返回一个Boolean，判断是否有元素符合func条件<br>const arr = [1,2,3,4]; arr.some((item)=&gt;{return item&gt;1})</li>
-</ol>
-<p>打印结果： true</p>
-<ol start="2">
-<li><p>every():返回一个Boolean，判断每个元素是否符合func条件<br>const arr1 = [1,2,3,4]; arr.every((item)=&gt;{return item&gt;3});<br>打印结果：<br>false</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/keaichong.github.io/2019/02/22/some-every-fiflter-map区别/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ol></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1596,7 +1631,7 @@
               
                 <a href="/keaichong.github.io/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1609,7 +1644,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/keaichong.github.io/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
