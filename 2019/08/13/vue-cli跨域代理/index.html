@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="问：proxyTable 里面的pathRewrite里面的‘^/iclient’:’’ 什么意思？   答：用代理, 首先你得有一个标识, 告诉他你这个连接要用代理. 不然的话, 可能你的 html, css, js这些静态资源都跑去代理. 所以我们只要接口用代理, 静态文件用本地.  ‘/iclient’: {}, 就是告诉node, 我接口只要是’/iclient’开头的才用代理.所以你">
+<meta name="description" content="介绍 这里的vue代理是 vue静态服务器做代理。使用的是 http-proxy-middleware 这个模块（这个模块相当于是node.js的一个插件）。案例1234567891011121314  //vue-cli3.0 里面的 vue.config.js做配置devServer: &amp;#123;    proxy: &amp;#123;        &apos;/rng&apos;: &amp;#123;     //这里">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-cli跨域代理">
 <meta property="og:url" content="http://yoursite.com/2019/08/13/vue-cli跨域代理/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="问：proxyTable 里面的pathRewrite里面的‘^/iclient’:’’ 什么意思？   答：用代理, 首先你得有一个标识, 告诉他你这个连接要用代理. 不然的话, 可能你的 html, css, js这些静态资源都跑去代理. 所以我们只要接口用代理, 静态文件用本地.  ‘/iclient’: {}, 就是告诉node, 我接口只要是’/iclient’开头的才用代理.所以你">
+<meta property="og:description" content="介绍 这里的vue代理是 vue静态服务器做代理。使用的是 http-proxy-middleware 这个模块（这个模块相当于是node.js的一个插件）。案例1234567891011121314  //vue-cli3.0 里面的 vue.config.js做配置devServer: &amp;#123;    proxy: &amp;#123;        &apos;/rng&apos;: &amp;#123;     //这里">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/keaichong.github.io/2019/08/13/vue-cli跨域代理/1565659808(1).jpg">
-<meta property="og:updated_time" content="2019-08-13T02:00:45.747Z">
+<meta property="og:updated_time" content="2019-12-05T12:53:26.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-cli跨域代理">
-<meta name="twitter:description" content="问：proxyTable 里面的pathRewrite里面的‘^/iclient’:’’ 什么意思？   答：用代理, 首先你得有一个标识, 告诉他你这个连接要用代理. 不然的话, 可能你的 html, css, js这些静态资源都跑去代理. 所以我们只要接口用代理, 静态文件用本地.  ‘/iclient’: {}, 就是告诉node, 我接口只要是’/iclient’开头的才用代理.所以你">
-<meta name="twitter:image" content="http://yoursite.com/keaichong.github.io/2019/08/13/vue-cli跨域代理/1565659808(1).jpg">
+<meta name="twitter:description" content="介绍 这里的vue代理是 vue静态服务器做代理。使用的是 http-proxy-middleware 这个模块（这个模块相当于是node.js的一个插件）。案例1234567891011121314  //vue-cli3.0 里面的 vue.config.js做配置devServer: &amp;#123;    proxy: &amp;#123;        &apos;/rng&apos;: &amp;#123;     //这里">
 
 
 
@@ -312,18 +310,15 @@
       
 
       
-        <img src="/keaichong.github.io/2019/08/13/vue-cli跨域代理/1565659808(1).jpg">
-<ul>
-<li>问：proxyTable 里面的pathRewrite里面的‘^/iclient’:’’ 什么意思？</li>
-</ul>
-<ol>
-<li><p>答：用代理, 首先你得有一个标识, 告诉他你这个连接要用代理. 不然的话, 可能你的 html, css, js这些静态资源都跑去代理. 所以我们只要接口用代理, 静态文件用本地.</p>
-</li>
-<li><p>‘/iclient’: {}, 就是告诉node, 我接口只要是’/iclient’开头的才用代理.所以你的接口就要这么写 /iclient/xx/xx. 最后代理的路径就是 <a href="http://xxx.xx.com/iclient/xx/xx" target="_blank" rel="noopener">http://xxx.xx.com/iclient/xx/xx</a>.</p>
-</li>
-<li><p>可是不对啊, 我正确的接口路径里面没有/iclient啊. 所以就需要 pathRewrite,用’’^/iclient’’:’’, 把’/iclient’去掉, 这样既能有正确标识, 又能在请求接口的时候去掉iclient.如果本身的接口地址就有’/iclient’这种通用前缀,就可以把pathRewrite删掉.注意这个方式只能在开发环境中使用</p>
+        <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><ol>
+<li>这里的vue代理是 vue静态服务器做代理。使用的是 http-proxy-middleware 这个模块（这个模块相当于是node.js的一个插件）。<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//vue-cli3.0 里面的 vue.config.js做配置</span></span><br><span class="line">devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">        <span class="string">'/rng'</span>: &#123;     <span class="comment">//这里最好有一个 /</span></span><br><span class="line">            target: <span class="string">'http://45.105.124.130:8081'</span>,  <span class="comment">// 后台接口域名</span></span><br><span class="line">            ws: <span class="literal">true</span>,        <span class="comment">//如果要代理 websockets，配置这个参数</span></span><br><span class="line">            secure: <span class="literal">false</span>,  <span class="comment">// 如果是https接口，需要配置这个参数</span></span><br><span class="line">            changeOrigin: <span class="literal">true</span>,  <span class="comment">//是否跨域</span></span><br><span class="line">            pathRewrite:&#123;</span><br><span class="line">                <span class="string">'^/rng'</span>:<span class="string">''</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<ul>
+<li>说明 ：</li>
+<li>我的 api=’/rng’</li>
+<li>我的请求地址  ${api}/xxxx/xxx ，请求地址就为 ‘/rng/xxxx/xxx’<br>当node服务器 遇到 以 ‘/rng’ 开头的请求，就会把 target 字段加上，那么我的请求地址就为 <a href="http://45.105.124.130:8081/rng/xxxx/xxx" target="_blank" rel="noopener">http://45.105.124.130:8081/rng/xxxx/xxx</a><br>下面的 pathRewrite 表示的意思是 把/rng 替换为 空，那么我的请求地址就为 <a href="http://45.105.124.130:8081/xxxx/xxx（用在如果你的实际请求地址没有" target="_blank" rel="noopener">http://45.105.124.130:8081/xxxx/xxx（用在如果你的实际请求地址没有</a> rng 的情况）</li>
+</ul>
 
       
     </div>
@@ -418,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -472,6 +476,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">2.</span> <span class="nav-text">案例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
