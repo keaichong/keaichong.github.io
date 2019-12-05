@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="解决使用 vue-cli 生成项目后项目地址自动添加#号的问题vue 的路由在默认的 hash 模式下,url 会带有一个#,不美观,而且在微信分享,授权登录等都会有一些坑.所以 history 模式（不带#号）也会有一些应用场景. 问题一：变为 history 模式，子路由在刷新情况下会出现样式变乱的情况，解决方法如下：">
+<meta name="description" content="原理 hash —— 地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。vue使用onHashChange监听hash的变化进行渲染页面。比如这个 URL：http://www.abc.com/#/hello，hash 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载">
 <meta name="keywords" content="vue-router">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-router的history坑">
+<meta property="og:title" content="vue-router的history和hash">
 <meta property="og:url" content="http://yoursite.com/2019/08/14/vue-router的history坑/index.html">
 <meta property="og:site_name" content="阳仔的博客">
-<meta property="og:description" content="解决使用 vue-cli 生成项目后项目地址自动添加#号的问题vue 的路由在默认的 hash 模式下,url 会带有一个#,不美观,而且在微信分享,授权登录等都会有一些坑.所以 history 模式（不带#号）也会有一些应用场景. 问题一：变为 history 模式，子路由在刷新情况下会出现样式变乱的情况，解决方法如下：">
+<meta property="og:description" content="原理 hash —— 地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。vue使用onHashChange监听hash的变化进行渲染页面。比如这个 URL：http://www.abc.com/#/hello，hash 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-16T07:38:12.091Z">
+<meta property="og:updated_time" content="2019-12-05T13:06:09.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue-router的history坑">
-<meta name="twitter:description" content="解决使用 vue-cli 生成项目后项目地址自动添加#号的问题vue 的路由在默认的 hash 模式下,url 会带有一个#,不美观,而且在微信分享,授权登录等都会有一些坑.所以 history 模式（不带#号）也会有一些应用场景. 问题一：变为 history 模式，子路由在刷新情况下会出现样式变乱的情况，解决方法如下：">
+<meta name="twitter:title" content="vue-router的history和hash">
+<meta name="twitter:description" content="原理 hash —— 地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。vue使用onHashChange监听hash的变化进行渲染页面。比如这个 URL：http://www.abc.com/#/hello，hash 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>vue-router的history坑 | 阳仔的博客</title>
+  <title>vue-router的history和hash | 阳仔的博客</title>
   
 
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue-router的history坑</h1>
+          <h1 class="post-title" itemprop="name headline">vue-router的history和hash</h1>
         
 
         <div class="post-meta">
@@ -310,8 +310,17 @@
       
 
       
-        <h2 id="解决使用-vue-cli-生成项目后项目地址自动添加-号的问题"><a href="#解决使用-vue-cli-生成项目后项目地址自动添加-号的问题" class="headerlink" title="解决使用 vue-cli 生成项目后项目地址自动添加#号的问题"></a>解决使用 vue-cli 生成项目后项目地址自动添加#号的问题</h2><p><strong>vue 的路由在默认的 hash 模式下,url 会带有一个#,不美观,而且在微信分享,授权登录等都会有一些坑.所以 history 模式（不带#号）也会有一些应用场景.</strong></p>
-<h2 id="问题一："><a href="#问题一：" class="headerlink" title="问题一："></a>问题一：</h2><p><strong>变为 history 模式，子路由在刷新情况下会出现样式变乱的情况，解决方法如下：</strong><br><a id="more"></a></p>
+        <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ul>
+<li><p>hash —— 地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。vue使用onHashChange监听hash的变化进行渲染页面。比如这个 URL：<a href="http://www.abc.com/#/hello，hash" target="_blank" rel="noopener">http://www.abc.com/#/hello，hash</a> 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。</p>
+</li>
+<li><p>history —— 利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。（需要特定浏览器支持）这两个方法应用于浏览器的历史记录栈，在当前已有的 back、forward、go 的基础之上，它们提供了对历史记录进行修改的功能。只是当它们执行修改时，虽然改变了当前的 URL，但浏览器不会立即向后端发送请求。</p>
+</li>
+<li><p>因此可以说，hash 模式和 history 模式都属于浏览器自身的特性，Vue-Router 只是利用了这两个特性（通过调用浏览器提供的接口）来实现前端路由.</p>
+<h2 id="解决使用-vue-cli-生成项目后项目地址自动添加-号的问题"><a href="#解决使用-vue-cli-生成项目后项目地址自动添加-号的问题" class="headerlink" title="解决使用 vue-cli 生成项目后项目地址自动添加#号的问题"></a>解决使用 vue-cli 生成项目后项目地址自动添加#号的问题</h2></li>
+</ul>
+<p><strong>微信分享页面就会把”#”后边的内容处理掉，需要将带参的url作为一个参数传给后台，后台取不到#后面的东西）在后面需要开发微信支付、分享,授权登录等就暴露出了问题，所以就需要使用history模式.</strong></p>
+<a id="more"></a>
+<h2 id="history坑问题一："><a href="#history坑问题一：" class="headerlink" title="history坑问题一："></a>history坑问题一：</h2><p><strong>变为 history 模式，子路由在刷新情况下会出现样式变乱的情况，解决方法如下：</strong></p>
 <ul>
 <li>直接修改 index.html 文件中的静态文件引入路径就 OK 了</li>
 </ul>
@@ -505,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决使用-vue-cli-生成项目后项目地址自动添加-号的问题"><span class="nav-number">1.</span> <span class="nav-text">解决使用 vue-cli 生成项目后项目地址自动添加#号的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题一："><span class="nav-number">2.</span> <span class="nav-text">问题一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改原理："><span class="nav-number">3.</span> <span class="nav-text">修改原理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二"><span class="nav-number">4.</span> <span class="nav-text">问题二:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决使用-vue-cli-生成项目后项目地址自动添加-号的问题"><span class="nav-number">2.</span> <span class="nav-text">解决使用 vue-cli 生成项目后项目地址自动添加#号的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history坑问题一："><span class="nav-number">3.</span> <span class="nav-text">history坑问题一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改原理："><span class="nav-number">4.</span> <span class="nav-text">修改原理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二"><span class="nav-number">5.</span> <span class="nav-text">问题二:</span></a></li></ol></div>
             
 
           </div>
