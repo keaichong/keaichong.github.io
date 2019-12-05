@@ -826,9 +826,13 @@
       
         
           <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ul>
-<li><p>hash —— 地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。vue使用onHashChange监听hash的变化进行渲染页面。比如这个 URL：<a href="http://www.abc.com/#/hello，hash" target="_blank" rel="noopener">http://www.abc.com/#/hello，hash</a> 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。</p>
+<li><p>hash —— 地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。vue使用onHashChange监听hash的变化进行渲染页面 ，每一次改变 hash(window.localtion.hash)，都会在浏览器访问历史中增加一个记录。利用 hash 的以上特点，就可以来实现前端路由”更新视图但不重新请求页面”的功能了。。比如这个 URL：<a href="http://wwFw.abc.com/#/hello，hash" target="_blank" rel="noopener">http://wwFw.abc.com/#/hello，hash</a> 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。</p>
 </li>
-<li><p>history —— 利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。（需要特定浏览器支持）这两个方法应用于浏览器的历史记录栈，在当前已有的 back、forward、go 的基础之上，它们提供了对历史记录进行修改的功能。只是当它们执行修改时，虽然改变了当前的 URL，但浏览器不会立即向后端发送请求。</p>
+<li><p>history —— 利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。（需要特定浏览器支持）这两个方法应用于浏览器的历史记录栈，在当前已有的 back、forward、go 的基础之上，它们提供了对历史记录进行修改的功能。<font color="red">我是红色只是当它们执行修改时，虽然改变了当前的 URL，但浏览器不会立即向后端发送请求</font>。  </p>
+</li>
+<li><p>假设<a href="http://mozilla.org/foo.html页面执行了一下JS" target="_blank" rel="noopener">http://mozilla.org/foo.html页面执行了一下JS</a><br>var stateObj = { foo: “bar” }; history.pushState(stateObj, “page 2”, “bar.html”);<br>这种方法将会使url地址栏显示<a href="http://mozilla.org/bar.html，但浏览器不会加载bar.html页面，即使这个页面存在也不会加载。" target="_blank" rel="noopener">http://mozilla.org/bar.html，但浏览器不会加载bar.html页面，即使这个页面存在也不会加载。</a></p>
+</li>
+<li><p>pushState如何使用<br><a href="https://www.cnblogs.com/xcsn/p/bar.html" target="_blank" rel="noopener">https://www.cnblogs.com/xcsn/p/bar.html</a></p>
 </li>
 <li><p>因此可以说，hash 模式和 history 模式都属于浏览器自身的特性，Vue-Router 只是利用了这两个特性（通过调用浏览器提供的接口）来实现前端路由.</p>
 <h2 id="解决使用-vue-cli-生成项目后项目地址自动添加-号的问题"><a href="#解决使用-vue-cli-生成项目后项目地址自动添加-号的问题" class="headerlink" title="解决使用 vue-cli 生成项目后项目地址自动添加#号的问题"></a>解决使用 vue-cli 生成项目后项目地址自动添加#号的问题</h2></li>
