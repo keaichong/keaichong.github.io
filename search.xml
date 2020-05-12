@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>common方法</title>
+      <link href="/keaichong.github.io/2020/05/12/common%E6%96%B9%E6%B3%95/"/>
+      <url>/keaichong.github.io/2020/05/12/common%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h2 id="js浮点数精度丢失问题"><a href="#js浮点数精度丢失问题" class="headerlink" title="js浮点数精度丢失问题"></a>js浮点数精度丢失问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.formatFloat = <span class="function"><span class="keyword">function</span> (<span class="params">f, digit</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> m = <span class="built_in">Math</span>.pow(<span class="number">10</span>, digit);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.round(f * m, <span class="number">10</span>) / m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.formatFloat(<span class="number">0.8</span><span class="number">-0.2</span>,<span class="number">2</span>));</span><br><span class="line"><span class="comment">// 0.6</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>实现一个new方法</title>
       <link href="/keaichong.github.io/2020/03/13/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew%E6%96%B9%E6%B3%95/"/>
       <url>/keaichong.github.io/2020/03/13/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnew%E6%96%B9%E6%B3%95/</url>
